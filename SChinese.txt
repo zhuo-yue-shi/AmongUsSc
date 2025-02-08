@@ -1,0 +1,2629 @@
+KEY ID	SChinese
+LocalButton	本地
+OnlineButton	在线
+HowToPlayButton	玩法说明
+FreePlayButton	练习模式
+PublicHeader	公开
+PrivateHeader	私人
+HostHeader	主持
+ExitButton	退出
+BackButton	返回
+AvailableGamesLabel	可加入的游戏
+CreateGameButton	创建游戏
+FindGameButton	搜索游戏
+EnterCode	输入代码
+GhostIgnoreTasks	您已经死了，爽快地隔岸观火吧。
+GhostDoTasks	您已经死了，完成您的任务来获胜。
+TotalTasksCompleted	已完成任务总数
+GhostImpostor	您已经死了，但还可以搞破坏。
+ImpostorTask	进行破坏，将所有人杀死。
+FakeTasks	假任务：
+TaskComplete	任务完成！
+ExileTextSP	{0} 是伪装者。
+ExileTextSN	{0} 不是伪装者。
+ExileTextPP	{0} 是伪装者之一。
+ExileTextPN	{0} 不是伪装者之一。
+NoExileSkip	没有人被驱逐。(跳过)
+NoExileTie	没有人被驱逐。(平局)
+ExileTextNonConfirm	{0} 遭到驱逐。
+ImpostorsRemainS	剩下 {0} 个伪装者。
+ImpostorsRemainP	剩下 {0} 个伪装者。
+Hallway	通道
+Engines	引擎室
+UpperEngine	上引擎室
+Cafeteria	食堂
+Weapons	舰载武器室
+Reactor	核反应堆
+Security	保安室
+MedBay	医务室
+LifeSupp	氧气室
+Nav	导航室
+LowerEngine	下引擎室
+Electrical	配电室
+Admin	管理室
+Storage	库房
+Shields	护盾室
+Comms	通信室
+Decontamination	去污室
+Launchpad	发射台
+LockerRoom	更衣室
+Laboratory	实验室
+Balcony	露台
+Office	办公室
+Greenhouse	温室
+DivertPowerTo	将电力转移至{0}
+DivertPower	转移电力
+AcceptDivertedPower	接受转移电力
+SubmitScan	送出扫描结果
+PrimeShields	开启护盾
+FuelEngines	为引擎添加燃料
+ChartCourse	标出航线
+StartReactor	启动核反应堆
+SwipeCard	刷卡
+ClearAsteroids	清除小行星
+DownloadData	下载数据
+UploadData	上传数据
+InspectSample	检查样本
+EmptyChute	清空垃圾槽
+EmptyGarbage	清空垃圾
+AlignEngineOutput	调整引擎输出
+FixWiring	修复配线
+FixWiringName	配线
+DoorsName	门
+CalibrateDistributor	校准分电器
+UnlockManifolds	解锁歧管
+ResetReactor	核反应堆熔毁倒计时：
+ResetReactorName	熔毁核反应堆
+FixLights	修复照明
+FixLightsName	照明
+CleanO2Filter	清洁氧气过滤器
+FixComms	通讯遭到破坏
+RestoreOxy	氧气耗尽倒计时：
+RestoreOxyName	耗尽氧气
+StabilizeSteering	稳定航向
+AssembleArtifact	组装文物
+SortSamples	将样本分类
+MeasureWeather	测量气候
+EnterIdCode	输入识别码
+BuyBeverage	购买饮品
+ProcessData	处理数据
+NumImpostorsS	我们当中有 <color=#FF1919FF>1 个伪装者</color>
+NumImpostorsP	我们当中有 <color=#FF1919FF>{0} 名伪装者</color>
+Crewmate	船员
+Impostor	伪装者
+Victory	胜利
+Defeat	失败
+CrewmatesDisconnected	大部分船员\n已断线
+ImpostorDisconnected	伪装者已断线
+PickAnomaly	找出异常情况
+WaterPlantsGetCan	取得浇花壶！
+AuthOfficeOkay	办公室正常
+AuthCommsOkay	通讯室正常
+AuthOfficeActive	办公室已启动
+AuthCommsActive	通讯室已启动
+AuthOfficeNotActive	办公室未启动
+AuthCommsNotActive	通讯室未启动
+SecLogEntry	{0} 通过了{1}感应器
+SecLogEntryColorblind	{0} ({1}) 已经过{2}感应器
+LogNorth	北侧
+LogSouthEast	东南侧
+LogSouthWest	西南侧
+EnterName	输入名称
+SwipeCardPleaseInsert	请放入卡片
+SwipeCardPleaseSwipe	请刷卡
+SwipeCardBadRead	读取失败。请再试一次。
+SwipeCardTooFast	速度过快。请再试一次。
+SwipeCardTooSlow	速度过慢。请再试一次。
+SwipeCardAccepted	已接收。谢谢您。
+ReactorHoldToStop	按住以阻止熔毁
+ReactorWaiting	正在等待第二位用户
+ReactorNominal	核反应堆正常
+MeetingWhoIsTitle	谁是伪装者？
+MeetingVotingBegins	距投票开始还有：{0} 秒
+MeetingVotingEnds	距投票结束还有：{0} 秒
+MeetingVotingResults	投票结果
+MeetingProceeds	实行倒计时：{0} 秒
+MeetingHasVoted	{0} 已投票。尚余 {1} 人未投票。
+HowToPlayText1	《Among Us》是一个关于团队合作与背叛的游戏。\n\n玩家分别会扮演船员和伪装者。
+HowToPlayText2	在线或通过区域无线网与 4 至 15 名玩家一起游玩！
+HowToPlayText41	游戏的主持人可以决定游玩的方式。
+HowToPlayText42	首先要决定和谁一起游玩！\n\n如果您想和好友在线游玩，设置为“私人”然后分享房间代码给好友即可。\n\n如果您想和世界各地的玩家一起游玩，就设为“公开”。
+HowToPlayText43	想要加入更多任务、加快行走速度，或添加更多伪装者？作为主持人，这些设置都可更改。不过要记得先和玩家同伴们确认这些更改。
+HowToPlayText44	如果有人不礼貌或滥发信息，主持人可以将玩家暂时踢出以示警告，也可以封禁玩家进入特定线上房间。
+HowToPlayTextMap	玩家拥有一张属于自己的地图，以便在船上四处移动。
+HowToPlayTextCrew1	目标：将团队任务计量条填满或者找出伪装者。
+HowToPlayTextCrew2	完成任务来填充计量条。
+HowToPlayTextCrew3	处理伪装者的破坏。
+HowToPlayTextCrew4	发现伪装者时召集紧急会议。
+HowToPlayTextCrew5	通报所发现的尸体。
+HowToPlayTextCrew6	查看管理室地图和保安系统来寻找可疑行动。
+HowToPlayTextImp1	目标：杀光船员。
+HowToPlayTextImp2	混入船员之中。
+HowToPlayTextImp3	经由通风口隐匿行动。
+HowToPlayTextImp4	假装进行任务。
+HowToPlayTextImp5	破坏飞船让船员混乱。
+HowToPlayTextImp6	关门困住受害者。
+HowToPlayTextImp7	在冷却的空档杀光船员。
+HowToPlayText5	为了维持船员和伪装者双方的公平性，面对面游玩时不能说话。\n\n如果有玩家被伪装者杀死，该玩家在游戏结束前都不能说话。\n\n幽灵仍需继续进行自己分配到的任务，为船员阵营争取胜利。
+HowToPlayText6	有人报告发现尸体或召集紧急会议时，船员们将聚在一起讨论关于伪装者的已知信息。\n\n玩家这时可以开诚布公地说出自己怀疑谁是伪装者，以及自己有什么信息。在面对面游玩时，由于幽灵已经知道谁是伪装者，所以不能说话。\n\n伪装者必须试着证明自己的无辜，或是指控其他船员。
+HowToPlayText7	讨论过后，就把票投给您认为是伪装者的人。\n\n得到最多票的人会遭到驱逐离开飞船，所以要审慎投票！\n\n如果您没有足够的信息，而且其他船员也都这么认为，则可以跳过投票来避免放逐无辜组员，然后收集更多情报。
+HowToPlayText81	在练习模式下训练一下！
+HowToPlayText82	您可以设置作为船员的任务或扮演伪装者来演练杀戮计划！
+SettingsGeneral	一般
+SettingsControls	操作
+SettingsSound	声音
+SettingsGraphics	图像
+SettingsData	数据
+SettingsCensorChat	聊天审查
+SettingsMusic	音乐
+SettingsSFX	音效
+SettingsOn	开
+SettingsOff	关
+SettingsSendTelemetry	发送遥测
+SettingsControlMode	操作模式
+SettingsTouchMode	触控
+SettingsJoystickMode	摇杆
+SettingsKeyboardMode	鼠标与键盘
+SettingsFullscreen	全屏
+SettingsVSync	垂直同步
+SettingsResolution	分辨率
+SettingsApply	应用
+SettingsPersonalizeAds	个人化广告
+SettingsLanguage	语言
+SettingsJoystickSize	尺寸
+SettingsMouseMode	鼠标
+SettingsStreamerMode	直播主模式
+MatchMapName	地图
+MatchLanguage	聊天语言
+MatchImpostors	伪装者
+MatchMaxPlayers	玩家数量上限
+Cancel	取消
+Confirm	确认
+PlayerColor	色彩
+PlayerHat	帽子
+PlayerSkin	皮肤
+PlayerPet	宠物
+GameSettings	游戏
+GameRecommendedSettings	推荐设置
+GameCustomSettings	自定义设置
+GameMapName	地图
+GameNumImpostors	伪装者数
+GameNumMeetings	紧急会议数
+GameDiscussTime	讨论时间
+GameVotingTime	投票时间
+GamePlayerSpeed	玩家速度
+GameCrewLight	船员视野
+GameImpostorLight	伪装者视野
+GameKillCooldown	击杀冷却时间
+GameKillDistance	击杀范围
+GameCommonTasks	普通任务数
+GameLongTasks	长任务数
+GameShortTasks	短任务数
+GameEmergencyCooldown	紧急会议冷却时间
+GameSecondsAbbrev	{0} 秒
+GameConfirmImpostor	驱逐后确认身份
+GameVisualTasks	可视任务
+GameAnonymousVotes	匿名投票
+GameTaskBarMode	任务条更新频率
+SettingNormalTaskMode	实时
+SettingMeetingTaskMode	会议
+SettingInvisibleTaskMode	从不
+Limit	限制
+RoomCode	代码
+RoomCodeInfo	点击即可复制
+LeaveGame	离开游戏
+ReturnToGame	返回游戏
+LocalHelp	遇到连线问题？\n\n● 请确认全员都已连接到名称相同的 WiFi\n●请确保所有人的游戏版本相同（详见右下角）\n● 确认您的 WiFi 信号强度足够\n● 有时换个人来主持能协助解决问题\n● 有时重启应用程序能协助解决问题...\n● 有时重启手机也能协助解决问题...\n● 问题还没解决怎么办？请通过 support@innersloth.com 与我们联系！
+OnlineHelp	如何使用？\n\n● 主持游戏时，在大厅面板旁边会显示一组游戏代码。\n● 与好友分享这组游戏代码来创建私人房间。\n● 也可点击“私人”将房间公开，以在“搜索游戏”检索。\n● 可聊天时，主持人可以将玩家封禁或踢出。\n● 问题还没解决怎么办？请通过 support@innersloth.com 与我们联系！
+EmergencyCount	船员 {0} 还剩\n\n\n\n次紧急会议
+EmergencyNotReady	船员必须等待\n\n\n\n才能再次召开紧急会议
+EmergencyDuringCrisis	发生危机时\n无法召开紧急会议
+EmergencyRequested	已要求召开紧急会议\n正在等待主持人
+AdPolicyTitle	广告条款
+AdPolicyText	我们可以使用您的个人数据为您定制广告吗？如果单击“是”，那么我们的广告合作伙伴（例如 Google AdMob 和 Unity Ads）将自动收集数据，并使用设备标识符和 Cookie 推荐个性化广告。如果单击“否”，那么您可能仍会看到非个性化广告。若要移除所有广告，请在[httpstore]这里[]购买无广告升级，这样在您主持游戏时，您和好友就完全看不到广告！如需详细了解我们和广告合作伙伴的隐私处理方法，请查看我们的[https://www.innersloth.com/zh/privacy-policy-chinese/]隐私政策[]。您可以随时在“设置”菜单的“数据”下更改您的决定。
+Accept	接受
+RemoveAds	移除广告
+PlainYes	是
+PlainNo	否
+PrivacyPolicyTitle	隐私条款
+PrivacyPolicyText	《Among Us》的数据由 Innersloth 进行处理。请阅读我们的<link="https://www.innersloth.com/zh/privacy-policy-chinese/">隐私政策</link>，详细了解我们的隐私处理方法。您可以在“数据”下管理《Among Us》的个人数据设置。\n\n在玩《Among Us》之前，请阅读我们的 <link="https://www.innersloth.com/zh/terms-of-services-games-cn/">使用条款</link>。
+ManageDataButton	管理数据收集
+UnderstandButton	我理解
+WaterPlants	为植物浇水
+WeatherEta	预估抵达时间：\n{0} 秒
+WeatherComplete	完成
+RunDiagnostics	进行诊断
+SettingShort	短
+SettingMedium	中
+SettingLong	长
+SamplesPress	按下以开始
+SamplesAdding	加入试剂
+SamplesSelect	选择异常情况
+SamplesThanks	谢谢您！
+SamplesComplete	测试完成
+AstDestroyed	已摧毁：{0}
+TaskTestTitle	任务测试器 2000
+BeginDiagnostics	开始诊断
+UserLeftGame	{0} 已离开游戏。
+GameStarting	开始倒计时：{0}
+ChatRateLimit	太快了。请等候 {0} 秒
+Tasks	任务
+MedscanRequested	已要求扫描
+MedscanWaitingFor	正在等待 {0}
+MedscanCompleted	扫描完成！
+MedscanCompleteIn	扫描完成倒计时：{0}
+StatsTitle	数据
+StatsBodiesReported	通报尸体次数：\t
+StatsEmergenciesCalled	召开紧急会议次数：\t
+StatsTasksCompleted	完成任务次数：\t
+StatsAllTasksCompleted	完成所有任务次数：\t
+StatsSabotagesFixed	修复破坏次数：\t
+StatsImpostorKills	伪装者击杀次数：\t\t
+StatsTimesMurdered	被杀次数：\t
+StatsTimesEjected	被驱逐次数：\t\t
+StatsCrewmateStreak	连续担任船员次数：\t
+StatsGamesImpostor	担任伪装者次数：\t
+StatsGamesCrewmate	担任船员次数：\t
+StatsGamesStarted	开始游戏次数：\t
+StatsGamesFinished	完成游戏次数：\t
+StatsImpostorVoteWins	伪装者投票胜利次数：\t
+StatsImpostorKillsWins	伪装者击杀胜利次数：\t
+StatsImpostorSabotageWins	伪装者破坏胜利次数：\t
+StatsCrewmateVoteWins	船员投票胜利次数：\t
+StatsCrewmateTaskWins	船员任务胜利次数：\t
+MonitorOxygen	监视树木
+StoreArtifacts	存放文物
+FillCanisters	装填罐子
+InsertKeys	插入钥匙
+ResetSeismic	重置抗震稳定器
+SeismicHoldToStop	按住来启动抗震稳定器
+SeismicNominal	抗震稳定器正常运作
+ScanBoardingPass	扫描登船证
+FixWeatherNode	修复气候节点
+OpenWaterways	打开水路
+ReplaceWaterJug	更换水壶
+RepairDrill	修理钻头
+AlignTelescope	调整望远镜
+RecordTemperature	记录温度
+RebootWifi	重启 WiFi
+WifiRebootRequired	需要重启
+WifiPleaseWait	请稍等
+WifiPleaseReturnIn	请在下列时间后返回：{0}
+WifiPleasePowerOn	请开启电源
+WifiRebootComplete	重启完成
+Outside	外部
+Dropship	运输船
+Decontamination2	上去污室
+Specimens	样本室
+BoilerRoom	锅炉室
+GameOverImpostorDead	正常来说，伪装者死去后船员即获胜，但在练习模式中，我们会改为复活所有人。
+GameOverImpostorKills	正常来说，由于船员已经无法胜利，伪装者会获胜，但在练习模式中，我们会改为复活所有人。
+GameOverTaskWin	正常来说，由于任务计量条已满，船员会获胜，但在练习模式中，我们会改为发布新任务。
+GameOverSabotage	正常来说，伪装者会因为做出重大破坏直接获胜，但我们改为阻止了破坏。
+HowToPlayText2Switch	加入 Nintendo Switch Online 会员与 4 至 15 名玩家在线或利用区域无线网一起游玩！
+VentDirection	通风口方向
+VentMove	穿过通风口
+MenuNavigate	导航
+NsoError	无法连接网络。
+ErrorServerOverload	《Among Us》服务器已过载。\r\n\r\n抱歉！请稍后再试！
+ErrorIntentionalLeaving	故意断线后需等待 {0} 分钟才可加入下一场游戏。
+ErrorFocusLost	您的连接已中断，因为有另一个应用程序《Among Us》暂停。
+ErrorBanned	您已被 {0} 封禁。\r\n\r\n您无法重新加入此房间。
+ErrorKicked	您已被踢出 {0}。\r\n\r\n如果该房间尚未开始游戏，您可以重新加入。
+ErrorBannedNoCode	您已被此房间封禁。\r\n\r\n您无法重新加入此房间。
+ErrorKickedNoCode	您已被此房间踢出。\r\n\r\n如果该房间尚未开始游戏，您可以重新加入。
+ErrorHacking	您因作弊行为而遭到封禁。\r\n\r\n请停止这种行为。
+ErrorFullGame	您想要加入的游戏已满员。\r\n\r\n请询问主持人，看看下一场能否加入吧。
+ErrorStartedGame	您想要加入的游戏已开始。\r\n\r\n请询问主持人，看看下一场能否加入吧。
+ErrorNotFoundGame	找不到您在寻找的游戏。
+ErrorInactivity	服务器已中止游戏，可能是因为处于非活动状态。
+ErrorGenericOnlineDisconnect	您与服务器的连接已中断。\r\n如果这种情形频繁发生，请检查您的网络强度。\r\n这也可能是服务器端的问题。
+ErrorGenericLocalDisconnect	您与主持人的连接已中断。\r\n\r\n如果这种情形频繁发生，请检查您的 WiFi 强度。
+ErrorInvalidName	游戏服务器拒绝此用户名称：{0}
+ErrorUnknown	发生未知错误，您与服务器的连接已中断。
+ErrorIncorrectVersion	您运行的游戏并非最新版本。\r\n\r\n请进行更新以便与其他玩家一同游玩。
+ServerNA	北美洲
+ServerEU	欧洲
+ServerAS	亚洲
+ServerSA	南美洲
+LangEnglish	English
+LangFrench	Fran?ais
+LangItalian	Italiano
+LangGerman	Deutsch
+LangSpanish	Espa?ol
+LangSpanishLATAM	Espa?ol (Latinoamérica)
+LangBrazPort	Português (Brasil)
+LangPort	Português
+LangRussian	Русский
+LangJapanese	日本語
+LangKorean	???
+LangDutch	Nederlands
+LangFilipino	Bisaya
+PlayerName	玩家
+MyTablet	我的平板
+Headquarters	总部
+DownloadTestEstTimeS	预计时间：{0} 秒
+DownloadTestEstTimeMS	预计时间：{0} 分 {1} 秒
+DownloadTestEstTimeHMS	预计时间：{0} 小时 {1} 分 {2} 秒
+DownloadTestEstTimeDHMS	预计时间：{0} 天 {1} 小时 {2} 分 {3} 秒
+DownloadComplete	完成
+GrabCoffee	去喝杯咖啡
+TakeBreak	休息一下
+DontNeedWait	不需要一直等
+DoSomethingElse	去做点别的事
+NodeTB	节点_TB
+NodeIRO	节点_IRO
+NodeGI	节点_GI
+NodePD	节点_PD
+NodeCA	节点_CA
+NodeMLG	节点_MLG
+Vending	贩卖中
+OtherLanguage	其他
+ImposterAmtAny	1-3
+VitalsORGN	橘
+VitalsBLUE	蓝
+VitalsRED	红
+VitalsBRWN	棕
+VitalsGRN	绿
+VitalsPINK	粉红
+VitalsWHTE	白
+VitalsYLOW	黄
+VitalsBLAK	黑
+VitalsPURP	紫
+VitalsCYAN	青
+VitalsLIME	黄绿
+ColorOrange	橘色
+ColorBlue	蓝色
+ColorRed	红色
+ColorBrown	棕色
+ColorGreen	绿色
+ColorPink	粉红色
+ColorWhite	白色
+ColorYellow	黄色
+ColorBlack	黑色
+ColorPurple	紫色
+ColorCyan	青色
+ColorLime	黄绿色
+ColorMaroon	红褐色
+ColorRose	玫红色
+ColorBanana	蕉黄色
+ColorGray	灰色
+ColorTan	茶色
+ColorCoral	珊瑚红
+MedID	识别：
+MedC	色彩：
+MedHT	身高：
+MedBT	血型：
+MedWT	体重：
+MedETA	预计抵达时间：{0}
+MedHello	您好！
+LobbySizeWarning	4 名玩家就可以游玩《Among Us》了，但是建议 5 名或以上会更好玩。\n\n只有 4 人的游戏很快就会结束，而且获胜的通常都是伪装者。
+Okay	好的
+OkayDontShow	好了，不再显示
+Nevermind	没关系
+CamEast	东侧
+CamCentral	中央
+CamNortheast	东北侧
+CamSouth	南侧
+CamSouthwest	西南侧
+CamNorthwest	西北侧
+LoadingFailed	加载失败：
+PetFailFetchData	无法提取宠物数据
+BadResult	不良结果
+More	剩下 {0} 次
+Processing	处理中
+ExitGame	退出游戏
+WaitingForHost	正在等待主持人
+LeftGameError	{0} 因发生错误而离开游戏。
+PlayerWasBannedBy	{0} 已被 {1} 封禁
+PlayerWasKickedBy	{0} 已被 {1} 踢出
+Dummy	假人
+Bad	错误
+Status	状态：
+Fine	良好
+OK	确认
+SecondsAbbv	{0} 秒
+PetTryOn	装备看看吧！
+DataPolicyWhat	会收集哪些数据？
+VaultRoom	保险库
+Cockpit	座舱
+Armory	军械库
+Kitchen	厨房
+ViewingDeck	瞭望台
+HallOfPortraits	肖像厅
+Medical	医疗室
+CargoBay	货舱
+Ventilation	通风室
+Showers	淋浴室
+Engine	引擎室
+Brig	牢房
+MeetingRoom	会议室
+Records	档案室
+Lounge	休息室
+GapRoom	间隙室
+MainHall	大厅
+PolishRuby	抛光红宝石
+ResetBreakers	重置断路器
+Decontaminate	去污
+MakeBurger	制作汉堡
+UnlockSafe	解锁保险库
+SortRecords	整理档案
+PutAwayPistols	存放手枪
+PutAwayRifles	存放步枪
+FixShower	修理淋浴室
+CleanToilet	清理马桶
+DressMannequin	装饰假人
+PickUpTowels	捡起浴巾
+RewindTapes	倒带
+StartFans	开启风扇
+DevelopPhotos	冲洗相片
+GetBiggolSword	取得 Biggol 剑
+StopCharles	避开撞毁路线
+RevealCode	显示代码
+DirtyHeader	脏污程度
+AuthLeftOkay	左侧正常
+AuthRightOkay	右侧正常
+AuthLeftActive	左侧运作中
+AuthRightActive	右侧运作中
+AuthLeftNotActive	左侧非运作
+AuthRightNotActive	右侧非运作
+PSXBEngagementScreen	按任意键开始。
+DeleteButton	删除
+QuickChat	快速聊天
+QCBuilderHeader	快速聊天框
+QCLocationLaptop	笔记本电脑
+MapNameSkeld	Skeld
+MapNameMira	Mira
+MapNamePolus	Polus
+MapNameAirship	Airship
+MapNameFungle	Fungle
+QCSystemsStart	开始
+QCSystemsKick	踢出
+QCCrewI	我（主语）
+QCCrewMe	我（宾语）
+QCBuildingPlaceholder	组织语言……
+QCCrewDead	死亡
+QCTagSelf	我
+QCInputSelf	我
+QCTagFavorites	收藏
+QCInputFavorite	收藏
+QCTagRoles	角色
+QCInputRole	角色
+QCTagTasks	任务
+QCInputTask	任务
+QCTagSabotages	系统
+QCInputSabotages	破坏
+QCTagQuickRemarks	一键发言
+QCTagRemarks	评论
+QCInputRemark	评论
+QCTagAccuse	指控！
+QCInputAccusation	指控
+QCTagDefend	申辩！
+QCInputDefense	辩护
+QCTagQuestionSingular	问题
+QCTagQuestion	有问题？
+QCTagLobby	大厅
+QCTagImpostor	伪装者
+QCTagMeeting	会议
+QCTagHiding	躲藏
+QCTagFlashlight	手电筒
+QCSelfVoted	我投了{0}
+QCSelfReportedBody	我报告发现了尸体
+QCSelfCams	我当时在查监控
+QCCrewCams	{0}当时在查监控
+QCSelfWasProtected	天使保护了我
+QCCrewWasProtected	天使保护了{0}
+QCSelfWasntMe	不是我
+QCWhoWasAt	当时谁在{0}？
+QCSelfDoingTask	我当时在做{0}
+QCWhoIsRole	{0}是谁？
+QCSelfFixedSystem	我修复了{0}
+QCCrewFixedSystem	{0}修复了{1}
+QCSelfAccAtLocation	我看到{1}在{2}时被{0}杀了
+QCSelfDidTaskAtLocation	我当时在{1}做{0}
+QCCrewDidTaskAtLocation	{0}当时在{2}做{1}
+QCSelfSawCrewVentAtLocation	我看到{0}钻进了{1}的通风口
+QCSelfDidntVent	我没有钻通风口
+QCFollowMe	跟着我
+QCItsNotMe	不是我
+QCSelfDoneWithTasks	我的任务都做完了
+QCGhostsDoYourTasks	幽灵去做任务
+QCSelfNotTheImpostor	我不是伪装者
+QCHello	你好啊
+QCThanks	谢谢
+QCSorry	对不起
+QCGG	这局打得不错
+QCBye	再见啦
+QCWhereWasTheBody	尸体在哪儿？
+QCSelfReady	我准备好了
+QCSelfWasRole	我是{0}
+QCWhoWasRole	谁是{0}？
+QCCoolOutfitCrew	皮肤不错，{0}！
+QCCrewReportedBody	{0}报告发现了尸体
+QCCrewNoOne	没有人
+QCResYes	是
+QCResNo	否
+QCResDontKnow	我不知道
+QCResDontKnowNeg	也许
+QCResVote	投票
+QCResVoteNeg	跳过投票
+QCResRip	安息吧
+QCResRipNeg	嘿
+QCResLies	说谎
+QCResLiesNeg	好
+QCQstWhere	哪里？
+QCQstWho	谁？
+QCQstWhoDidTask	谁负责的{0}？
+QCQstBodyOrMeeting	这是发现尸体还是紧急会议？
+QCStaDoubleKill	这是双杀
+QCStaWasSelfReport	这是凶手自首
+QCStaPleaseDoTasks	请完成您的任务
+QCStaBodyWasInA	尸体刚刚在{0}
+QCLocation	位置
+QCSystems	系统
+QCCrew	船员
+QCAccusation	指控
+QCResponse	回应
+QCQuestion	问题
+QCStatements	陈述
+QCSelfWasUsingBinoculars	我在用双筒望远镜
+QCSelfSawThroughBinoculars	我通过双筒望远镜看到了
+QCInTheSporeCloud	在孢子云里
+QCHiddenBySporeCloud	被孢子云遮住了
+CQCrewKilledDeadInSporeCloud	{0} 在孢子云里杀死了 {1}
+QCSelfUsingZipline	我在用滑索
+QCSelfSawWhileUsingZipline	我在用滑索的时候看到了
+QCCrewWasUsingZipline	{0} 在用滑索
+QCDuringMushroomMixup	在混合蘑菇期间
+ChatType	聊天类型
+QuickChatOnly	仅限快速聊天
+FreeChatOnly	仅限自由聊天
+FreeOrQuickChat	自由聊天
+DateOfBirth	出生年月日
+DateOfBirthEnter	请输入您的出生年月日：
+Month	月
+Day	日
+Year	年
+January	一月
+February	二月
+March	三月
+April	四月
+May	五月
+June	六月
+July	七月
+August	八月
+September	九月
+October	十月
+November	十一月
+December	十二月
+Submit	提交
+QCAccAKilledB_QCCrewMe_ANY	我杀死了 {1}
+QCAccAKilledB_QCCrewMe_QCCrewNoOne	我没有杀任何人
+QCAccAKilledB_QCCrewMe_QCCrewMe
+QCAccAKilledB_ANY_QCCrewMe	{0} 杀了我
+QCAccAKilledB	{0} 杀死了 {1}
+QCAccAKilledB_ANY_QCCrewNoOne	{0} 没有杀任何人
+QCAccAKilledB_QCCrewNoOne_QCCrewMe	没有人杀我
+QCAccAKilledB_QCCrewNoOne_ANY	没有人杀了 {1}
+QCAccAKilledB_QCCrewNoOne_QCCrewNoOne	没有人杀死任何人
+QCAccAKilledBNeg_QCCrewMe_ANY	我没有杀 {0}
+QCAccAKilledBNeg_QCCrewMe_QCCrewNoOne	我没有杀任何人
+QCAccAKilledBNeg_QCCrewMe_QCCrewMe	我没有自杀
+QCAccAKilledBNeg_ANY_QCCrewMe	{0} 没有杀我
+QCAccAKilledBNeg	{0} 没有杀死 {1}
+QCAccAKilledBNeg_ANY_QCCrewNoOne	{0} 没有杀任何人
+QCAccAKilledBNeg_QCCrewNoOne_QCCrewMe
+QCAccAKilledBNeg_QCCrewNoOne_ANY
+QCAccAKilledBNeg_QCCrewNoOne_QCCrewNoOne
+QCAccAIsSuspicious_QCCrewMe	我很可疑
+QCAccAIsSuspicious	{0} 很可疑
+QCAccAIsSuspicious_QCCrewNoOne	没有人很可疑
+QCAccAIsSuspiciousNeg_QCCrewMe	我是好人
+QCAccAIsSuspiciousNeg	{0} 是好人
+QCAccAIsSuspiciousNeg_QCCrewNoOne	大家都是坏人
+QCAccASawBVent_QCCrewMe_ANY	我看见 {0} 进出通风口
+QCAccASawBVent_QCCrewMe_QCCrewNoOne	我没看见任何人进出通风口
+QCAccASawBVent_QCCrewMe_QCCrewMe
+QCAccASawBVent_ANY_QCCrewMe	{0} 看见我进出通风口
+QCAccASawBVent	{0} 看见 {1} 进出通风口
+QCAccASawBVent_ANY_QCCrewNoOne	{0} 没看见有人进出通风口
+QCAccASawBVent_QCCrewNoOne_QCCrewMe	没人看见我进出通风口
+QCAccASawBVent_QCCrewNoOne_ANY	没有人看见 {1} 进出通风口
+QCAccASawBVent_QCCrewNoOne_QCCrewNoOne	没人看见有人进出通风口
+QCAccASawBVentNeg_QCCrewMe_ANY	我没见过 {0} 进出通风口
+QCAccASawBVentNeg_QCCrewMe_QCCrewNoOne	我没见过任何人进出通风口
+QCAccASawBVentNeg_QCCrewMe_QCCrewMe
+QCAccASawBVentNeg_ANY_QCCrewMe	{0} 没看见我进出通风口
+QCAccASawBVentNeg	{0} 没看过 {1} 进出通风口
+QCAccASawBVentNeg_ANY_QCCrewNoOne	{0} 没见过任何人进出通风口
+QCAccASawBVentNeg_QCCrewNoOne_QCCrewMe	绝对没有人看见我进出通风口
+QCAccASawBVentNeg_QCCrewNoOne_ANY	绝对没有人看见 {1} 进出通风口
+QCAccASawBVentNeg_QCCrewNoOne_QCCrewNoOne	绝对没有人见过任何人进出通风口
+QCAccAWasChasingB_QCCrewMe_ANY	我刚刚在追 {0}
+QCAccAWasChasingB_QCCrewMe_QCCrewNoOne	我刚刚没有在追任何人
+QCAccAWasChasingB_QCCrewMe_QCCrewMe
+QCAccAWasChasingB_ANY_QCCrewMe	{0} 刚刚在追我
+QCAccAWasChasingB	{0} 刚刚在追 {1}
+QCAccAWasChasingB_ANY_QCCrewNoOne	{0} 刚刚没有在追任何人
+QCAccAWasChasingB_QCCrewNoOne_QCCrewMe	刚刚没有人在追我
+QCAccAWasChasingB_QCCrewNoOne_ANY	刚刚没有人在追 {1}
+QCAccAWasChasingB_QCCrewNoOne_QCCrewNoOne	刚刚没有人在追任何人
+QCAccAWasChasingBNeg_QCCrewMe_ANY	我刚刚没有在追 {0}
+QCAccAWasChasingBNeg_QCCrewMe_QCCrewNoOne	我刚刚没有在追任何人
+QCAccAWasChasingBNeg_QCCrewMe_QCCrewMe
+QCAccAWasChasingBNeg_ANY_QCCrewMe	{0} 刚刚没有在追我
+QCAccAWasChasingBNeg	{0} 刚刚没有在追 {1}
+QCAccAWasChasingBNeg_ANY_QCCrewNoOne	{0} 刚刚没有在追任何人
+QCAccAWasChasingBNeg_QCCrewNoOne_QCCrewMe
+QCAccAWasChasingBNeg_QCCrewNoOne_ANY
+QCAccAWasChasingBNeg_QCCrewNoOne_QCCrewNoOne
+QCAccAIsLying_QCCrewMe	我在说谎
+QCAccAIsLying	{0} 在说谎
+QCAccAIsLying_QCCrewNoOne	没有人在说谎
+QCAccAIsLyingNeg_QCCrewMe	我说的是实话
+QCAccAIsLyingNeg	{0} 说的是实话
+QCAccAIsLyingNeg_QCCrewNoOne	没人说实话
+QCAccVoteA_QCCrewMe	投票给我
+QCAccVoteA	投票给 {0}
+QCAccVoteA_QCCrewNoOne	别投票驱逐任何人
+QCAccVoteANeg_QCCrewMe	别投票给我
+QCAccVoteANeg	不要投票给 {0}
+QCAccVoteANeg_QCCrewNoOne
+QCAccADidntReport_QCCrewMe	我没有报告尸体
+QCAccADidntReport	{0} 发现尸体没有报告
+QCAccADidntReport_QCCrewNoOne
+QCResAWas_QCCrewMe	我刚刚有
+QCResAWas	{0} 刚刚有
+QCResAWas_QCCrewNoOne	没有人刚刚有
+QCResAWasNeg_QCCrewMe	我刚刚没有
+QCResAWasNeg	{0} 刚刚没有
+QCResAWasNeg_QCCrewNoOne
+QCResADid_QCCrewMe	我做的
+QCResADid	{0} 做的
+QCResADid_QCCrewNoOne	没有人做
+QCResADidNeg_QCCrewMe	我没有做
+QCResADidNeg	{0} 没有做
+QCResADidNeg_QCCrewNoOne
+QCResAWasAtB_QCCrewMe_ANY	我刚刚在{0}
+QCResAWasAtB	{0} 刚刚在{1}
+QCResAWasAtB_QCCrewNoOne_ANY	刚刚没有人在{0}
+QCResAWasAtBNeg_QCCrewMe_ANY	我刚刚不在{0}
+QCResAWasAtBNeg	{0} 刚刚不在{1}
+QCResAWasAtBNeg_QCCrewNoOne_ANY
+QCQstWhoWasWith_QCCrewMe	刚刚是谁和我一起？
+QCQstWhoWasWith	{0} 刚刚和谁一起？
+QCQstWhoWasWith_QCCrewNoOne	刚刚谁独自行动？
+QCQstWhatWasADoing_QCCrewMe
+QCQstWhatWasADoing	{0} 刚刚在做什么？
+QCQstWhatWasADoing_QCCrewNoOne
+QCQstWhereWasA_QCCrewMe
+QCQstWhereWasA	{0} 刚刚在哪里？
+QCQstWhereWasA_QCCrewNoOne
+QCStaASawB_QCCrewMe_ANY	我看见 {0}
+QCStaASawB_QCCrewMe_QCCrewNoOne	我没看见任何人
+QCStaASawB_QCCrewMe_QCCrewMe
+QCStaASawB_ANY_QCCrewMe	{0} 看见了我
+QCStaASawB	{0} 看见了{1}
+QCStaASawB_ANY_QCCrewNoOne	{0} 没看见任何人
+QCStaASawB_QCCrewNoOne_QCCrewMe	没人看见我
+QCStaASawB_QCCrewNoOne_ANY	没人看见 {0}
+QCStaASawB_QCCrewNoOne_QCCrewNoOne	没有人看见任何人
+QCStaAWasWithB_QCCrewMe_ANY	我刚刚和 {0} 一起
+QCStaAWasWithB_QCCrewMe_QCCrewNoOne	我刚刚没有和任何人一起
+QCStaAWasWithB_QCCrewMe_QCCrewMe
+QCStaAWasWithB_ANY_QCCrewMe	{0} 刚刚和我一起
+QCStaAWasWithB	{1} 刚刚和 {0} 一起
+QCStaAWasWithB_ANY_QCCrewNoOne	{0} 刚刚没有和任何人一起
+QCStaAWasWithB_QCCrewNoOne_QCCrewMe	刚刚没有人和我一起
+QCStaAWasWithB_QCCrewNoOne_ANY	刚刚没有人和 {1} 一起
+QCStaAWasWithB_QCCrewNoOne_QCCrewNoOne	刚刚没有人和任何人一起
+QCStaADidB_QCCrewMe_ANY	我做了{0}
+QCStaADidB	{0} 做了{1}
+QCStaADidB_QCCrewNoOne_ANY	没人做了{1}
+QCStaASelfReported_QCCrewMe	我自首了
+QCStaASelfReported	{0} 我自首了
+QCStaASelfReported_QCCrewNoOne	没有人自首
+QCStaACalledMeeting_QCCrewMe	我召开了会议
+QCStaACalledMeeting	{0} 召开了会议
+QCStaACalledMeeting_QCCrewNoOne	没有人召开会议
+QCMore	更多
+QCQstWhy	为什么？
+QCCrewSomeone	某个人
+QCResUrWelcome	不客气
+QCResNp	没问题
+QCResYikes	哎呀
+QCResRipCrew	安息吧，{0}
+QCResYeetCrew	嘿，{0}
+QCSelfWasOnVitals	我当时在看船员健康面板
+QCSawDeadCrewOnVitals	我在健康面板上看到{0}死了
+QCSelfSawTwoCrew	我看到有两个{0}
+QCCrewShapeshifted	{0}变身了
+QCSelfSawCrewDoVisualTask	我看到{0}在做可视任务
+QCSelfWasOnDoorlogs	我当时在看出入记录
+QCSelfWasOnAdmin	我当时在管理室
+QCSelfAmVotingCrew	我准备投{0}
+QCCrewWasPretendingTasks	{0}在假装做任务
+QCCrewWasPretendingSabotage	{0}在假装修复{1}
+QCLobbyMoreImpostors	伪装者多一点？
+QCLobbyLessImpostors	伪装者少一点？
+QCLobbyConfirmEjects	确认驱逐？
+QCLobbyMoreEmergencyMeetings	紧急会议多一点？
+QCLobbyLessEmergencyMeetings	紧急会议少一点？
+QCLobbyAnonymousVotes	匿名投票？
+QCLobbyMoreEmergencyCooldownTime	紧急会议冷却时间更长？
+QCLobbyLessEmergencyCooldownTime	紧急会议冷却时间更短？
+QCLobbyMoreDiscussionTime	讨论时间长一点？
+QCLobbyLessDiscussionTime	讨论时间短一点？
+QCLobbyMoreVotingTime	投票时间长一点？
+QCLobbyLessVotingTime	投票时间短一点？
+QCLobbyFasterPlayerSpeed	玩家速度快一点？
+QCLobbySlowerPlayerSpeed	玩家速度慢一点？
+QCLobbyTaskBarUpdates	任务条更新？
+QCLobbyVisualTasks	可视任务？
+QCLobbyMoreCrewmateVision	船员视野大一点？
+QCLobbyLessCrewmateVision	船员视野小一点？
+QCLobbyMoreImpostorVision	伪装者视野大一点？
+QCLobbyLessImpostorVision	伪装者视野小一点？
+QCLobbyMoreKillCooldownTime	击杀冷却时间长一点？
+QCLobbyLessKillCooldownTime	击杀冷却时间短一点？
+QCLobbyLongerKillDistance	击杀范围远一点？
+QCLobbyShorderKillDistance	击杀范围近一点？
+QCLobbyMoreCommonTasks	普通任务多一点？
+QCLobbyLessCommonTasks	普通任务少一点？
+QCLobbyMoreLongTasks	长任务多一点？
+QCLobbyLessLongTasks	长任务少一点？
+QCLobbyMoreShortTasks	短任务多一点？
+QCLobbyLessShortTasks	短任务少一点？
+QCLobbyRoleScientists	科学家？
+QCLobbyRoleGuardianAngels	守护天使？
+QCLobbyRoleEngineers	工程师？
+QCLobbyRoleShapeshifters	变形者？
+QCLobbyRoleNone	没有角色
+QCResLess	少一点
+QCResMore	多一点
+QCResNone	无
+QCLobbyHNSMoreHideTime	躲藏时间长一点？
+QCLobbyHNSLessHideTime	躲藏时间短一点？
+QCLobbyHNSMoreFinalHideTime	终局躲藏时间长一点？
+QCLobbyHNSLessFinalHideTime	终局躲藏时间短一点？
+QCLobbyHNSFlashlightMode	手电筒模式？
+QCLobbyHNSMoreCrewmateFlashlightSize	船员手电筒范围更大？
+QCLobbyHNSLessCrewmateFlashlightSize	船员手电筒范围更小？
+QCLobbyHNSMoreImpostorFlashlightSize	伪装者手电筒范围更大？
+QCLobbyHNSLessImpostorFlashlightSize	伪装者手电筒范围更小？
+QCLobbyHNSShowNames	显示名称？
+QCLobbyHNSMoreVents	通风口多一点？
+QCLobbyHNSLessVents	通风口少一点？
+QCLobbyHNSMoreTimeInVent	在通风口时间长一点？
+QCLobbyHNSLessTimeInVent	在通风口时间短一点？
+QCLobbyHNSMoreFinalHideImpostorSpeed	终局躲藏伪装者速度更快？
+QCLobbyHNSLessFinalHideImpostorSpeed	终局躲藏伪装者速度更慢？
+QCLobbyHNSFinalHideSeekMap	终局躲藏寻人地图？
+QCLobbyHNSFinalHidePings	终局躲藏定位？
+QCLobbyHNSMorePingInterval	定位间隔长一点？
+QCLobbyHNSLessPingInterval	定位间隔短一点？
+QCResAgree	同意
+QCResDisagree	反对
+QCResNice	很好哦
+QCResUhOh	啊噢
+QCResOops	唉哟
+QCResExclamationMarks	！！！
+QCResQuestionMarks	？？？
+SecurityLogsSystem	保安日志
+SecurityCamsSystem	保安摄像头
+AdminMapSystem	管理室地图
+VitalsSystem	生命监测器
+EngagementScreenSignIn	正在登录...
+EngagementScreen	按任意键开始。
+SaveGameOutOfSpaceMessage	您要在不保存的情况下继续吗？
+SaveGameOutOfSpaceConfirm	继续
+SaveGameOutOfSpaceCancel	重试
+Success	成功！
+Failed	失败！
+ErrorCreate	创建账号时发生问题，请稍后再试。
+SuccessCreate	您已成功创建账号！
+Close	关闭
+ErrorLogIn	无法连上您的《Among Us》账号。
+SuccessLogIn	您已成功登录账号！
+AccountInfo	账号信息
+Account	账号
+UserName	用户名称
+Height	身高
+Weight	体重
+SignIn	登录
+CreateAccount	创建账号
+RequestPermission	请求许可
+RandomizeName	随机命名
+AccountLinking	账号链接
+ChangeName	更改名称
+LogOut	登出
+GuardianWait	您必须等候监护人给予许可才能使用自由聊天和更改用户名称。
+EmailEdit	编辑电子邮件
+EmailResend	重新发送电子邮件
+GuestContinue	以游客身份继续
+GuardianEmailSent	已向监护人发送电子邮件
+GuardianCheckEmail	别忘了请您的监护人检查电子邮件，以解锁所有游戏功能。
+EditName	编辑名称
+Name	名称
+CreateAccountQuestion	创建账号？
+DoYouWantCreate	您要创建账号吗？
+PermissionRequired	需要许可
+NeedPermissionText	我们需要以电子邮件征求您监护人的许可才能继续。如果监护人同意，您便可以在线使用自由聊天和更改用户名称。请寻求成年人协助您取得许可吧！
+GuardianEmailTitle	监护人的电子邮件
+Send	发送
+Undo	撤销
+Clear	清空
+NewEmail	新电邮地址
+ConfirmEmail	确认电邮地址
+EditEmail	编辑电邮地址
+Loading	加载中
+Welcome	欢迎
+GuardianEmail	[您监护人的电子邮件]
+BanButton	封禁
+KickButton	踢出
+ReportButton	报告
+ReportConfirmation	您已成功举报下列用户。
+ReportBadName	不当名称
+ReportBadChat	不当聊天
+ReportHacking	作弊 / 黑客
+ReportHarassment	骚扰 / 不当行为
+ReportWhy	请问您举报这位用户的原因是？
+DLLNotFoundAccountError	您在连接到线上服务时发生了问题。在修复此问题之前，您只能游玩本地或练习模式。请稍后再试。
+ContinueOffline	离线游戏
+WantToLogIn	您当前尚未登录账号。
+GoOffline	离线
+PlayAsGuest	以游客身份游玩
+LogInTitle	登录账号
+LogInInfoText	登录或创建 Among Us 账号以使用如下等游戏功能：\n\n- 于特定设备间跨设备保存进度\n- 自由聊天\n- 链接造型\n- 还有更多内容！\n\n根据账号类型的不同，部分功能可能需要家长或监护人许可。
+LogInInfoTextSwitch	如果您登录完整账号，往后便可再次登录。如果您尚未拥有账号，将会自动为您创建账号。
+ControllerDisconnectedMessage	控制器连接中断
+FollowUs	跟随我们！
+QuickChatInstructionsStart	您游戏内聊天设置为“仅限快速聊天”。
+QuickChatInstructionsChild	您需要先取得家长或监护人的同意才可使用完整聊天功能。
+QuickChatInstructionsGuest	您需要登录才可更改此项目。
+QuickChatInstructionsFull	您在游玩期间只能使用快速聊天功能，且只能与其他使用快速聊天功能的用户一同游玩。
+SwitchEShopBrowseAll	查看 Nintendo eShop 的所有商品
+Download	下载
+Upload	上传
+pk05_davehat	Dave 的帽子
+pk05_Ellie	Ellie
+pk05_Svenhat	Sven 的帽子
+pk05_Burthat	Burt 的帽子
+pk05_Ellryhat	Ellry 的朋克头
+pk05_monocles	双片眼镜
+pk05_cheesetoppat	芝士高帽
+pk05_Macbethhat	Mr. Macbeth 的高帽
+pk05_HenryToppat	Henry 的高帽
+pk05_EllieToppat	Ellie 的高帽
+pk05_GeoffreyToppat	Geoffrey 的高帽
+InsufficientStorageError	存储空间不足，无法下载资源包。请在设备上挪出空间后再试一次。
+NetworkError	发生网络错误。请检查连接设置后再试一次。
+OtherDownloadError	发生错误：{0}
+DownloadingLabel	正在下载 {0}
+DownloadSizeLabel	下载大小：{0}MB
+TimeRemaining	剩余时间：{0}
+DeadLabel	死亡
+InviteFriends	邀请朋友
+NutriLabel	营养
+CO2Label	二氧化碳
+RADLabel	辐射
+WaterLabel	水
+DoorlogLabel	通行纪录
+VitalsLabel	生命
+OptionsLabel	自定义
+ProceedLabel	继续
+StartLabel	开始
+UseLabel	使用
+PlayAgain	再次游玩
+QuitLabel	退出
+ReportLabel	报告
+SabotageLabel	破坏
+VentLabel	通风口
+KillLabel	击杀
+DiscussLabel	讨论！
+SkippedVoting	已跳过投票
+SkipVoteLabel	跳过投票
+EmergencyMeeting	紧急会议
+BodyReported	通报发现尸体
+SkinLabel	皮肤
+HatLabel	帽子
+PetLabel	宠物
+AnnouncementLabel	公告
+UploadingLabel	上传中
+ConnectionLabel	连接：
+NoneLabel	无
+PoorLabel	微弱
+GoodLabel	良好
+LogLabel	记录档
+ReadingLabel	数值
+WeatherDataDownload	下载气候数据
+MiraBundle	MIRA HQ 捆绑包
+MiraSkinBundle	MIRA HQ 皮肤捆绑包
+PolusBundle	Polus 捆绑包
+PolusSkinBundle	Polus 地图皮肤捆绑包
+AirshipBundle	Airship 捆绑包
+PetAlien1	脑动虫宠物捆绑包
+PetCrewmate	迷你船员捆绑包
+PetAnimal	仓鼠球宠物捆绑包
+PetAlien2	压床蟹宠物捆绑包
+PetStickmin	Stickmin 宠物捆绑包
+PrisonerSkin	囚犯
+Cyborg_RHM	得力助手重生
+CCC_Officer	混乱收容中心主任
+BeginLabel	开始
+QuietLabel	嘘！
+VentCleaning	清理通风口
+CleanUp	清理
+ProgressLabel	进度：
+TermsOfUseTitle	使用条款
+PPAndToUTitle	隐私条款与使用条款
+ErrorNotAuthenticated	《Among Us》服务器无法验证您的身分。\r\n\n您必须拥有《Among Us》账号才能在线游玩。
+ComePlayDiscord	来和我一起玩《Among Us》吧！
+ShowAccountSupportID5	显示账号支持识别码
+ShowAccountSupportID4	再按 4 次来显示
+ShowAccountSupportID3	请不要分享这个识别码
+ShowAccountSupportID2	直播时不要显示 (2)
+ShowAccountSupportID1	确认要查看这组识别码
+SupportIDLabel	支持识别码： {0}
+YouAreNotOnline	您不在线上。
+NoDeadBodiesFound	未发现尸体
+SupportEmail	若有任何支持相关问题，请联络 support@innersloth.com。
+PerfectLabel	完美
+PSNErrorSessionFailed	当前的游戏连线区发生错误
+PSNErrorSessionJoinFailed	无法加入游戏连线区
+PSNErrorSessionGetInfoFailed	无法取得游戏连线区信息
+PSNErrorPSNConnectionLost	PlayStation?Network 失去连接
+PSNErrorUserSignedOut	用户已登出
+CrossPlayTitle	跨平台游玩
+CrossPlayAllPlatforms	所有平台
+CrossPlaySamePlatform	相同平台
+CrossPlayEnabledWarning	已启用跨平台游玩：您可能会遇到跨平台网络的玩家。
+TimeOutText	登录需要一点时间。要以离线模式继续吗？
+RetryText	再等一下
+Continue	继续
+GameComplete	游戏结束
+LevelShorthand	等级 {0}
+MaxLevel	最高等级
+Cosmetic.hat_AbominalHat	雪怪头
+Cosmetic.hat_Antenna_Black	通信不良：黑色
+Cosmetic.hat_Astronaut-Blue	太空漫步帽：蓝色
+Cosmetic.hat_Astronaut-Cyan	太空漫步帽：浅蓝色
+Cosmetic.hat_Astronaut-Orange	太空漫步帽：橘色
+Cosmetic.hat_Bandana_Blue	斯内克头带：蓝色
+Cosmetic.hat_Bandana_Green	斯内克头带：绿色
+Cosmetic.hat_Bandana_Pink	斯内克头带：粉红色
+Cosmetic.hat_Bandana_Red	斯内克头带：红色
+Cosmetic.hat_Bandana_White	斯内克头带：白色
+Cosmetic.hat_Bandana_Yellow	斯内克头带：黄色
+Cosmetic.hat_baseball_Black	反戴帽：黑色
+Cosmetic.hat_baseball_Green	反戴帽：绿色
+Cosmetic.hat_baseball_Lightblue	反戴帽：浅蓝色
+Cosmetic.hat_baseball_LightGreen	反戴帽：浅绿色
+Cosmetic.hat_baseball_Lilac	反戴帽：浅紫色
+Cosmetic.hat_baseball_Orange	反戴帽：橘色
+Cosmetic.hat_baseball_Pink	反戴帽：粉红色
+Cosmetic.hat_baseball_Purple	反戴帽：紫色
+Cosmetic.hat_baseball_Red	反戴帽：红色
+Cosmetic.hat_baseball_White	反戴帽：白色
+Cosmetic.hat_baseball_Yellow	反戴帽：黄色
+Cosmetic.hat_Basketball	一球入筐
+Cosmetic.hat_Beanie_Black	毛帽：黑色
+Cosmetic.hat_Beanie_Blue	毛帽：蓝色
+Cosmetic.hat_Beanie_Green	毛帽：绿色
+Cosmetic.hat_Beanie_Lightblue	毛帽：粉蓝色
+Cosmetic.hat_Beanie_LightGreen	毛帽：粉绿色
+Cosmetic.hat_Beanie_LightPurple	毛帽：粉紫色
+Cosmetic.hat_Beanie_Pink	毛帽：粉红色
+Cosmetic.hat_Beanie_Purple	毛帽：紫色
+Cosmetic.hat_Beanie_White	毛帽：白色
+Cosmetic.hat_Beanie_Yellow	毛帽：黄色
+Cosmetic.hat_Bowlingball	全倒
+Cosmetic.hat_Chocolate	巧克力冰淇淋
+Cosmetic.hat_CuppaJoe	Joe 监督帽
+Cosmetic.hat_Deitied	神龛帽
+Cosmetic.hat_Doc_black	诊疗帽：黑色
+Cosmetic.hat_Doc_Orange	诊疗帽：橘色
+Cosmetic.hat_Doc_Purple	诊疗帽：紫色
+Cosmetic.hat_Doc_Red	诊疗帽：红色
+Cosmetic.hat_Doc_White	诊疗帽：白色
+Cosmetic.hat_Dodgeball	你出局了！
+Cosmetic.hat_Dorag_Black	吹嘘海盗帽：煤炭灰
+Cosmetic.hat_Dorag_Desert	吹嘘海盗帽：沙漠棕
+Cosmetic.hat_Dorag_Jungle	吹嘘海盗帽：森林绿
+Cosmetic.hat_Dorag_Purple	吹嘘海盗帽：紫色
+Cosmetic.hat_Dorag_Sky	吹嘘海盗帽：天空蓝
+Cosmetic.hat_Dorag_Snow	吹嘘海盗帽：雪白
+Cosmetic.hat_Dorag_Yellow	吹嘘海盗帽：柑橘黄
+Cosmetic.hat_DrillMetal	钻头
+Cosmetic.hat_DrillStone	石制钻头
+Cosmetic.hat_DrillWood	木制钻头
+Cosmetic.hat_EarmuffGreen	毛绒耳罩：绿色
+Cosmetic.hat_EarmuffsPink	毛绒耳罩：粉红色
+Cosmetic.hat_EarmuffsYellow	毛绒耳罩：黄色
+Cosmetic.hat_EarnmuffBlue	毛绒耳罩
+Cosmetic.hat_Goggles_Black	护目镜：黑色
+Cosmetic.hat_Goggles_Chrome	护目镜：铬合金色
+Cosmetic.hat_GovtDesert	军官帽：沙漠棕
+Cosmetic.hat_GovtHeadset	超棒耳机组
+Cosmetic.hat_Hardhat_black	安全规范标准帽：黑色
+Cosmetic.hat_Hardhat_Blue	安全规范标准帽：蓝色
+Cosmetic.hat_Hardhat_Green	安全规范标准帽：绿色
+Cosmetic.hat_Hardhat_Orange	安全规范标准帽：橘色
+Cosmetic.hat_Hardhat_Pink	安全规范标准帽：粉红色
+Cosmetic.hat_Hardhat_Purple	安全规范标准帽：紫色
+Cosmetic.hat_Hardhat_Red	安全规范标准帽：红色
+Cosmetic.hat_Hardhat_White	安全规范标准帽：白色
+Cosmetic.hat_HardtopHat	起重机操作员帽
+Cosmetic.hat_headslug_Purple	脑动虫：紫色
+Cosmetic.hat_headslug_Red	脑动虫：红色
+Cosmetic.hat_headslug_White	脑动虫：白色
+Cosmetic.hat_headslug_Yellow	脑动虫：黄色
+Cosmetic.hat_Heart	我爱你
+Cosmetic.hat_Helmet	骑士帽
+Cosmetic.hat_Herohood_Black	森林战士：黑色
+Cosmetic.hat_Herohood_Blue	森林战士：蓝色
+Cosmetic.hat_Herohood_Pink	森林战士：粉红色
+Cosmetic.hat_Herohood_Purple	森林战士：紫色
+Cosmetic.hat_Herohood_Red	森林战士：红色
+Cosmetic.hat_Herohood_White	森林战士：白色
+Cosmetic.hat_Herohood_Yellow	森林战士：黄色
+Cosmetic.hat_Janitor	Haunted Hotel
+Cosmetic.hat_MilitaryWinter	军官帽：凛冬白
+Cosmetic.hat_MinerBlack	挫折矿工帽：黑色
+Cosmetic.hat_MinerYellow	挫折矿工帽：黄色
+Cosmetic.hat_mira_bush	一鸟在手
+Cosmetic.hat_mira_case	重要机密
+Cosmetic.hat_mira_cloud	云端做梦
+Cosmetic.hat_mira_flower	异世之花
+Cosmetic.hat_mira_flower_red	芬芳花朵
+Cosmetic.hat_mira_gem	独特样本
+Cosmetic.hat_mira_headset_blue	超大耳机组：蓝色
+Cosmetic.hat_mira_headset_pink	超大耳机组：粉红色
+Cosmetic.hat_mira_headset_yellow	超大耳机组：黄色
+Cosmetic.hat_mira_leaf	藤蔓
+Cosmetic.hat_mira_milk	水蜜桃汁
+Cosmetic.hat_mira_sign_blue	地板湿滑：蓝色
+Cosmetic.hat_NewYears2018	2019 新年帽
+Cosmetic.hat_NoHat	无
+Cosmetic.hat_Paperhat_Black	折纸帽：黑色
+Cosmetic.hat_Paperhat_Blue	折纸帽：蓝色
+Cosmetic.hat_Paperhat_Cyan	折纸帽：泡沫绿
+Cosmetic.hat_Paperhat_Lightblue	折纸帽：天空蓝
+Cosmetic.hat_Paperhat_Pink	折纸帽：粉红色
+Cosmetic.hat_Paperhat_Yellow	折纸帽：黄色
+Cosmetic.hat_astronaut	太空漫步帽
+Cosmetic.hat_pk01_BaseballCap	反戴帽
+Cosmetic.hat_brainslug	脑动虫
+Cosmetic.hat_bushhat	邓迪帽
+Cosmetic.hat_captain	船长帽
+Cosmetic.hat_doubletophat	Chief高帽
+Cosmetic.hat_flowerpot	盆栽帽
+Cosmetic.hat_goggles	护目镜
+Cosmetic.hat_hardhat	安全规范标准帽
+Cosmetic.hat_military	军官帽
+Cosmetic.hat_paperhat	折纸帽
+Cosmetic.hat_partyhat	派对帽
+Cosmetic.hat_police	警探帽
+Cosmetic.hat_stethescope	诊疗帽
+Cosmetic.hat_tophat	Grunt高帽
+Cosmetic.hat_towelwizard	出浴毛巾帽
+Cosmetic.hat_russian	高墙毛帽
+Cosmetic.hat_viking	维京王帽
+Cosmetic.hat_wallcap	高墙便帽
+Cosmetic.hat_whitetophat	白色高帽
+Cosmetic.hat_pk02_Crown	王冠
+Cosmetic.hat_pk02_Eyebrows	Stickmin 粗眉
+Cosmetic.hat_pk02_HaloHat	纯真光环
+Cosmetic.hat_pk02_HeroCap	森林战士
+Cosmetic.hat_pk02_PipCap	小吉姆帽
+Cosmetic.hat_pk02_PlungerHat	马桶吸
+Cosmetic.hat_pk02_ScubaHat	潜水镜
+Cosmetic.hat_pk02_StickminHat	Stickmin 骑手
+Cosmetic.hat_pk02_StrawHat	塞伦盖蒂帽
+Cosmetic.hat_pk02_TenGallonHat	牛仔帽
+Cosmetic.hat_pk02_ThirdEyeHat	第三只眼
+Cosmetic.hat_pk02_ToiletPaperHat	最后一卷
+Cosmetic.hat_pk02_Toppat	新 Chief 高帽
+Cosmetic.hat_pk03_Fedora	迷人绅士帽
+Cosmetic.hat_pk03_Goggles	安全第二
+Cosmetic.hat_pk03_Headphones	超棒耳机组
+Cosmetic.hat_pk03_Security1	严加戒备帽
+Cosmetic.hat_pk03_StrapHat	园丁帽
+Cosmetic.hat_pk03_Traffic	交通堵塞帽
+Cosmetic.hat_traffic_purple	交通堵塞帽：紫色
+Cosmetic.hat_pk04_Antenna	通信不良
+Cosmetic.hat_pk04_Archae	西伯利亚寻宝帽
+Cosmetic.hat_pk04_Balloon	小丑回魂帽
+Cosmetic.hat_pk04_Banana	香蕉皮
+Cosmetic.hat_pk04_Bandana	斯内克头带
+Cosmetic.hat_pk04_Beanie	毛帽
+Cosmetic.hat_pk04_Bear	灰熊难挡
+Cosmetic.hat_pk04_BirdNest	一巢二卵
+Cosmetic.hat_pk04_CCC	混沌遏制
+Cosmetic.hat_pk04_Chef	我是大厨帽
+Cosmetic.hat_pk04_DoRag	吹嘘海盗帽
+Cosmetic.hat_pk04_Fez	土耳其毡帽
+Cosmetic.hat_pk04_GeneralHat	将军帽
+Cosmetic.hat_pk04_HunterCap	猎户帽
+Cosmetic.hat_pk04_JungleHat	迷彩伪装帽
+Cosmetic.hat_pk04_MinerCap	挫折矿工帽
+Cosmetic.hat_pk04_MiniCrewmate	迷你船员
+Cosmetic.hat_pk04_Pompadour	上梳头
+Cosmetic.hat_pk04_RamHorns	公羊角
+Cosmetic.hat_pk04_Slippery	地板湿滑
+Cosmetic.hat_pk04_Snowman	雪友帽
+Cosmetic.hat_pk04_Vagabond	神秘流浪者
+Cosmetic.hat_pk04_WinterHat	防寒毛帽
+Cosmetic.hat_pk05_Burthat	我是 Burt
+Cosmetic.hat_pk05_Cheese	香浓奶酪
+Cosmetic.hat_pk05_cheesetoppat	Muenster 奶酪帽
+Cosmetic.hat_pk05_Cherry	点缀樱桃
+Cosmetic.hat_pk05_davehat	博物馆保安帽
+Cosmetic.hat_pk05_Egg	荷包蛋
+Cosmetic.hat_pk05_Ellie	红发恶徒
+Cosmetic.hat_pk05_EllieToppat	Ellie 新人帽
+Cosmetic.hat_pk05_Ellryhat	缤纷飞机头
+Cosmetic.hat_pk05_Fedora	暗夜帽
+Cosmetic.hat_pk05_Flamingo	充气火烈鸟
+Cosmetic.hat_pk05_FlowerPin	雏菊发饰
+Cosmetic.hat_pk05_GeoffreyToppat	大头帽
+Cosmetic.hat_pk05_Helmet	骑士帽
+Cosmetic.hat_pk05_HenryToppat	Henry 新人帽
+Cosmetic.hat_pk05_Macbethhat	Mr. Macbeth
+Cosmetic.hat_pk05_Plant	萌芽
+Cosmetic.hat_pk05_Svenhat	Sven Svensson
+Cosmetic.hat_pk05_Wizardhat	巫师帽
+Cosmetic.hat_pk06_Candycanes	拐杖糖
+Cosmetic.hat_pk06_ElfHat	玩具老兄
+Cosmetic.hat_pk06_Lights	发光小彩灯
+Cosmetic.hats_newyears2018	2019 新年帽
+Cosmetic.hat_pk06_Present	精致礼物
+Cosmetic.hat_pk06_Reindeer	迷路麋鹿
+Cosmetic.hat_pk06_Santa	送礼老兄
+Cosmetic.hat_pk06_Snowman	雪人
+Cosmetic.hat_pk06_tree	常青树
+Cosmetic.hat_pkHW01_BatWings	蝙蝠翅膀
+Cosmetic.hat_pkHW01_CatEyes	蝙蝠帽
+Cosmetic.hat_pkHW01_Horns	惊骇恶魔
+Cosmetic.hat_pkHW01_Machete	磨刀霍霍
+Cosmetic.hat_pkHW01_Mohawk	摇滚朋克头
+Cosmetic.hat_pkHW01_Pirate	别惹海盗
+Cosmetic.hat_pkHW01_Pumpkin	南瓜帽
+Cosmetic.hat_pkHW01_ScaryBag	怪物头罩
+Cosmetic.hat_pkHW01_Witch	巫婆帽
+Cosmetic.hat_pkHW01_Wolf	狼人头饰
+Cosmetic.hat_Plunger_Blue	马桶吸：蓝色
+Cosmetic.hat_Plunger_Yellow	马桶吸：黑与黄
+Cosmetic.hat_Ponytail	金发公主
+Cosmetic.hat_Pot	挖掘帽
+Cosmetic.hat_Prototype	原型头盔
+Cosmetic.hat_Ramhorn_Black	公羊角：黑色
+Cosmetic.hat_Ramhorn_Red	公羊角：红色
+Cosmetic.hat_Ramhorn_White	公羊角：白色
+Cosmetic.hat_Records	档案室记录员帽
+Cosmetic.hat_RockIce	地动山摇：冰冠帽
+Cosmetic.hat_RockLava	地动山摇：火山爆发
+Cosmetic.hat_Rubberglove	手套帽
+Cosmetic.hat_Rupert	鲁珀特
+Cosmetic.hat_SnowbeanieGreen	凛冬已至：绿色
+Cosmetic.hat_SnowbeanieOrange	凛冬已至：橘色
+Cosmetic.hat_SnowBeaniePurple	凛冬已至：紫色
+Cosmetic.hat_SnowbeanieRed	凛冬已至
+Cosmetic.hat_Soccer	头球
+Cosmetic.hat_TenGallon_Black	牛仔帽：黑色
+Cosmetic.hat_TenGallon_White	牛仔帽：白色
+Cosmetic.hat_ThomasC	Thomas Top
+Cosmetic.hat_ToppatHair	Cool Katie
+Cosmetic.hat_Traffic_Blue	交通堵塞帽：蓝色
+Cosmetic.hat_Traffic_Red	交通堵塞帽：红色
+Cosmetic.hat_Traffic_Yellow	交通堵塞帽：黄色
+Cosmetic.hat_Unicorn	神奇独角兽
+Cosmetic.hat_Visor	遮阳帽
+Cosmetic.hat_Voleyball	扣球
+Cosmetic.hat_WilfordIV	Sir Wilford IV
+Cosmetic.hat_Winston	腐败官员帽
+Cosmetic.hat_WinterGreen	防寒毛帽：绿色
+Cosmetic.hat_WinterHelmet	迷彩伪装帽：凛冬白
+Cosmetic.hat_WinterRed	防寒毛帽：红色
+Cosmetic.hat_WinterYellow	防寒毛帽：黄色
+Cosmetic.hat_Zipper	船员装
+Cosmetic.nameplate_airship_CCC	混沌遏制中心
+Cosmetic.nameplate_airship_Diamond	钻石！
+Cosmetic.nameplate_airship_Emerald	绿宝石！
+Cosmetic.nameplate_airship_Gems	空中保险库
+Cosmetic.nameplate_airship_government	伟大名牌
+Cosmetic.nameplate_Airship_Hull	Airship 船体
+Cosmetic.nameplate_airship_Ruby	红宝石！
+Cosmetic.nameplate_airship_Sky	云端之上
+Cosmetic.nameplate_airship_Toppat	托帕特 Airship
+Cosmetic.nameplate_is_dig	Dig2China
+Cosmetic.nameplate_is_game	运动
+Cosmetic.nameplate_is_ghost	幽灵塔
+Cosmetic.nameplate_is_green	神的草坪
+Cosmetic.nameplate_is_sand	众神祝福
+Cosmetic.nameplate_is_trees	树木
+Cosmetic.nameplate_is_yard	挖掘场
+Cosmetic.nameplate_Mira_Cafeteria	今日特餐：披萨果汁
+Cosmetic.nameplate_Mira_Glass	地面蓝天
+Cosmetic.nameplate_Mira_Tiles	六角蜂巢
+Cosmetic.nameplate_Mira_Vines	谁的藤蔓
+Cosmetic.nameplate_Mira_Wood	投射木光
+Cosmetic.nameplate_NoPlate	无
+Cosmetic.nameplate_Polus_Colors	Polus 调色板
+Cosmetic.nameplate_Polus_DVD	SimSong 狂粉
+Cosmetic.nameplate_Polus_Ground	紫色星球
+Cosmetic.nameplate_Polus_Lava	岩浆
+Cosmetic.nameplate_Polus_Planet	Polus 星球
+Cosmetic.nameplate_Polus_Snow	雪地
+Cosmetic.nameplate_Polus_SpecimenBlue	样本：蓝色
+Cosmetic.nameplate_Polus_SpecimenGreen	样本：绿色
+Cosmetic.nameplate_Polus_SpecimenPurple	样本：紫色
+Cosmetic.nameplate_Polus-Skyline	Polus 地平线
+Cosmetic.nameplate_Polus-Snowmates	Polus 雪友
+Cosmetic.pet_Alien	脑动虫
+Cosmetic.pet_Bedcrab	压床蟹
+Cosmetic.pet_Bush	灌木伙伴
+Cosmetic.pet_Charles	Charles 直升机
+Cosmetic.pet_Charles_Red	高帽直升机
+Cosmetic.pet_Crewmate	迷你船员
+Cosmetic.pet_Cube	神灵小子
+Cosmetic.pet_Doggy	怪狗
+Cosmetic.pet_Ellie	E. Rose
+Cosmetic.pet_EmptyPet	无
+Cosmetic.pet_test	小错误
+Cosmetic.pet_Hamster	汉普顿
+Cosmetic.pet_Lava	岩浆伙伴
+Cosmetic.pet_Robot	机器人
+Cosmetic.pet_Snow	雪球
+Cosmetic.pet_Squig	史圭格
+Cosmetic.pet_Stickmin	H. Stickmin
+Cosmetic.pet_UFO	外星生物
+Cosmetic.skin_Abominalskin	雪怪伙伴
+Cosmetic.skin_Archae	出土奇观
+Cosmetic.skin_Astro	宇航员
+Cosmetic.skin_Astro_blue	宇航员：蓝色
+Cosmetic.skin_Astro_cyan	宇航员：青色
+Cosmetic.skin_Astro_orange	宇航员：橘色
+Cosmetic.skin_Bling	闪亮亮
+Cosmetic.skin_Bushskin	偷偷摸摸
+Cosmetic.skin_BusinessFem-Aquaskin	办公裙：水绿色
+Cosmetic.skin_BusinessFemskin	办公裙
+Cosmetic.skin_BusinessFem-Tanskin	办公裙：茶色
+Cosmetic.skin_Capt	驾驶执照
+Cosmetic.skin_CCC	混乱收容船员
+Cosmetic.skin_D2Cskin	挖掘小子
+Cosmetic.skin_General	Galeforce 将军
+Cosmetic.skin_Hazmat	危险物处理员
+Cosmetic.skin_Hazmat-Blackskin	危险物处理员：黑色
+Cosmetic.skin_Hazmat-Blueskin	危险物处理员：蓝色
+Cosmetic.skin_Hazmat-Greenskin	危险物处理员：绿色
+Cosmetic.skin_Hazmat-Pinkskin	危险物处理员：粉红色
+Cosmetic.skin_Hazmat-Redskin	危险物处理员：红色
+Cosmetic.skin_Hazmat-Whiteskin	危险物处理员：白色
+Cosmetic.skin_JacketGreenskin	穿上外套：绿色
+Cosmetic.skin_JacketPurpleskin	穿上外套：紫色
+Cosmetic.skin_JacketYellowskin	穿上外套：黄色
+Cosmetic.skin_Janitorskin	管理员职责
+Cosmetic.skin_Mech	我来修理
+Cosmetic.skin_MechanicRed	Airship 技工
+Cosmetic.skin_Military	军官皮肤
+Cosmetic.skin_MilitaryDesert	军官：沙漠棕
+Cosmetic.skin_MilitarySnowskin	军官：雪白
+Cosmetic.skin_Miner	地下挖掘者
+Cosmetic.skin_MinerBlackskin	地下挖掘者：黑色
+Cosmetic.skin_None	无
+Cosmetic.skin_Police	公安
+Cosmetic.skin_prisoner	囚犯编号 2112
+Cosmetic.skin_PrisonerBlue	囚犯编号 2112：蓝色
+Cosmetic.skin_PrisonerTanskin	囚犯编号 2112：茶色
+Cosmetic.skin_rhm	得力助手：重生
+Cosmetic.skin_RockIceskin	冰中相见
+Cosmetic.skin_RockLavaskin	坚固熔岩
+Cosmetic.skin_Science	科学理论
+Cosmetic.skin_Scientist-Blueskin	医生
+Cosmetic.skin_Scientist-Darkskin	黑暗科学家
+Cosmetic.skin_Security	维护安全
+Cosmetic.skin_Skin_SuitRedskin	高帽制服
+Cosmetic.skin_SportsBlueskin	运动比赛蓝队
+Cosmetic.skin_SportsRedskin	运动比赛红队
+Cosmetic.skin_SuitB	笔挺西装
+Cosmetic.skin_SuitW	闪亮
+Cosmetic.skin_SweaterBlueskin	舒适毛衣：蓝色
+Cosmetic.skin_SweaterPinkskin	舒适毛衣：粉红色
+Cosmetic.skin_Sweaterskin	舒适毛衣
+Cosmetic.skin_SweaterYellowskin	舒适毛衣：黄色
+Cosmetic.skin_Tarmac	在此着陆
+Cosmetic.skin_ToppatSuitFem	高帽裙子
+Cosmetic.skin_ToppatVest	既得利益背心
+Cosmetic.skin_Wall	高墙卫兵
+Cosmetic.skin_Winter	穿上外套
+Cosmetic.visor_BillyG	G 先生胡须
+Cosmetic.visor_Blush	害羞
+Cosmetic.visor_Bomba	不予置评
+Cosmetic.visor_Carrot	笑眼
+Cosmetic.visor_Crack	Among Us 裂痕 2021
+Cosmetic.visor_D2CGoggles	挖掘小子护目镜
+Cosmetic.visor_Dirty	快弄干净
+Cosmetic.visor_Dotdot	点点点
+Cosmetic.visor_EmptyVisor	无
+Cosmetic.visor_EyepatchL	独眼眼罩
+Cosmetic.visor_EyepatchR	独眼眼罩
+Cosmetic.visor_Galeforce	Galeforce 胡须
+Cosmetic.visor_is_beard	胡须
+Cosmetic.visor_JanitorStache	幽灵胡须
+Cosmetic.visor_Krieghaus	Krieghaus 胡须
+Cosmetic.visor_Lava	熔化头盔
+Cosmetic.visor_LolliBlue	棒棒糖：蓝色
+Cosmetic.visor_LolliBrown	棒棒糖：棕色
+Cosmetic.visor_LolliOrange	棒棒糖：橘色
+Cosmetic.visor_LolliRed	棒棒糖
+Cosmetic.visor_mira_card_blue	通行证：蓝色
+Cosmetic.visor_mira_card_red	通行证：红色
+Cosmetic.visor_mira_glasses	眼镜
+Cosmetic.visor_mira_mask_black	防毒面具：黑色
+Cosmetic.visor_mira_mask_blue	防毒面具：蓝色
+Cosmetic.visor_mira_mask_green	防毒面具：绿色
+Cosmetic.visor_mira_mask_purple	防毒面具：紫色
+Cosmetic.visor_mira_mask_red	防毒面具：红色
+Cosmetic.visor_mira_mask_white	防毒面具：白色
+Cosmetic.visor_Mouth	巨口虫怪
+Cosmetic.visor_PiercingL	耳环
+Cosmetic.visor_PiercingR	耳环
+Cosmetic.visor_pk01_AngeryVisor	愤怒粗眉
+Cosmetic.visor_pk01_DumStickerVisor	便利贴
+Cosmetic.visor_pk01_FredVisor	强悍守门员
+Cosmetic.hat_geoff	我是 Geoff
+Cosmetic.visor_pk01_HazmatVisor	防毒面具
+Cosmetic.visor_pk01_MonoclesVisor	双片眼镜
+Cosmetic.visor_pk01_PaperMaskVisor	保命口罩
+Cosmetic.visor_pk01_PlagueVisor	瘟疫鸟喙
+Cosmetic.visor_pk01_RHMVisor	得力助手胡须
+Cosmetic.visor_pk01_Security1Visor	墨镜
+Cosmetic.visor_polus_ice	冰晶泪
+Cosmetic.visor_Reginald	Reginald 胡须
+Cosmetic.visor_Scar	伤疤
+Cosmetic.visor_SciGoggles	安全第一
+Cosmetic.visor_shopglasses	奸商眼镜
+Cosmetic.visor_SkiGoggleBlack	滑雪护目镜：黑色
+Cosmetic.visor_SKiGogglesOrange	滑雪护目镜：橘色
+Cosmetic.visor_SkiGogglesWhite	滑雪护目镜
+Cosmetic.visor_SmallGlasses	迷你镜片
+Cosmetic.visor_SmallGlassesBlue	迷你镜片：蓝色
+Cosmetic.visor_SmallGlassesRed	迷你镜片：红色
+Cosmetic.visor_Stickynote_Cyan	便利贴：青色
+Cosmetic.visor_Stickynote_Green	便利贴：绿色
+Cosmetic.visor_Stickynote_Orange	便利贴：橘色
+Cosmetic.visor_Stickynote_Pink	便利贴：粉色
+Cosmetic.visor_Stickynote_Purple	便利贴：紫色
+Cosmetic.visor_Straw	嘴叼麦秆
+Cosmetic.visor_WinstonStache	副驾驶胡须
+Visor	脸部装饰
+EquipLabel	装备
+NamePlate	名牌
+Visors	脸部装饰
+NamePlates	名牌
+Cosmicube	Cosmicube
+Cosmicubes	Cosmicubes
+Activate	启用
+Deactivate	停用
+Owned	已拥有
+Purchase	购买
+CosmicubeProgression	已完成 {0}%
+ViewCube	查看方块
+ConfirmPurchaseHeader	确认购买
+ConfirmPurchaseText	要购买以下的 {0}分支吗？
+DeactivateCube	停用
+ActivateCube	启用
+Bundles	捆绑包
+Stars	星星
+Wardrobe	衣柜
+PlayerLevel	等级
+PlayerXp	经验值
+PlayerLevelExtremeShorthand	等级
+Max	最高
+Colors	色彩
+CopiedText	已复制文字！
+LinkAccount	链接账号
+CreateNewAccount	创建新账号
+LinkExistingAccount	链接现有账号
+LinkAccountExplanation	如果您在其他平台上已有《Among Us》账号，便可链接到该账号！\n您也可以创建一个新的账号。
+LinkAccountCode	在 <link="{0}">{1}</link> \n<size=+2>{2}</size> 输入以下代码
+ErrorLink	链接账号时发生问题。请稍后再试。
+UnlinkAccount	取消链接账号
+ConfirmUnlinkAccount	确认取消链接账号
+UnlinkAccountExplain	取消链接您的 {0} 账号将清除您的数据并创建新的 {0} 账号。\n- 您将丢失 {0} 账号上已获得或已解锁的物品。\n- 您将从等级 1 与 0 经验值重新开始。
+UnlinkAccountExplainConfirm	请保存此识别码以供备查：\n\n{0}\n\n如果您取消链接账号时没有此识别码，若过程出错时我们便无法复原您的进度，并且无法提供协助。
+UnlinkError	取消账号的链接时发生问题。请稍后再试。
+UnlinkSuccess	您已成功取消 {0} 与《Among Us》主要账号的链接！
+ConfirmLinkExistingAccount	确认链接至现有账号
+LinkExistingAccountExplain	链接至不同账号将覆盖此平台上的所有数据，这代表您的 {0}《Among Us》账号将被其他账号替换。\n- 您 {0} 账号上所有已解锁的物品将被覆盖。\n- 您 {0} 账号上所有已获得的经验值将被覆盖。\n- 所有的豆豆、舱室与星星将被覆盖。
+LinkExistingAccountExplainConfirm	待您确认后，我们将重置您的 {0}《Among Us》账号，以便准备导入不同账号的数据。\n\n<color=#{1}>请确认您有另一个欲链接此账号的现有账号之后再继续。</color>\n\n重置您的 {0} 账号将清空所有经验值、豆豆、舱室与物品。我们将“无法”还原此操作。
+ResetAccount	重置账号
+PurchasingLabel	购买物品
+ErrorInternalServer	内部服务器错误 (代码 {0})
+ErrorPlatformLock	此房间的创建者已将房间设为仅限相同平台的玩家加入
+ErrorLobbyInactivity	服务器已关闭此房间，可能是因为处于非活动状态
+ErrorMatchmakerInactivity	服务器已中断您的连接，可能是因为处于非活动状态
+ErrorInvalidGameOptions	接收到的游戏选项无效。您可能需要清除所有保存数据并重启游戏。
+ErrorNoServersAvailable	没有可用的服务器。抱歉！请稍后再试。
+ErrorQuickmatchDisabled	QuickMatch 功能当前无法使用。请尝试加入他人的游戏。
+ErrorTooManyGames	当前正在进行的游戏过多。请尝试加入他人的游戏。
+Bundle.hat_holiday2018	2018 圣诞帽捆绑包
+Bundle.hats_bundle2	1 百万次下载帽子捆绑包
+Bundle.hats_halloween2019	2019 万圣节帽捆绑包
+Bundle.hats_newyears2018	2018 新年帽捆绑包
+Bundle.map_airship	Airship 捆绑包
+Bundle.map_mira	MIRA 捆绑包
+Bundle.map_polus	Polus 捆绑包
+Bundle.pet_alien1	脑动虫宠物捆绑包
+Bundle.pet_alien2	压床蟹宠物捆绑包
+Bundle.pet_animal	动物宠物捆绑包
+Bundle.pet_crewmate	船员宠物捆绑包
+Bundle.pet_stickmin	Stickmin 宠物捆绑包
+StoreComingSoon	敬请期待...
+StartCosmicubeLabel	开始
+Bundle.star_bundle	星星捆绑包
+ErrorPlatformParentalControlsBlock	您的 Parental Controls 设置或您欲加入其游戏之玩家的 Parental Controls 设置不允许你们一起游玩。
+ErrorPlatformParentalControlsBlockPS	您的家长控制设置或您欲加入其游戏之玩家的家长控制设置不允许你们一起游玩。
+FailPurchase	交易时发生问题。请稍后再试。
+FailPurchaseUnknown	错误代码 {0}
+FailPurchaseAlreadyOwn	您已拥有此物品。
+FailPurchaseCurrency	您没有足够的所需货币可购买此物品。
+FailPurchaseCubeOwn	您未拥有此Cosmicube。
+Locked	未解锁
+Active	已启用
+Crewmates	船员
+XpGainedValue	{0}经验值
+XboxShopBrowseAll	查看 Microsoft Store 的所有商品
+PSShopBrowseAll	查看 PlayStation?Store 的所有商品
+Equipped	已装备
+MouseMovement	鼠标移动
+KeyboardOptions	键盘选项
+RemapBindings	更改按键绑定
+KeyboardBindingsHeader	键盘绑定
+HowToPlayText_Consoles	与 4 到 15 个玩家一起在线游玩！
+StarDisclaimer	购买《Among Us》星星来解锁大批新自定义内容！在游戏内商店花费星星，取得独家造型物品和独特的造型方块。在此购买的所有星星皆无法在 PlayStation? 或 Nintendo Switch? 上兑换及使用。
+Commsdisabled	[通讯失灵]
+ErrorQuickChatMode	聊天模式错误：此房间为{0}房间，但您的设置为{1}。
+ErrorLobbyUsersBlocked	无法加入：大厅中含有封锁名单上的用户或是将您封锁的用户。请尝试其他大厅。
+SteamNotInitialized	Steam 未正确初始化。请从 Steam 重启游戏后再试一次。
+LoggedInErrorStarPurchase	您必须登录账号才能购买星星
+ErrorDisconnectPacket	您与服务器的连接已中断。
+AndroidAssetBundleWarning	必须下载额外内容才能完成《Among Us》的安装程序。请按“接受”以继续。
+ItchNoStars	很抱歉，您无法在 itch.io 上购买星星。不过您可以将 itch.io 账号链接到其他平台 (如其他 PC 版本)，即可在该平台购买并使用星星！请注意：在 Nintendo Switch? 上购买的星星无法跨平台使用，因此无法在其他平台兑换。
+Roles	职业
+RolesSettings	职业设置
+ScientistRole	科学家
+EngineerRole	工程师
+GuardianAngelRole	守护天使
+ShapeshifterRole	变形者
+ScientistBlurb	随时使用生命监测器
+EngineerBlurb	可使用通风口
+GuardianAngelBlurb	保护幸存船员
+ShapeshifterBlurb	自我伪装
+CrewmateBlurb	完成任务
+ImpostorBlurb	击杀与破坏
+RolesHelp_CrewmateRole	船员角色：{0}
+RolesHelp_ImpostorRole	伪装者角色：{0}
+RolesHelpIntro_01	角色让这款经典游戏的欺骗与战略玩法上升到全新的高度！
+RolesHelpIntro_02	船员和伪装者都可以获得随机分配的角色，具体取决于主持人所选的游戏设置。
+RolesHelp_Scientist_01	科学家可以随时使用便携式生命监测面板查看船员状态。
+RolesHelp_Scientist_02	不过，该面板需要电力运行，因此科学家需要完成任务来给电池充电。
+RolesHelp_Engineer_01	身为船员的工程师可使用通风口加速移动，还能当场抓到进出通风口的伪装者。
+RolesHelp_Engineer_02	但您不能永远待在通风口里，那样会很可疑，因此，请小心通风口附近的人……
+RolesHelp_GuardianAngel_01	守护天使是船员变成的鬼魂，可以短暂放出护盾保护其他活着的船员。
+RolesHelp_GuardianAngel_02	把握好时机就能防止伪装者杀掉受害者。真是万幸！
+RolesHelp_Shapeshifter_01	变形者可以改变容貌，伪装成其他船员。运用得当就能陷害其他船员，让人分不清谁才是真正的伪装者！
+RolesHelp_Shapeshifter_02	但要小心，伪装不会永远保持，而且会留下证据。
+RolesHelpOutro_01	角色支持自定义！游戏主持人可以选择工程师允许进出通风口的次数、变形者的冷却时间等等，还可以挑选其中某个角色在游戏中出现的百分比几率。在游戏大厅设置中，可以随时查看某个角色是否启用！
+RolesHelpOutro_02	按照您的喜好调整设置来创建您的终极游戏大厅，或者加入某个大厅看看您能在其中如何搅弄风云。我们会为游戏添加新的角色，因此需要的时候随时回来看看吧。玩得开心！
+YourRoleIs	您的职业是
+ShapeshiftAbility	变形
+VitalsAbility	生命
+ProtectAbility	保护
+VentAbility	通风口
+ShapeshiftAbilityUndo	解除
+RoleChanceAndQuantity	几率 {1}%，最多 {0} 名
+CheckingPurchasesLabel	正在确认购买...
+ProtectedRecently	守护天使最近保护了某个人...
+ScientistBlurbMed	随时使用生命监测能力。\n完成任务即可充电。
+ScientistBlurbLong	科学家可以随时使用便携式生命监测面板查看船员状态。不过，便携式生命监测面板需要充电，因此科学家需要完成任务才能充电。
+EngineerBlurbMed	可使用通风口。
+EngineerBlurbLong	身为船员的工程师可使用通风口加速移动，也能当场抓到通风口的伪装者。您无法永远待在通风口里，因此请小心通风口附近的人...
+GuardianAngelBlurbMed	为幸存船员展开护盾。
+GuardianAngelBlurbLong	守护天使是最先死亡的船员变成的鬼魂。可以短暂放出护盾保护其他活着的船员。抓好时机就能就能防止伪装者杀掉受害者。真是万幸！
+ShapeshifterBlurbMed	变身成其他船员来伪装自己。
+ShapeshifterBlurbLong	变形者可以改变容貌，伪装成其他船员。运用得当能陷害其他船员，并混淆伪装者真正的身份。但要小心，伪装不会永远保持，而且会留下证据。
+RoleHint	提示
+ScientistBatteryCharge	续航时间
+ScientistCooldown	生命监测器冷却时间
+ShapeshifterCooldown	变形冷却时间
+ShapeshifterDuration	变形时间
+ShapeshifterLeaveSkin	留下变形证据
+EngineerCooldown	使用通风口冷却时间
+EngineerInVentCooldown	通风口滞留时限
+GuardianAngelCooldown	保护冷却时间
+GuardianAngelDuration	保护时间
+OracleRole	先知
+OracleBlurb	能确认其中一名船员的非伪装者身份
+OracleBlurbMed	能确认其中一名船员的非伪装者身份。
+OracleBlurbLong	先知船员可以确认其中一名船员并非伪装者
+Cosmetic.hat_heim	Heimerdinger 发型
+Cosmetic.hat_enforcer	执法官头盔
+Cosmetic.hat_caitlin	Caitlyn 帽子
+Cosmetic.hat_clagger	Claggor 护目镜
+Cosmetic.hat_vi	Vi 发型
+Cosmetic.hat_jinx	Jinx 发型
+Cosmetic.hat_jayce	Jayce 发型
+Cosmetic.hat_comper	手雷
+Cosmetic.visor_heim	Heimerdinger 胡须
+Cosmetic.visor_jinx	Jinx 护目镜
+Cosmetic.skin_heim	Heimerdinger 服装
+Cosmetic.skin_jayce	Jayce 西装
+Cosmetic.skin_enforcer	执法官护甲
+Cosmetic.skin_caitlin	Caitlyn 制服
+Cosmetic.skin_jinx	Jinx 衣服
+Cosmetic.skin_vi	Vi 衣服
+Cosmetic.pet_poro	Heimerdinger 的 Poro
+RedeemPurchasedItemsTitle	兑换购买的物品
+RedeemPurcahsedItemsExplain	我们推出了全新的物品库系统，这样玩家就可以跨平台使用物品！先前在此平台的购买的任何物品都可以有一次机会转移至新的物品库系统。\n如果这是您的《Among Us》主要账号 (您最常游玩《Among Us》的平台)，则可以安心地点击“继续”，在全新的物品库系统中兑换购买的可下载内容。如果这是您想用来链接主要账号的账号，只能于链接后兑换！\n\n账号识别码：{0}
+RedeemProceed	继续
+RedeemNotYet	现在不要
+RedeemNever	不再询问
+AccountIDDisplay	账号识别码：{0}
+Cosmetic.hat_witch_white	巫婆帽：白色
+Cosmetic.hat_witch_pink	巫婆帽：粉红色
+Cosmetic.hat_witch_murky	巫婆帽：漆黑
+Cosmetic.hat_witch_green	巫婆帽：绿色
+Cosmetic.hat_papermask	怪物头罩：浅色
+Cosmetic.hat_mohawk_rainbow	摇滚朋克头：彩虹
+Cosmetic.hat_mohawk_purple_green	摇滚朋克头：紫绿
+Cosmetic.hat_mohawk_bumblebee	摇滚朋克头：大黄蜂
+Cosmetic.hat_devilhorns_yellow	惊骇恶魔：金色
+Cosmetic.hat_devilhorns_white	惊骇恶魔：白色
+Cosmetic.hat_devilhorns_murky	惊骇恶魔：漆黑
+Cosmetic.hat_devilhorns_green	惊骇恶魔：绿色
+Cosmetic.hat_devilhorns_crewcolor	惊骇恶魔：船员色彩
+Cosmetic.hat_devilhorns_black	惊骇恶魔：黑色
+Cosmetic.hat_cat_grey	蝙蝠帽：灰色
+Cosmetic.hat_cat_snow	蝙蝠帽：雪白
+Cosmetic.hat_cat_pink	蝙蝠帽：粉红色
+Cosmetic.hat_cat_orange	蝙蝠帽：橘色
+Cosmetic.hat_wolf_grey	狼人头饰：灰色
+Cosmetic.hat_wolf_murky	狼人头饰：漆黑
+Cosmetic.hat_bat_ice	蝙蝠翅膀：冰晶白
+Cosmetic.hat_bat_green	蝙蝠翅膀：绿色
+Cosmetic.hat_bat_crewcolor	蝙蝠翅膀：船员色彩
+Cosmetic.skin_mummy	木乃伊找妈咪
+Cosmetic.visor_mummy	包大人
+Cosmetic.hat_mummy	木乃伊之母
+Cosmetic.hat_candycorn	糖果玉米
+Cosmetic.hat_clown_purple	小丑镇
+Cosmetic.hat_fairywings	振翅妖精
+Cosmetic.hat_fishhed	鱼头
+Cosmetic.hat_frankenbolts	螺丝怪人
+Cosmetic.hat_frankenbride	科学怪妻
+Cosmetic.visor_clownnose	哗众取宠
+Cosmetic.visor_masque_blue	假面：蓝色
+Cosmetic.visor_masque_green	假面：绿色
+Cosmetic.visor_masque_red	假面：红色
+Cosmetic.visor_masque_white	假面：白色
+Cosmetic.nameplate_hw_pumpkin	南瓜灯
+Cosmetic.nameplate_hw_candy	糖果时间
+Cosmetic.nameplate_hw_woods	恐怖树林
+Cosmetic.hat_axe	头痛欲裂
+Cosmetic.visor_eyeball	紧盯不放
+Cosmetic.hat_tombstone	断魂之墓
+Cosmetic.hat_bone	骨头帽
+Cosmetic.hat_arrowhead	箭头
+Cosmetic.hat_glowstick	通宵狂欢
+Cosmetic.skin_clown	滑稽小丑
+Cosmetic.skin_fairy	妖精船员
+Cosmetic.skin_fishmonger	鱼贩
+Cosmetic.skin_pumpkin	超大南瓜裤
+Cosmetic.skin_vampire	我想吸血
+Cosmetic.skin_witch	怪异巫婆
+Cosmetic.pet_frankendog	科学怪犬
+Cosmetic.hat_mohawk_bubblegum	摇滚朋克头：泡泡糖
+AvailableFor	下架倒计时\n{0} 天 {1} 小时 {2} 分 {3} 秒
+GuardianAngelImpostorSeeProtect	伪装者可看见保护
+Cosmetic.hat_pkHW01_PlagueHat	瘟疫鸟喙
+QCAccIsRole	{0}是{1}
+QCAccIsRole_QCCrewMe_ANY	我是{0}
+QCAccIsRoleNeg	{0}不是{1}
+QCAccIsRoleNeg_QCCrewMe_ANY	我不是{0}
+QCAccIsRoleNeg_QCCrewNoOne_ANY	没有人是{1}
+QCAccShapeshited	{0}变形成{1}
+QCAccShapeshited_QCCrewMe_ANY	我变形成{1}
+QCStaShapeshifterSkin	在{0}发现变形者皮肤
+QCResIsBeingFramed	{0}被诬陷了
+QCResIsBeingFramed_QCCrewMe	我被诬陷了
+QCResCloseTo	{0}离{1}很近
+QCResCloseTo_QCCrewMe_ANY	我离{0}很近
+QCResCloseTo_ANY_QCCrewMe	{0}离我很近
+QCResIsRoleMaybe	{0}可能是{1}
+QCResIsRoleMaybe_QCCrewMe_ANY	我可能是{1}
+QCResProtected	{0}保护了{1}
+QCResProtected_QCCrewMe_ANY	我保护了{1}
+QCResProtected_ANY_QCCrewMe	{0}保护了我
+QCRoles	职业
+GuestProgressionWarning	您已登录游客账号！\n\n所有已取得的经验值、舱室及豆豆只能应用于此游客账号。游客账号仅会与您的实体设备链接，更换设备将无法继续使用此账号。\n\n为确保您能使用所有获得的货币和购买物品，请开启主屏幕中的账号选项卡，登录您的《Among Us》账号。
+ErrorFailedToCreateGame	创建游戏连线区失败。请稍后再试。
+ErrorFailedToJoinCreatedGame	创建游戏连线区后加入失败。请稍后再试。
+ErrorDisconnectBeforeJoining	加入游戏连线区时中断连线。
+PSEULA_SIEA
+PSEULA_SIEE
+ErrorCrossPlatformCommunication	您的沟通交流设置已限制您加入游戏。如需加入游戏，请启用跨平台游玩沟通交流功能。
+ErrorCrossPlat	您加入的是跨平台房间，不过您在已本地设置中停用跨平台游玩功能。
+ErrorDuplicateConnection	检测到重复登录。
+ErrorLobbyFailedGettingBlockedUsers	无法加入：取得封锁名单时出现服务器错误
+MaxVentUses	通风口使用上限
+MaxTimeInVent	通风口滞留时限
+MinCrewmatesForVitals	解锁生命监测器最少所需的存活船员数
+ShowAccountID	显示账号识别码
+HideAccountID	隐藏账号识别码
+HiddenAccountID	[已隐藏账号识别码]
+AllTasksComplete	完成所有任务！
+EscapePrompt	船员逃脱时间：
+FlashlightFov	手电筒视野
+SteamOverlayDisabled	您必须启用 Steam 界面才能购买星星捆绑包。请启用游戏内 Steam 界面，然后重新启动游戏。
+Cosmetic.hat_pk05_RHM	Right Hand 帽
+Cosmetic.skin_w21_deer	雨鹿
+Cosmetic.skin_w21_elf	圣诞老人小帮手
+Cosmetic.skin_w21_msclaus	圣诞夫人
+Cosmetic.skin_w21_nutcracker	胡桃钳
+Cosmetic.skin_w21_santa	圣诞老人驾到！
+Cosmetic.skin_w21_snowmate	雪人伙伴
+Cosmetic.hat_w21_snowman	旧高帽
+Cosmetic.hat_w21_gingerbread	姜饼船员
+Cosmetic.hat_w21_holly	佳节装饰
+Cosmetic.hat_w21_krampus	坎卜斯
+Cosmetic.hat_w21_log	耶鲁节圆木帽
+Cosmetic.hat_w21_mistletoe	槲寄生亲吻帽
+Cosmetic.hat_w21_mittens	连指手套帽
+Cosmetic.hat_w21_nutcracker	黑色大礼帽
+Cosmetic.hat_w21_pinecone	松果帽
+Cosmetic.hat_w21_winterpuff	舒适绒球帽
+Cosmetic.hat_w21_snowflake	雪花帽
+Cosmetic.visor_w21_carrot	胡萝卜鼻
+Cosmetic.visor_w21_nutstache	胡桃钳胡须
+Cosmetic.visor_w21_santabeard	圣诞老人胡子
+Cosmetic.nameplate_w21_snow	闪亮雪花
+Cosmetic.nameplate_w21_tree	点点星光
+Cosmetic.nameplate_w21_fireplace	温暖烟囱旁
+Cosmetic.visor_w21_nye	新年快乐：2021
+Cosmetic.hat_w21_elf_pink	小帮手帽：粉红色
+Cosmetic.hat_w21_elf_swe	小帮手帽：蓝色
+Cosmetic.hat_w21_lights_white	佳节光辉：白色
+Cosmetic.hat_w21_lights_yellow	佳节光辉：黄色
+Cosmetic.hat_w21_present_evil	礼物包装：红色/黑色
+Cosmetic.hat_w21_present_redwhite	礼物包装：红色/白色
+Cosmetic.hat_w21_present_whiteblue	礼物包装：白色/蓝色
+Cosmetic.hat_w21_santa_evil	送礼老兄：顽皮
+Cosmetic.hat_w21_santa_yellow	送礼老兄：镀金
+Cosmetic.hat_w21_santa_green	送礼老兄：森林
+Cosmetic.hat_w21_santa_mint	送礼老兄：薄荷
+Cosmetic.hat_w21_santa_pink	送礼老兄：粉红
+Cosmetic.hat_w21_santa_white	送礼老兄：冰冻
+Cosmetic.hat_w21_snowman_swe	冰冻人：蓝色/黄色
+Cosmetic.hat_w21_snowman_evil	冰冻人：顽皮
+Cosmetic.hat_w21_snowman_greenred	冰冻人：绿色
+Cosmetic.hat_w21_snowman_redgreen	冰冻人：红色/绿色
+Cosmetic.hat_w21_present_greenyellow	礼物包装：绿色/黄色
+Cosmetic.hat_w21_candycane_blue	拐杖糖：蓝莓
+Cosmetic.hat_w21_candycane_bubble	拐杖糖：泡泡糖
+Cosmetic.hat_w21_candycane_chocolate	拐杖糖：薄荷巧克力
+Cosmetic.hat_w21_candycane_mint	拐杖糖：薄荷
+Cosmetic.skin_w21_tree	翠绿枝叶
+StatsRoleWins	{0}职业胜利次数：\t
+StatsEngineerVents	工程师使用通风口次数：\t
+StatsScientistChargesGained	科学家获得充电次数：\t
+StatsGuardianAngelCrewmatesProtected	守护天使成功保护船员次数：\t
+StatsShapeshifterShiftedKills	变形者变形时杀人次数：\t
+QCOnlyInfo	您在游玩期间只能使用快速聊天功能，且只能与其他使用快速聊天功能的用户一同游玩。
+FreeChatInfo	您在游玩期间能够使用自由聊天和快速聊天功能，且只能与其他使用自由聊天功能的用户一同游玩。
+FreeChatWarning	您必须先登录才能使用自由聊天功能。如果您是使用未成年账号登录，请前往账号选项卡并取得监护人的许可来启用自由聊天功能。
+FreeChatLinkWarning	不能发送网站地址！您的消息未被送达。
+ScreenShakeOption	画面晃动
+StreamingTwitch	开始在 Twitch 直播
+AnnouncementFailFetchData	无法取得公告。
+AnnouncementFailFetchData_LastKnown	无法获取公告。最后一次已知的：
+Cosmetic.pet_clank	瑞奇
+Cosmetic.pet_GuiltySpark	罪恶星火
+Cosmetic.hat_halospartan	斯巴达战士头盔
+Cosmetic.hat_ratchet	瑞奇的棒球帽
+Cosmetic.skin_halospartan	斯巴达战士护甲
+Cosmetic.skin_ratchet	瑞奇的连身服
+Cosmetic.skin_screamghostface	惊声尖叫长袍
+Cosmetic.hat_screamghostface	惊声尖叫面具
+AmongUsFriends	《Among Us》好友
+FriendsGuestWarning	您必须登录才能使用此功能。
+PlatformFriends	平台好友
+BlockedPlayers	封锁的玩家
+RecentPlayers	最近一起游玩的玩家
+LobbyLabel	大厅
+FriendCodeExplanation	《Among Us》现已推出“好友名单”！在下方选择一个独特的好友编号，即可发送和接收好友或游戏申请。\n\n编号一经选择就无法更改。
+FriendCodeSuccess	您的好友编号是 {0}
+FriendRequestReceived	已收到好友申请
+FriendRequestSent	已发送好友申请
+GameLobbyInviteSent	已发送游戏邀请
+GameLobbyInviteReceived	已收到游戏邀请
+BlockPlayerConfirm	要封锁玩家吗？
+RemoveFriendConfirm	要移除好友吗？
+InviteToLobbyConfirm	要发送游戏邀请吗？
+FriendCodeLabel	好友编号
+FriendCodeCreationTitle	选择好友编号
+FriendRequestSentFailed	无法发送好友申请
+ErrorBadUsername	好友编号格式无效。请输入完整的好友编号再试一次 (例如 SmallBeans#0001)
+ErrorUserNotFound	好友编号不存在
+ErrorPlatformFriends	无法取得您的平台好友
+ErrorThisIsYou	抱歉，您无法将自己添加为好友。
+ErrorFriendRequestExists	您已向这名用户发送了好友申请
+ErrorAlreadyFriends	您已是这名用户的好友。太好啦！
+GameLobbyInviteSentFailed	无法发送游戏邀请
+BlockedPlayerFailed	无法封锁玩家
+BlockedPlayer	已封锁玩家
+AlreadyBlocked	这名玩家已遭封锁
+FriendList	好友名单
+NoNewRequests	未收到申请
+AddFriendPrompt	使用编号来添加好友
+NewRequests	{0} 个新申请！
+Requests	申请
+AddFriend	添加好友
+StreamWarning	除非您想让每个人都知道您的好友编号，否则不要将其公开！
+FriendsListPermissionsWarning	您必须获得监护人的许可才能使用此功能。
+AddFriendConfirm	要向 {0} 发送好友申请吗？
+UnfriendConfirm	要与 {0} 解除好友关系吗？
+UnblockConfirm	要将 {0} 解除封锁吗？
+SettingsEnableFriendInvites	好友与大厅邀请
+ErrorTooManyRequests	大厅申请的数量过多。请稍待几分钟后再试一次。
+TempDisabled	暂时停用
+TempDisabledLinkExplain	账号正进行更改。我们暂时限制了链接现有账号的功能。这将尽快在日后的更新中修正！
+RedeemPopup	这是来自船员的礼物！\n{0}
+RedeemButton	兑换
+ErrorMaxFriends	您的朋友名单已满。
+ErrorPlayerBlockedYou	错误：用户列于您的封锁名单或用户封锁您。
+ErrorRecipientMaxFriendRequests	错误：用户的朋友申请数已达上限，无法接收更多申请。
+ErrorSenderMaxFriendRequests	错误：您已发送太多则朋友申请。
+ErrorRecipientMaxFriends	错误：用户的朋友名单已满
+ViewRequests	查看请求
+ParentPortalButton	请求许可
+FriendsListEmailSent	我们刚才向您的家长或监护人发送请求额外朋友名单许可的电子邮件。请让他们查看他们的电子邮件。
+Decontamination3	下去污室
+ErrorCommunications	您的沟通交流设置使您无法加入游戏。如要加入此游戏，请启用与他人交流的功能。
+SettingsColorblind	色盲文字
+MergeGuestAccountText	此设备上似乎有<link="https://www.innersloth.com/merging-guest-accounts/">游客账号</link> ！我们现在已不再支持游客账号，并且会将您游客账号的所有物品、货币与纪录合并至这个 {0} 账号。\n\n如果您与其他人共享此设备 (电脑、手机等等)，请留意此游客账号是所有使用此设备的人共享的。如果您选择继续，未来此设备上的其他用户将无法合并此游客账号，因为此游客账号只可进行一次合并。您将无法再次重新分配已链接到此游客账号的物品、货币与纪录。\n\n请确认您要将游客账号合并至这个 {0} 账号。
+MergeGuestAccountTitle	合并游客账号
+ManageAccountTitle	管理账号
+ManageAccountText	若要管理您的账号、进行合并，或有其他问题，请前往<link="https://accounts.innersloth.com/">https://accounts.innersloth.com</link> 。
+CurrencyBeans	豆豆
+CurrencyPods	{MapName} Pods
+Cosmetic.visor_BaconVisor	很高兴见到你
+Cosmetic.hat_Baguette	没有面包，只有痛苦
+Cosmetic.skin_Bananaskin	花生酱果冻时间
+Cosmetic.visor_BananaVisor	看到我跌倒
+Cosmetic.nameplate_BlimeyPlate	蓝蓝柠檬！
+Cosmetic.skin_BlueApronskin	点单 - 快捷方便
+Cosmetic.skin_BlueSuspskin	布莱蒙?莱德
+Cosmetic.hat_BreadLoaf	去拿面包
+Cosmetic.nameplate_BreadPlate	面包最好
+Cosmetic.pet_BredPet	波文比
+Cosmetic.visor_BubbleBumVisor	美味软黏
+Cosmetic.hat_Butter	黄油进脑
+Cosmetic.skin_ChefBlackskin	大厨煮什么？- 黑色
+Cosmetic.pet_ChewiePet	口香糖
+Cosmetic.visor_CucumberVisor	美容觉
+Cosmetic.nameplate_EggPlate	开心蛋卷！
+Cosmetic.pet_HamPet	小香肠
+Cosmetic.skin_Hotdogskin	1.50 美元
+Cosmetic.visor_IceCreamChocolateVisor	伤心冰淇淋 - 巧克力
+Cosmetic.visor_IceCreamMintVisor	伤心冰淇淋 - 薄荷
+Cosmetic.visor_IceCreamStrawberryVisor	伤心冰淇淋 - 草莓
+Cosmetic.visor_IceCreamUbeVisor	伤心冰淇淋 - 紫薯
+Cosmetic.hat_OrangeHat	柑橘帽子
+Cosmetic.skin_OrangeSuspskin	橘梦乐团
+Cosmetic.hat_PancakeStack	脂肪堆
+Cosmetic.hat_Pineapple	望眼菠萝
+Cosmetic.skin_PinkApronskin	点单 - 纸杯蛋糕
+Cosmetic.nameplate_PinkPlate	女孩心思
+Cosmetic.nameplate_PizzaPlate	分一杯羹
+Cosmetic.hat_PizzaSliceHat	披萨帽
+Cosmetic.visor_PizzaVisor	你想把我切片吗？
+Cosmetic.nameplate_PlatePlate	我叫普雷特
+Cosmetic.hat_StrawberryLeavesHat	浆果羞涩
+Cosmetic.hat_ToastButterHat	黄油吐司的日子
+Cosmetic.visor_ToastVisor	上学迟到
+Cosmetic.skin_YellowApronskin	点单 - 酒吧
+Cosmetic.skin_YellowSuspskin	柠檬拉丝
+Cosmetic.skin_PinkSuspskin	葡萄柚套装
+Cosmetic.hat_BananaGreen	香蕉皮 - 未熟
+Cosmetic.hat_BananaPurple	香蕉皮  - 霉菌色
+Cosmetic.hat_cheeseBleu	香浓奶酪 - 蓝纹奶酪
+Cosmetic.hat_cheeseMoldy	香浓奶酪  - 臭奶酪
+Cosmetic.hat_cheeseSwiss	香浓奶酪  - 瑞士奶酪
+Cosmetic.hat_ChefWhiteBlue	我是大厨帽 - 怀特厨师
+Cosmetic.hat_cherryOrange	顶上樱桃 - 雷尼尔
+Cosmetic.hat_cherryPink	顶上樱桃 - 粉色
+Cosmetic.hat_chocolateCandy	冰淇淋球 - 泡泡糖
+Cosmetic.hat_chocolateMatcha	冰淇淋球 - 抹茶
+Cosmetic.hat_chocolateVanillaStrawb	冰淇淋球 - 草莓香草
+Cosmetic.hat_croissant	脆皮羊角包
+Cosmetic.hat_eggGreen	荷包蛋 - 绿色
+Cosmetic.hat_eggYellow	荷包蛋 - 蛋黄面朝上
+Cosmetic.skin_ApronGreen	点单 - 拿铁
+Cosmetic.skin_ChefBlue	大厨煮什么？- 蓝色
+Cosmetic.skin_ChefRed	大厨煮什么？
+Cosmetic.hat_IceCreamMatcha	两个雪糕球 - 抹茶
+Cosmetic.hat_IceCreamMint	两个雪糕球 - 薄荷
+Cosmetic.hat_IceCreamNeo	两个雪糕球 - 新波利坦
+Cosmetic.hat_IceCreamStrawberry	两个雪糕球 - 草莓
+Cosmetic.hat_IceCreamUbe	两个雪糕球 - 紫薯
+Cosmetic.hat_IceCreamVanilla	两个雪糕球 - 香草
+Cosmetic.visor_lollipopCrew	棒棒糖 - 船员色
+Cosmetic.visor_lollipopLemon	棒棒糖 - 菠萝
+Cosmetic.visor_lollipopLime	棒棒糖 - 酸苹果
+Cosmetic.nameplate_Croissant	我的羊角包掉了
+Cosmetic.nameplate_Lemon	当柠檬给你人生时
+Cosmetic.nameplate_Orange	橙子，看到我高兴吗？
+Cosmetic.hat_sausage	系紧
+SignInIssueTitle	{0}账号错误
+SignInIssueText	很遗憾，由于账号限制，您的 {0} 无法用于创建账号。请改用其他 {1} 重试。\n\n您可以继续在此设备上玩《Among Us》，但以下功能会受到限制：关联账号、购买星星，以及将物品转移到新设备。如有任何问题，请发送电子邮件至 support@innersloth.com
+FriendListUnavailable	好友列表不可用
+ErrorSanction	由于{0}，您的账号已被封禁。封禁期限：{1}。
+SanctionDuration	{0}
+SanctionPermanent	永久
+SanctionConduct	\r\n请利用这段时间，深刻反省自己的行为，并牢记我们的<link="https://www.innersloth.com/zh/code-of-conduct-chinese-simplified/">行为规范</link>！
+SanctionSexualMisconduct	涉性不当行为
+SanctionDoxing	分享或威胁分享个人信息或人肉搜索
+SanctionIllegalActivity	鼓动或参与非法活动
+SanctionHarassment	发送仇恨、歧视或贬损性质的聊天信息
+SanctionSelfHarmPromotion	鼓动自残或自杀
+SanctionCheatingHacking	作弊/使用外挂
+SanctionSpamming	大量发送垃圾信息
+SanctionUnsportsmanlikeConduct	违反竞技道德的行为
+SanctionInappropriateChatDating	失宜对话
+SanctionBullying	欺凌
+SanctionInappropriateChatPersonalInfo	失宜对话
+SanctionImpersonationDevelopers	冒充开发人员
+SanctionImpersonationCeleb	冒充名人
+SanctionWeaponizingRules	滥用规则
+SanctionInappropriateNameDerogatory	起不适合的用户名
+SanctionInappropriateNameNsfw	起不适合的用户名
+SanctionInappropriateNameUnsportsmanlike	起不适合的用户名
+SanctionRepeatOffender3	反复的冒犯言行
+SanctionRepeatOffender10	反复的冒犯言行
+SanctionUnknown	违反我们的行为规范
+FeaturedItems	特色道具
+FeaturedBundles	特色捆绑包
+FeaturedCubes	特色造型方块
+AbbreviatedDay	{0} 天
+AbbreviatedHour	{0} 小时
+AbbreviatedMinute	{0} 分钟
+AbbreviatedSecond	{0} 秒
+BugReportCategoryGeneral	常规问题
+BugReportCategoryAccountManagement	账号管理
+BugReportCategoryGameplayIssue	游戏问题/错误
+BugReportCategoryServerIssues	服务器问题
+BugReportCategoryBilling	计费和支付帮助
+BugReportPopUpSubmittedText	非常感谢！您的反馈已提交成功。
+BugReportPopUpSubmissionFailedText	您最近已经提交了反馈。请过段时间再试。
+BugReportPopUpCategoryLabel	类别
+BugReportPopUpDescriptionLabel	请详细描述发生这个问题时，您执行了哪些操作。如果需要进一步帮助，请发送电子邮件至 support@innersloth.com。
+BugReportPopUpTitle	哦！出了点问题！
+BugReportIssueButton	提交问题
+BugReportPopUpAttachScreenshotLabel	拍摄屏幕截图？
+BugReportPopUpAttachScreenshotDesc	将拍摄当前游戏屏幕的截图（不包含“帮助”窗口），并将其作为您反馈问题的附件。
+Email	电子邮件
+SettingsHelp	帮助
+UserIdTokenError	用户身份验证已过期。如果此种情况仍然存在，请重启游戏。
+Cosmetic.hat_hl_korone	Inugami Korone 帽子
+Cosmetic.hat_hl_okayu	Nekomata Okayu 帽子
+Cosmetic.hat_hl_gura	Gawr Gura 帽子
+Cosmetic.hat_hl_mio	Ookami Mio 帽子
+Cosmetic.hat_hl_fubuki	Shirakami Fubuki 帽子
+Cosmetic.hat_hl_risu	Ayunda Risu 帽子
+Cosmetic.hat_hl_moona	Moona Hoshinova 帽子
+Cosmetic.hat_hl_pekora	Usada Pekora 帽子
+Cosmetic.hat_hl_marine	Houshou Marine 帽子
+Cosmetic.hat_hl_watson	Watson Amelia 帽子
+Cosmetic.skin_hl_korone	Inugami Korone 皮肤
+Cosmetic.skin_hl_okayu	Nekomata Okayu 皮肤
+Cosmetic.skin_hl_gura	Gawr Gura 皮肤
+Cosmetic.skin_hl_mio	Ookami Mio 皮肤
+Cosmetic.skin_hl_fubuki	Shirakami Fubuki 皮肤
+Cosmetic.skin_hl_risu	Ayunda Risu 皮肤
+Cosmetic.skin_hl_moona	Moona Hoshinova 皮肤
+Cosmetic.skin_hl_pekora	Usada Pekora 皮肤
+Cosmetic.skin_hl_marine	Houshou Marine 皮肤
+Cosmetic.skin_hl_watson	Watson Amelia 皮肤
+Cosmetic.visor_hl_nothoughts	放空
+Cosmetic.visor_hl_sweepy	困
+Cosmetic.visor_hl_smug	一脸得意
+Cosmetic.visor_hl_ah	啊。
+Cosmetic.visor_hl_hmph	哼！
+Cosmetic.visor_hl_teehee	嘻嘻！
+Cosmetic.visor_hl_bored	开始无聊了
+Cosmetic.visor_hl_nudge	推推
+Cosmetic.visor_hl_marine	Marine 的眼罩
+Cosmetic.visor_hl_wrong	哈哈，这会有什么问题呢？
+AccountDeleteHelp	按下“确认”即表明您请求删除您在《Among Us》中的所有数据。此请求将需要 7-14 天，并将导致所有的星星、经验值、豆豆、豆荚和购买的外观被删除。一旦您的账号被完全删除，我们将无法恢复。在删除过程完成之前，您的账号将可以正常使用。\n\n如果遇到任何错误，请联系 support@innersloth.com。
+DeleteAccount	删除账号
+DoNotDeleteAccount	取消删除账号
+AccountUnDeleteHelp	按下“确认”即表明您要求中止删除账号。如果想删除账号，您需要再次提交申请。\n\n如果遇到任何错误，请联系 support@innersloth.com。
+ConfirmDelete	请输入 DELETE 确认删除
+ConfirmDeleteAccounts	勾选此框以确认您明白这将删除此账号及其关联账号（{0}）。
+ConfirmDeleteAccountsEmpty	勾选此框以确认您明白这将删除此账号及其关联账号。
+AccountRequestDelete	待删除账号
+UserVersionError	版本错误：此房间是以 Among Us {0} 创建的
+Cosmetic.visor_vr_Vr-Black	虚拟现实 - 黑色
+Cosmetic.visor_vr_Vr-White	虚拟现实 - 白色
+GameType	游戏类型
+GameTypeError	出错啦！
+GameTypeClassic	经典
+GameTypeHideAndSeek	捉迷藏
+ShowCrewmateNames	显示名称
+HideActionButton	躲藏
+HasBeenKilled	被杀了
+Random	随机
+Ghost	鬼魂
+CurrentlyHaunting	当前鬼魂：
+RoundRobin	循环赛
+RuleOneCrewmates	坚持活下来，直到时间结束。\n完成任务可以推进时间。
+RuleTwoCrewmates	利用通风口和威胁指示器躲藏！
+RuleThreeCrewmates	开始计时后，伪装者会开始追杀你！
+RuleOneImpostor	在规定时间内，杀死所有船员！
+RuleTwoImpostor	必须尽快行动！你的视野受限，并且无法进入通风口。
+RuleThreeImpostor	在最后关头，你将获得速度提升和行踪提示！
+RuleOneCrewmatesTitle	完成任务
+RuleTwoCrewmatesTitle	躲避杀手
+RuleThreeCrewmatesTitle	终局躲藏
+RuleOneImpostorTitle	早杀多杀
+RuleTwoImpostorTitle	寻找猎物
+PetAction	宠物
+EscapeTime	躲藏时间
+FinalEscapeTime	终局躲藏时间
+UseFlashlight	手电筒模式
+CrewmateFlashlightSize	船员手电筒范围
+ImpostorFlashlightSize	伪装者手电筒范围
+SeekerFinalSpeed	终局躲藏伪装者速度
+SeekerFinalMap	终局躲藏地图
+SeekerPings	终局躲藏定位
+MaxPingTime	定位间隔
+TagsTitle	标签
+FiltersTitle	筛选
+TagFiltersTitle	筛选
+FiltersAppliedSingular	已应用 {0} 个筛选条件
+FiltersAppliedPlural	已应用 {0} 个筛选条件
+TagsFilteredSingular	需要{0}个标签
+TagsFilteredPlural	需要{0}个标签
+TagsAppliedSingular	已应用{0}个标签
+TagsAppliedPlural	已应用{0}个标签
+DefaultFilterTag_FirstTime	新手
+DefaultFilterTag_Casual	休闲
+DefaultFilterTag_Serious	认真
+DefaultFilterTag_Expert	专家
+TagFiltersHelpFindGame	你可以通过从筛选下拉列表中选择标签来筛选游戏搜索。你选择的筛选将与搜索结果<i>完全匹配</i>。\\n\n例如：如果你选择<b>休闲</b>和<b>专家</b>，那么将只能找到同时使用<b>休闲</b>与<b>专家</b>筛选标签的游戏。
+TagFiltersHelpCreate	你可以使用筛选为游戏加上标签，帮助玩家找到你的游戏。你选择的筛选将与搜索结果<i>完全匹配</i>。\n\n例如：如果你选择<b>休闲</b>和<b>专家</b>，那么只有同时筛选搜索<b>休闲</b>和<b>专家</b>才可以看到你的游戏。
+MapFiltersSelected	已选择 {0} 张地图
+FindGameNeedsRefresh	筛选设置已更改\n\n请刷新
+CreateLabel	创建
+NewGameMode	全新游戏模式！
+NewModeInfo	在这个惊心动魄的模式里，你必须玩命才能胜利！\n<i>但是别着急，这可不是普通的捉迷藏......</i>
+HideSeekHowToPlayCaptionOne	太简单了！
+HideSeekHowToPlayCaptionTwo	船员！
+HideSeekHowToPlayCaptionThree	伪装者！
+HideSeekHowToPlayPageOne	<color=#38F25D><b>船员：</b></color>完成任务，推进计时，避开伪装者，坚持活下来，直到时间结束。\n\n<color=#FF3131><b>伪装者：</b></color>找到船员，杀掉他们。
+HideSeekHowToPlaySubtextOne	这里没有讨论和推理，只有惊声尖叫。
+HideSeekHowToPlayCrewmateInfoOne	掌握躲藏和偷袭技能才能生存下去。
+HideSeekHowToPlayCrewmateInfoTwo	该模式下，你可以使用通风口，还能得到一个高科技的威胁指示器，当伪装者靠近时，你就会获得提醒。伪装者的视野有限，所以用你的智慧、通风口和指示器来躲开他们！
+HideSeekHowToPlayImpostorInfoOne	该模式下，伪装者无法进入通风口，所以你需要快速行动才能抓住猎物。四周一片漆黑！还好，你有手电筒可以帮你找到下一个受害者。
+HideSeekHowToPlayFinalHide	这是最最最后的终局对决。在游戏的最后时刻，伪装者的能力会获得提升：他们的速度更快，还会得到特殊的搜索地图，能够定位到幸存船员的所在位置。\\n\n要想获胜，就要机动灵活，有策略地逃跑！
+HideSeekHowToPlayFlashlightMobile	使用屏幕右侧的手电筒模拟摇杆指引光束，杀死你能找到的所有船员！
+HideSeekHowToPlayFlashlightDefault	使用鼠标指引手电筒光束，杀死你能找到的所有船员！
+HideSeekHowToPlayFlashlightConsoles	使用右摇杆指引光束，杀死你能找到的所有船员！
+HideSeekHowToPlayFlashlightPlayStation	使用右操作杆指引光束，杀死你能找到的所有船员！
+HideSeekHowToPlayFlashlightSwitch	使用 R 摇杆指引光束，杀死你能找到的所有船员！
+OptionUnavailablePublicLobby	大厅没有可用的选项
+Cosmetic.nameplate_ballPit	请多给一个小时
+Cosmetic.nameplate_cafeteria	我可以和你坐一起吗？
+Cosmetic.nameplate_deadbodyfound	发现尸体！
+Cosmetic.nameplate_ejected	你叫破喉咙吧
+Cosmetic.nameplate_flagAce	无性恋尊严旗帜
+Cosmetic.nameplate_flagAgend	无性别尊严旗帜
+Cosmetic.nameplate_flagBi	两性尊严旗帜
+Cosmetic.nameplate_flagGendF	流性尊严旗帜
+Cosmetic.nameplate_flagGendQ	性别酷儿尊严旗帜
+Cosmetic.nameplate_flagNonbinary	非二元性别尊严旗帜
+Cosmetic.nameplate_flagPan	泛性别尊严旗帜
+Cosmetic.nameplate_flagPride	包容性别尊严旗帜
+Cosmetic.nameplate_flagLesbian	女同性恋尊严旗帜
+Cosmetic.nameplate_flagRainbow	男同性恋尊严旗帜
+Cosmetic.nameplate_flagTrans	跨性别尊严旗帜
+Cosmetic.nameplate_flashlight	谁在那里？
+Cosmetic.nameplate_impostor	发生破坏事件
+Cosmetic.nameplate_ninjas	躲在阴影里
+Cosmetic.nameplate_polus	Polus 极寒
+Cosmetic.nameplate_reactor	船员反应
+Cosmetic.nameplate_ripple	涟漪效果
+Cosmetic.nameplate_seeker	疑惑的阴影
+Cosmetic.nameplate_shhh	嘘嘘嘘嘘
+Cosmetic.pet_nuggetPet	鸡块
+Cosmetic.visor_Candycane	糖果棒杀戮
+Cosmetic.nameplate_candyCanePlate	圣诞宝贝
+Cosmetic.pet_coaltonpet	克尔顿
+Cosmetic.skin_greedygrampaskin	贪婪的老爷子
+Cosmetic.visor_IceBeard	我是一个冰人
+Cosmetic.hat_Igloo	冰冠帽
+Cosmetic.hat_Present	盒盖
+Cosmetic.skin_presentskin	礼品公司
+Cosmetic.visor_Rudolph	鼻子这么亮
+Cosmetic.skin_scarfskin	舒适围巾
+Cosmetic.hat_Scrudge	你在那里，孩子！
+Cosmetic.hat_Snowman	冰冷伪装
+Cosmetic.nameplate_SnowmiesPlate	与我的雪一起飘荡
+Cosmetic.hat_StarTopper	我是那颗星
+Cosmetic.skin_uglysweaterskin	丑陋的树懒毛衣
+Cosmetic.nameplate_winterForestPlate	松香
+Cosmetic.nameplate_WrappingPaperPlate	包大人
+Cosmetic.hat_crownBean	豆子男爵
+Cosmetic.hat_crownDouble	双冠
+Cosmetic.hat_crownTall	高高在上
+Cosmetic.hat_wigJudge	大人物
+Cosmetic.hat_wigTall	超大人物
+Cosmetic.hat_cashHat	百元大钞
+Cosmetic.hat_tinFoil	好家伙，这是阴谋
+Cosmetic.hat_mareLwyd	幽灵马
+Cosmetic.hat_schnapp	施纳普大逃亡
+Cosmetic.hat_Sorry	对不起
+Cosmetic.visor_wash	污垢
+Cosmetic.visor_anime	动漫眼镜
+Cosmetic.visor_teary	不是我
+Cosmetic.visor_tvColorTest	停播
+Cosmetic.visor_beautyMark	美人痣
+Cosmetic.visor_Stealthgoggles	潜行目镜
+Cosmetic.visor_Plsno	求你了，不是我
+Cosmetic.hat_NewYear2023	2023 新年
+Cosmetic.pet_HolidayHamPet	假日小香肠
+Cosmetic.pet_YuleGoatPet	耶夫勒羊
+Cosmetic.skin_Box1skin	打包
+Cosmetic.skin_BubbleWrapskin	易碎
+Cosmetic.skin_Burlapskin	粗麻布风格
+Cosmetic.skin_BushSign1skin	灌木而已啦
+Cosmetic.skin_Horse1skin	幽灵马袍
+Cosmetic.skin_Sack1skin	土豆袋
+Cosmetic.skin_benoit	Benoit Blanc
+Cosmetic.hat_babybean	豆宝宝
+Cosmetic.skin_Astronaut-Blueskin	宇航员 - 蓝色
+Cosmetic.skin_Astronaut-Cyanskin	宇航员 - 浅蓝
+Cosmetic.skin_Astronaut-Orangeskin	宇航员 - 橙色
+HauntAbilityName	幽幽鬼影
+RestorePurchases	恢复购买
+StatsHidenSeekGamesCrewmateSurvived	捉迷藏游戏存活次数：\t
+StatsHidenSeekTimesVented	捉迷藏中使用通风口的次数：\t
+StatsTimesPettedPet	抚摸动作：\t
+StatsImpostorKills_HideAndSeek	捉迷藏伪装者击杀次数：\t
+StatsFastestCrewmateWin_HideAndSeek	捉迷藏船员最快获胜速度：\t
+StatsFastestImpostorWin_HideAndSeek	捉迷藏伪装者最快获胜速度：\t
+StatsHideAndSeekImpostorVictory	捉迷藏伪装者胜利数：\t
+StatsHideAndSeekCrewmateVictory	捉迷藏船员胜利数：\t
+SeekButton	寻找猎物
+ScrollList	滚动列表
+ScrollNews	滚动新闻
+AmongUsAnnouncements	《Among Us》公告
+Cosmetic.hat_osiris	奥斯里斯头盔
+Cosmetic.hat_maraSov	玛拉·索维
+Cosmetic.skin_D2Osiris	奥斯里斯护甲
+Cosmetic.hat_saint14	圣人14号头盔
+Cosmetic.skin_D2Saint14	圣人14号护甲
+Cosmetic.hat_shaxx	沙克斯头盔
+Cosmetic.skin_D2Shaxx	沙克斯护甲
+Cosmetic.hat_titan	泰坦头盔
+Cosmetic.hat_warlock	术士头盔
+Cosmetic.hat_hunter	猎人兜帽
+Cosmetic.skin_D2Titan	泰坦护甲
+Cosmetic.skin_D2Warlock	术士护甲
+Cosmetic.skin_D2Hunter	猎人护甲
+Cosmetic.hat_starhorse	星马
+Cosmetic.hat_savathun	萨瓦图恩的王冠
+Cosmetic.visor_savathun	萨瓦图恩之眼
+Cosmetic.hat_caiatl	查厄托头盔
+Cosmetic.visor_eliksni	埃里克斯尼面罩
+Cosmetic.hat_pyramid	金字塔
+Cosmetic.visor_erisBandage	埃里斯·摩恩绷带
+Cosmetic.hat_erisMorn	埃里斯·摩恩
+Cosmetic.hat_chalice	卡鲁斯圣杯
+Cosmetic.pet_D2PoukaPet	普卡
+Cosmetic.pet_D2WormPet	蠕虫
+Cosmetic.pet_D2GhostPet	机灵
+Cosmetic.nameplate_titan	泰坦骄傲
+Cosmetic.nameplate_warlock	术士骄傲
+Cosmetic.nameplate_hunter	猎人骄傲
+Cosmetic.nameplate_lightfall	光陨之秋
+AnnouncementErrorSubtitle	糟糕！公告出问题了！
+AnnouncementErrorText	似乎出问题了。请确保您的游戏在线，并更新到最新版本，以获得《Among Us》的所有最新信息和修复。\n\n 如果仍遇到问题，请将客服表单发送至邮箱 support@innersloth.com。
+ReadMoreLabel	查看完整公告！
+ReturnToList	返回列表
+NavigateLinks	导航链接
+HttpErrorContextNone	连接服务器时发生了错误
+HttpErrorContextAuthenticate	身份验证时发生了错误
+HttpErrorContextRequestGameCode	寻找游戏代码时发生了错误
+HttpErrorContextFindHostServer	寻找主机服务器时发生了错误
+HttpErrorContextRequestGamesList	请求游戏列表时发生了错误
+HttpErrorUnknown	未知错误
+HttpErrorBadRequest	请求错误。代码：400
+HttpErrorUnauthorized	未经授权。代码：401
+HttpErrorForbidden	已被禁用。代码：403
+HttpErrorNotFound	未找到。代码：404
+HttpErrorMethodNotAllowed	配置方式不允许。代码：405
+HttpErrorRequestTimeout	请求超时。代码：408
+HttpErrorTooManyRequests	请求过多。代码：429
+HttpErrorInternalServerError	内部服务器错误。代码：500
+HttpErrorBadGateway	网关错误。代码：502
+HttpErrorServiceUnavailable	服务不可用。代码：503
+HttpErrorGatewayTimeout	网关超时。代码：504
+AgeVerificationTitle	年龄验证
+AgeVerificationInfoTitle	什么是年龄验证？
+AgeVerificationInfo	您在进入《Among Us》之前，需要进行年龄验证。我们不会储存您的出生日期信息。
+AgeVerificationMoreInfo	更多关于我们的隐私政策的内容，请访问：\n <link="https://www.innersloth.com/zh/privacy-policy-chinese/">https://www.innersloth.com/zh/privacy-policy-chinese/</link>
+EditLabel	编辑
+VerifyAgeText	您的出生日期信息是否正确？
+Cosmetic.nameplate_flagMlm	男男相恋尊严旗帜
+Cosmetic.nameplate_flagAro	无恋倾向尊严旗帜
+Cosmetic.visor_chimkin	小鸡嘴
+Cosmetic.hat_rabbitEars	兔耳朵
+Cosmetic.hat_fishCap	鱼所畏惧
+Cosmetic.hat_bandanaWBY	包头巾
+PlayLabel	开始
+SettingsLabel	设置
+NewsLabel	新闻
+AccountLabel	我的账户
+CreditsLabel	制作人员
+ShopLabel	商店
+InventoryLabel	仓库
+StatsLabel	属性
+FriendsLabel	好友
+Cosmetic.hat_starBalloon	五星气球帽
+Cosmetic.visor_shuttershadesWhite	炫目迷醉 - 白色
+Cosmetic.visor_shuttershadesPink	炫目迷醉 - 拉德曼
+Cosmetic.visor_shuttershadesPurple	炫目迷醉 - 紫色
+Cosmetic.visor_shuttershadesBlue	炫目迷醉 - 蓝色
+Cosmetic.visor_shuttershadesLime	炫目迷醉 - 绿色
+Cosmetic.visor_shuttershadesYellow	炫目迷醉 - 黄色
+Cosmetic.hat_glowstickPink	通宵狂欢 - 粉色
+Cosmetic.hat_glowstickYellow	通宵狂欢 - 黄色
+Cosmetic.hat_glowstickCyan	通宵狂欢 - 青色
+Cosmetic.hat_glowstickOrange	通宵狂欢 - 橘色
+Cosmetic.hat_glowstickPurple	通宵狂欢 - 紫色
+Cosmetic.pet_Pip	Pip
+Cosmetic.pet_Pusheen	Pusheen
+Cosmetic.pet_Stormy	Stormy
+Cosmetic.nameplate_pusheen_01	一道彩虹表示什么？
+Cosmetic.nameplate_pusheen_02	草莓田
+Cosmetic.nameplate_pusheen_03	甜甜圈欺负我
+Cosmetic.nameplate_pusheen_04	这里有什么？
+Cosmetic.hat_pusheenGreyHat	Pusheen帽子
+Cosmetic.hat_PusheenicornHat	超级Pusheenicorn
+Cosmetic.hat_pusheenMintHat	淡绿Pusheen
+Cosmetic.hat_pusheenPurpleHat	淡紫Pusheen
+Cosmetic.hat_pusheenPinkHat	淡粉Pusheen
+Cosmetic.hat_pusheenSitHat	朕就坐这了
+Cosmetic.hat_pusheenSleepHat	小咪一会儿
+Cosmetic.hat_SlothHat	Sloth
+Cosmetic.visor_pusheenGorgeousVisor	超美！
+Cosmetic.visor_pusheenKissyVisor	亲亲喵喵
+Cosmetic.visor_pusheenKoolKatVisor	酷猫
+Cosmetic.visor_pusheenOmNomNomVisor	啊呜啊呜
+Cosmetic.visor_pusheenSmileVisor	Pusheen笑笑
+Cosmetic.visor_pusheenYaaaaaayVisor	耶耶耶
+Cosmetic.skin_PusheenGreyskin	Pusheen
+Cosmetic.skin_Pusheenicornskin	超级Pusheenicorn
+Cosmetic.skin_PusheenMintskin	淡绿Pusheen
+Cosmetic.skin_PusheenPinkskin	淡粉Pusheen
+Cosmetic.skin_PusheenPurpleskin	淡紫Pusheen
+Cosmetic.skin_Slothskin	Sloth
+Cosmetic.hat_bearyCold	哆嗦熊
+EosAccountSilentMergeFail	确定您的 Among Us 账号时遇到了问题。请重试或继续使用游客账号。所有进度都会保存，但我们建议建立一个账号，以便完整享受 Among Us 中的全部功能。\n\n是否再次尝试建立账号？
+AskForEosAccount	您是否拥有现有的 Among Us 账号？（即 Epic Online Services 账号。）\n\n如果您已在此设备上玩过 Among Us，请选择“是”。
+KwsCreateFail	糟糕！发送监护人许可邮件时发生了错误。请重新尝试或在离线模式下继续。\n\n是否重试？
+MissingGuardianEmailText	您的账号缺少监护人电子邮箱。我们需要通过电子邮件征求您监护人的许可才能继续。如果监护人同意，您便可以在线使用自由聊天和更改用户名称。请寻求成年人协助您取得许可吧！
+MiningPit	矿坑
+Jungle	丛林
+BuildSandcastle	搭建沙堡
+FishingDock	码头
+CatchFish	捕鱼
+CollectShells	收集贝壳
+LiftWeights	举重
+RoastMarshmallow	烤棉花糖
+TestFrisbee	扔飞盘
+CollectSamples	收集样本
+CollectVegetables	收集蔬菜
+HoistSupplies	吊起物资
+MineOres	开采矿石
+ReplaceParts	更换零件
+HelpCritter	帮助生物
+RecRoom	水花区
+Lookout	瞭望台
+Beach	沙滩
+Highlands	悬崖
+SleepingQuarters	宿舍
+CrankGenerator	启动发电机
+FixAntenna	修理天线
+TuneRadio	寻找信号
+MushroomMixupSabotage	蘑菇混合启动时长：{0}
+MushroomMixupName	蘑菇混合
+CollectStick	收集棍子
+MineOresMine	使用十字镐
+PolishGem	抛光宝石
+ExtractFuel	提取燃料
+MonitorMushroom	监视蘑菇
+WipeSand	擦除沙粒
+PlayVideogame	玩电子游戏
+CookFish	烧鱼
+PrepVegetables	准备蔬菜
+LobbyTimerExpiringTitle	大厅即将到期
+LobbyTimerExpiringMsg	将大厅延长 {0}？
+LobbyTimerExpiringOk	延长
+LobbyTimerExpiringNo	关闭
+LobbyTimerExpiringUnit	秒
+LobbyTimerExpiringMsg2	大厅关闭倒计时：{0}。
+LobbyTimerExpiringHud	大厅到期倒计时：{0}
+Cosmetic.hat_pickaxe	失手了
+Cosmetic.hat_anchor	起锚
+Cosmetic.hat_antenna	打碟天线
+Cosmetic.hat_sharkfin	陆地鲨鱼
+Cosmetic.hat_lilShroom	小小菌子
+Cosmetic.hat_mushbuns	萌萌菇
+Cosmetic.hat_bucket	沙堡之王
+Cosmetic.hat_mushroomBeret	蘑菇贝雷帽
+Cosmetic.hat_fungleFlower	臭臭粉花
+Cosmetic.hat_fishingHat	为你钓鱼
+Cosmetic.hat_killerplant	它喜欢我
+Cosmetic.hat_shovel	我在挖掘
+Cosmetic.hat_beachball	一切在于平衡
+Cosmetic.hat_bucketHat	这叫时尚
+Cosmetic.hat_mysteryBones	挑骨头
+Cosmetic.visor_doubleeyepatch	瞎眼龙
+Cosmetic.visor_marshmallow	烤烤
+Cosmetic.visor_starfish	黏上你了
+Cosmetic.visor_fishhook	愿者上钩
+Cosmetic.visor_sunscreenv	SPF 0
+Cosmetic.skin_FishSkinskin	子非鱼
+Cosmetic.skin_FishingSkinskin	沽名钓鱼
+Cosmetic.skin_InnerTubeSkinskin	我不会游泳
+Cosmetic.skin_LifeVestSkinskin	要落水啦
+Cosmetic.pet_Creb	蟹蟹
+Cosmetic.nameplate_zipline	穷途末路
+Cosmetic.nameplate_grill	烧烤大师
+Cosmetic.nameplate_plant	植物肉
+Cosmetic.nameplate_sandcastle	沙堡不保
+Cosmetic.nameplate_cliffs	炫崖俏壁
+ReportNotificationHeader	感谢您帮助《Among Us》维护安全、友好的环境！
+ReportNotificationBody	我们的管理团队将会审核您报告的信息，并基于我们的《行为准则》采取适当措施。
+ErrorClientTimeout	您与服务器的连接已中断。原因可能是服务器问题、网络问题或设备问题。请检查您的网络强度。\n\n如果这种情形频繁发生，您的设备可能过于老旧，或者未达到最低规格要求。请尝试在其他设备上游玩。
+ErrorClientTimeoutConsole	您与服务器的连接已中断。原因可能是服务器问题或网络问题。请检查您的网络强度。
+Cosmetic.hat_NewYear2024	2024 新年
+Cosmetic.nameplate_Celeste	勇往直前
+Cosmetic.nameplate_flyingStrawberry	快抓住我
+Cosmetic.hat_madeline	玛德琳的头发
+Cosmetic.hat_badeline	柏德琳的头发
+Cosmetic.visor_theobeard	西奥的胡子
+Cosmetic.hat_theohair	西奥的头发
+Cosmetic.hat_bird	蓝“鸟”
+Cosmetic.skin_Theoskin	西奥的装备
+Cosmetic.skin_MadelineSkinskin	玛德琳的装备
+Cosmetic.skin_BadelineSkinskin	柏德琳的夹克
+Cosmetic.pet_Strawb	飞行的草莓
+Cosmetic.pet_napstamate	纳普斯塔梅特
+Cosmetic.hat_undyne	正义的马尾
+Cosmetic.hat_floweyGood	你最好的朋友
+Cosmetic.hat_floweyBad	你最糟糕的噩梦
+Cosmetic.hat_spear	正义之矛
+Cosmetic.hat_boneUndertale	Bonetrousle
+Cosmetic.hat_duck	载人鸟
+Cosmetic.nameplate_flowers	很久以前
+Cosmetic.nameplate_fight	你会玩得很开心
+Cosmetic.skin_Undyneskin	正义的休闲装
+Cosmetic.skin_Sanskin	某个家伙的连帽衫
+Cosmetic.skin_Papyrusskin	CoolSkeleton95
+Cosmetic.nameplate_battlefield	我们吵一架吧
+Cosmetic.nameplate_hominid	ZAP!
+Cosmetic.hat_castleCrasher	克拉希尔的头盔
+Cosmetic.hat_hattyHattington	哈蒂·哈廷顿的帽子
+Cosmetic.hat_alienHominid	外星人的触角
+Cosmetic.hat_king	金利·克罗恩
+Cosmetic.visor_hattyHattington	哈蒂的美味眼泪
+Cosmetic.visor_king	金利·帝格尼缇
+Cosmetic.visor_alienHominid	外星人反颌
+Cosmetic.pet_Rammy	拉米
+Cosmetic.skin_KingSkinskin	金利·罗布斯
+Cosmetic.skin_HattySkinskin	哈蒂的愉快西装
+Cosmetic.skin_CrusaderSkinskin	克拉希尔的盔甲
+Cosmetic.nameplate_hourglass	没有多余时间
+Cosmetic.nameplate_shadows	你的合同已到期
+Cosmetic.hat_hatkid	儿童帽
+Cosmetic.hat_conductor	指挥员的帽子
+Cosmetic.hat_mustachegirl	胡子女孩的兜帽
+Cosmetic.hat_bowkid	弓小子的弓
+Cosmetic.skin_HatKidSkinskin	儿童斗篷
+Cosmetic.skin_MoustacheKidSkinskin	胡子女孩的长袍
+Cosmetic.skin_Conductorskin	指挥员的制服
+Cosmetic.skin_BowKidskin	弓小子的裙子
+Cosmetic.pet_Crow	疯狂的乌鸦
+Cosmetic.visor_mustachegirl	胡子女孩的胡子
+Cosmetic.nameplate_torch	点亮夜晚
+Cosmetic.nameplate_dungeonFloor	跳舞直到你倒下（死亡）
+Cosmetic.hat_shopkeeper	弗雷德里克的帽子
+Cosmetic.hat_cadence	卡登思的大围巾
+Cosmetic.hat_nocturna	诺卡特娜的马尾
+Cosmetic.hat_skull	我可以说是认识他们
+Cosmetic.skin_FrederickSkinskin	弗雷德里克的装备
+Cosmetic.skin_CadenceSkinskin	卡登思的传令官制服
+Cosmetic.skin_Nocturnaskin	诺卡特娜的双翼
+Cosmetic.visor_shopkeeper	弗雷德里克的山羊胡子
+Cosmetic.pet_DancingSkeletonPet	老爷车
+Cosmetic.nameplate_honk	HONK
+Cosmetic.nameplate_knife	和平从来都不是一种选择
+Cosmetic.pet_GoosePet	大鹅
+Cosmetic.hat_bell	金钟
+Cosmetic.hat_goosefloaty	无名鹅绒
+Cosmetic.hat_gardener	园丁帽
+Cosmetic.visor_goose	鹅喙
+Cosmetic.visor_gardenernose	园丁鼻子
+Cosmetic.visor_wimpglasses	温普的眼镜
+Cosmetic.skin_GardenerSkin1skin	园丁装备
+Cosmetic.skin_Wimpskin	温普的衣柜
+Cosmetic.hat_shiitakeHat	X标记点
+Cosmetic.hat_mushmuffsHat	低保真真菌耳机
+Cosmetic.hat_shrapnelHat	让地板撞击身体
+Cosmetic.visor_mushroomeyesVisor	孢子视觉
+Cosmetic.visor_animesunglassesVisor	看起来很犀利
+Cosmetic.visor_starsunglassesmintVisor	幻想 - 薄荷色
+Cosmetic.visor_heartsunglassesgoldVisor	很高兴见到你 - 黄色
+Cosmetic.nameplate_binocularsNameplate	真菌巡逻队
+Cosmetic.nameplate_DeadSunsetNameplate	一天结束时
+Cosmetic.skin_Skins14_5skin	Fungle霸主裤
+Cosmetic.hat_lny_soupSpoon	妙味汤包
+Cosmetic.hat_lny_lantern	吉灯高照
+Cosmetic.hat_lny_dancerHead	龙头当先
+Cosmetic.hat_lny_dancerBody	承前启后
+Cosmetic.hat_lny_dancerTail	神龙摆尾
+Cosmetic.nameplate_lny_monkey	猴年
+Cosmetic.nameplate_lny_tiger	虎年
+Cosmetic.nameplate_lny_horse	马年
+Cosmetic.nameplate_lny_goat	羊年
+Cosmetic.nameplate_lny_rooster	鸡年
+Cosmetic.nameplate_lny_snake	蛇年
+Cosmetic.nameplate_lny_dragon	龙年
+Cosmetic.nameplate_lny_boar	猪年
+Cosmetic.nameplate_lny_dog	狗年
+Cosmetic.nameplate_lny_rabbit	兔年
+Cosmetic.nameplate_lny_ox	牛年
+Cosmetic.nameplate_lny_cat	猫年
+Cosmetic.nameplate_lny_rat	鼠年
+Cosmetic.nameplate_lny_lanterns	灯辉熠熠
+Cosmetic.nameplate_lny_incense	烟雾缭绕
+Cosmetic.skin_lny_dragonDancer	舞动飞龙
+Cosmetic.nameplate_lny_beanDragon	传奇豆豆龙
+Cosmetic.nameplate_lny_clouds	祥瑞
+Cosmetic.nameplate_lny_redPackets	红包雨
+Cosmetic.pet_lny_dragon	小巧玲龙
+Cosmetic.hat_lny_ox	牛转乾坤
+Cosmetic.hat_lny_dog	一丝不狗
+Cosmetic.hat_lny_horse	马到成功
+Cosmetic.hat_lny_pig	猪圆玉润
+Cosmetic.hat_lny_rat	鼠不胜数
+Cosmetic.hat_lny_cat	吸彩虹喵？
+Cosmetic.hat_lny_monkey	猴头猴脑
+Cosmetic.hat_lny_rooster	大鸡大利
+Cosmetic.hat_lny_goat	喜气羊羊
+Cosmetic.hat_lny_dragon	白金龙王
+Cosmetic.hat_lny_tiger	虎头大耳
+Cosmetic.hat_lny_rabbit	萝卜大仙
+Cosmetic.visor_lny_rat	谁动了奶酪
+Cosmetic.visor_lny_snake	嘶嘶作响
+Cosmetic.visor_lny_pig	一秒钟变猪鼻子
+Cosmetic.visor_lny_tiger	去吧，猛虎
+Cosmetic.visor_lny_dragon	龙须眼镜
+Cosmetic.nameplate_lny_goldCrewmate	好运连连
+Cosmetic.nameplate_lny_goldImpostor	逢凶化吉
+AprilFoolsModeToggle	愚人节模式（造型物品受限）
+ErrorAuthNonceFailure	有内鬼搞破坏！Among Us 服务器进行验证时发生了一个错误。请稍后重试。\n\n如果问题依旧存在，请<link="https://innersloth.zendesk.com/hc/en-us/requests/new">提交支持工单</link>。
+Cosmetic.nameplate_crewmatesBlue	时髦船员：蓝色
+Cosmetic.nameplate_crewmatesRed	时髦船员：红色
+Cosmetic.nameplate_horseHeaven	马到成功
+Cosmetic.nameplate_horsemateField	青青马场
+Cosmetic.hat_fluffyHat	舒适小丑帽
+Cosmetic.hat_topHatMinimate	迷你礼帽船员
+Cosmetic.hat_triplePartyHat	三人派对
+Cosmetic.visor_happyMouthNote	我很开心
+Cosmetic.visor_henry	骄傲火柴人
+Cosmetic.visor_thatFace	你、好
+Cosmetic.hat_bb1_bucketHatBee	这叫时尚：蜜蜂
+Cosmetic.hat_bb1_bucketHatBlack	这叫时尚：黑色
+Cosmetic.hat_bb1_bucketHatCamo	这叫时尚：迷彩
+Cosmetic.hat_bb1_bucketHatFlowers	这叫时尚：花朵
+Cosmetic.hat_bb1_bucketHatWhite	这叫时尚：卡其色
+Cosmetic.hat_bb1_bunnyBlack	兔耳朵：黑色
+Cosmetic.hat_bb1_sunHatGreen	阳光明媚：薄荷色
+Cosmetic.hat_bb1_sunHatYellow	阳光明媚：黄色
+Cosmetic.hat_bb1_lilShroomRed	小小菌子：红色
+Cosmetic.hat_bb1_lilShroomBlue	小小菌子：蓝色
+Cosmetic.hat_bb1_lilShroomGlowing	小小菌子：光芒
+Cosmetic.skin_bb1_rainbowTube	我不会游泳：彩虹
+Cosmetic.skin_bb1_fungleDress	绽放
+Cosmetic.nameplate_bb1_disco	疯狂星期五
+Cosmetic.nameplate_bb1_hackerman	正在进入主机
+Cosmetic.nameplate_bb1_ram	重要内存
+Cosmetic.nameplate_bb1_rave	光芒四射
+Cosmetic.nameplate_bb1_zen	禅境
+ViewLabel	查看
+ViewingLabel	正在查看游戏设置……
+RoomCodeLabel	房间代码
+RoomCodeCopied	已复制房间代码！
+RoomSettingsLabel	房间设置
+ModeLabel	预设
+PrivacyLabel	隐私
+CapacityLabel	最大人数
+GameSettingsLabel	游戏设置
+RoleSettingsLabel	角色设置
+GamePresetsLabel	游戏预设
+GamePresetsDescription	为游戏大厅应用推荐设置。
+GamePresetsPopupTitle	警告！
+GamePresetsPopupText	你对游戏设置所做的更改将还原为默认选项！
+GamePresetsPopupContinue	仍然继续
+GamePresetsPopupBack	返回
+StandardRulesPresetDescription	玩法平衡的游戏预设，且没有设置角色。
+RolesRulesPresetDescription	适用于已设置角色的大厅的推荐设置。
+StandardRulesPresetDescriptionHideAndSeek	完美的捉迷藏预设，关闭了手电筒视野。
+FlashlightRulesPresetDescription	船员拥有手电筒视野，且游戏平衡性经过了调整的预设。
+GameSettingsDescription	为游戏大厅编辑个人设置。
+RoleSettingsDescription	为游戏大厅编辑角色设置。
+GameModeStandard	核心设置
+GameModeStandardRoles	角色大全
+GameModeFlashlight	手电筒
+GameModeCustom	自定义
+GameModeStandardSeek	一片漆黑
+ImpostorsCategory	伪装者
+RolesCategory	角色
+MeetingsCategory	会议
+PlayersCategory	船员
+TasksCategory	任务
+InfoLabel	信息
+RoleQuotaLabel	角色数量
+OverviewCategory	总览
+LobbyChangeSettingNotification	{0}设为{1}。
+LobbyChangeSettingNotificationRole	{0}设为{1}，几率：{2}。
+CrewmateRolesHeader	船员角色
+ImpostorRolesHeader	伪装者角色
+LocalLobbyLabel	本地大厅
+NumberRoleHeader	角色数量
+ChanceRoleHeader	几率%
+WaitingForPlayers	正在等待玩家
+FinalHideCategory	终局躲藏
+QCLobbyRoleNoisemakers	大嗓门？
+QCLobbyRoleTrackers	侦察员？
+QCLobbyRolePhantoms	幻象师？
+QCSelfWasTracking	我正在追踪{0}
+QCSelfGoingToNoisemaker	我要当大嗓门
+QCSelfSawRoleInLocation	我看到{0}在{1}
+NoisemakerRole	大嗓门
+NoisemakerBlurb	被杀时发出警报
+NoisemakerBlurbMed	被杀时通知所有船员你的遇害位置。
+NoisemakerBlurbLong	大嗓门并非常规的船员角色。与其他角色不同，大嗓门没有可以主动使用的技能。不过，该角色在被伪装者杀害时，会自动发出警报，顿时让伪装者手足无措。接下来就看你的船员同伴们冲向犯罪现场，抓捕罪犯，为你报仇雪恨吧！
+NoisemakerImpostorAlert	警报惊动伪装者
+NoisemakerAlertDuration	警报持续时间
+PhantomAbility	消失
+PhantomAbilityUndo	出现
+PhantomRole	幻象师
+PhantomBlurb	隐形
+PhantomBlurbMed	隐形可以自由潜行或是避免被杀。
+PhantomBlurbLong	幻象师可以隐匿行踪，暗中跟踪一名船员或是神不知鬼不觉地离开犯罪现场。幻象师在隐形时无法杀人，但依然可以使用梯子和滑索。隐形或现形时都会产生一大团烟雾，因此务必确保周围区域没有任何船员在场！隐形也不会持续太长时间，所以要挑选合适的时机善加利用。
+PhantomCooldown	消失冷却时间
+PhantomDuration	消失持续时间
+TrackerRole	侦察员
+TrackerAbility	追踪
+TrackerAbilityUndo	解除侦察
+TrackerBlurb	使用你的地图追踪一名船员
+TrackerBlurbMed	在一名船员身上放置一枚追踪器，并使用地图查看其动向。
+TrackerBlurbLong	侦察员可以用其小地图查看一名船员的位置。不过在此之前，侦察员必须来到该船员身边并安放追踪装置。当靠近别人时，千万别表现得太过可疑了。追踪只能生效一小段时间，因此要小心选择你的目标。另外，盯着小地图时别太出神了，以防伪装者趁虚而入！
+TrackerCooldown	追踪冷却时间
+TrackerDuration	追踪持续时间
+TrackerDelay	追踪延时
+RolesHelp_Noisemaker_01	大嗓门并非常规的船员角色。与其他角色不同，大嗓门没有可以主动使用的技能。不过，该角色在被伪装者杀害时，会自动发出警报。
+RolesHelp_Noisemaker_02	警报会顿时让伪装者手足无措。接下来就看你的船员同伴们冲向犯罪现场，抓捕罪犯，为你报仇雪恨吧！
+RolesHelp_Tracker_01	侦察员可以用其小地图查看一名船员的位置。不过在此之前，侦察员必须来到该船员身边并安放追踪装置。当靠近别人时，千万别表现得太过可疑了。
+RolesHelp_Tracker_02	追踪只能生效一小段时间，因此要小心选择你的目标。另外，盯着小地图时别太出神了，以防伪装者趁虚而入！
+RolesHelp_Phantom_01	幻象师可以隐匿行踪，暗中跟踪一名船员或是神不知鬼不觉地离开犯罪现场。幻象师在隐形时无法杀人，但依然可以使用梯子和滑索。
+RolesHelp_Phantom_02	隐形或现形时都会产生一大团烟雾，因此务必确保周围区域没有任何船员在场！隐形也不会持续太长时间，所以要挑选合适的时机善加利用。
+HostYouLabel	（你）
+HostNounLabel	房主：
+RoleSettingsAll	全局
+QCCoreSettings	使用“核心设置”预设？
+QCRolesGalore	使用“角色大全”预设？
+QCPitchDark	使用“一片漆黑”预设？
+QCFlashlight	使用“手电筒”预设？
+QCPleaseWait	请等待开始
+QCWaitMinute	马上开始，请稍等
+QCLobbyClosing	大厅即将关闭
+QCChangeCosmetics	我要更改造型物品
+QCWaitingPlayers	正在等待更多玩家……
+QCLetsWaitPlayers	要不要等待更多玩家？
+Cosmetic.hat_nott	Nott的兜帽
+Cosmetic.hat_chetney	Chetney的头带
+Cosmetic.hat_jester	Jester的魔角
+Cosmetic.hat_laudna	Laudna的魔发
+Cosmetic.hat_molly	Mollymauk的魔角
+Cosmetic.hat_artagan	Artagan的魔发
+Cosmetic.hat_fearne	Fearne的魔发
+Cosmetic.hat_vax	Vax的魔发
+Cosmetic.hat_fcg	FCG的脑袋
+Cosmetic.hat_sprinkle	Sprinkle安心帽
+Cosmetic.hat_orthax	Orthax显灵
+Cosmetic.hat_scanlan	Scanlan之手
+Cosmetic.nameplate_eyes	Lucien之九眼
+Cosmetic.nameplate_cupcake	Deliciousness之尘
+Cosmetic.nameplate_moons	Exandria高升之月
+Cosmetic.nameplate_tea	Caduceus品茗之时
+Cosmetic.pet_Pate	P?té
+Cosmetic.pet_Mister	Mister
+Cosmetic.skin_Nott	Nott的斗篷
+Cosmetic.skin_Chetney	Chetney的侦察装
+Cosmetic.skin_Jester	Jester的连衣裙
+Cosmetic.skin_Laudna	Laudna的连衣裙
+Cosmetic.skin_Molly	Mollymauk的罩袍
+Cosmetic.skin_artagan	Artagan的斗篷
+Cosmetic.skin_Fearne	Fearne的斗篷
+Cosmetic.skin_Vax	Vax的护甲
+Cosmetic.visor_nott	Nott的面具
+Cosmetic.visor_chetney	Chetney的浓眉
+Cosmetic.visor_artagan	Artagan的剑眉
+GuardianNewPermissionUpdate	自游戏的 {0} 版本起，根据新的儿童安全法律的要求，所有儿童账号需要家长或监护人授权才能完全访问《Among Us》。您的游戏数据和物品未受影响，但您的账号必须先经过审核才能完全访问。\n\n在您的父母或监护人授权前，您可以继续使用临时受限账号游玩。如果您的账号已附带父母或监护人的电子邮件，则将显示在下方。
+Cosmetic.skin_Edgeworth	御剑怜侍的服装
+Cosmetic.hat_Edgeworth	御剑怜侍的发型
+Cosmetic.hat_paws_panda	诡骗熊猫
+Cosmetic.hat_paws_spaceDog	狗老大
+Cosmetic.hat_paws_fish	愿者上钩
+Cosmetic.hat_paws_raccoon	偷偷摸摸
+Cosmetic.hat_paws_turtle	龟壳压顶
+Cosmetic.hat_paws_foxGrey	狐步舞：灰色
+Cosmetic.hat_paws_antlers	鹿角喧闹
+Cosmetic.hat_paws_opossum	沼泽猫
+Cosmetic.nameplate_paws_fur	萌馨提示
+Cosmetic.nameplate_paws_jaguar	我被发现了
+Cosmetic.nameplate_paws_feathers	鸟羽扎堆
+Cosmetic.nameplate_paws_scales	爬墙虎
+Cosmetic.skin_paws_opossum	垃圾深潜者
+Cosmetic.skin_paws_parrot	飞行服
+Cosmetic.skin_paws_raccoon	小淘气
+Cosmetic.skin_paws_foxGrey	狐一例外：灰色
+Cosmetic.visor_paws_sacabambaspis	合不拢嘴
+Cosmetic.visor_paws_parrotBeak	大显神喙
+Cosmetic.visor_paws_bone	骨头盛宴
+Cosmetic.visor_paws_carrot	视力明晰
+Cosmetic.visor_paws_raccoon	垃圾土匪
+Cosmetic.hat_claws_spaceDog	哔了狗了
+Cosmetic.hat_claws_frog	呱呱叫
+Cosmetic.hat_claws_moose	欢脱鹿
+Cosmetic.hat_claws_dragonRed	巨龙出击：红色
+Cosmetic.hat_claws_bullHorns	牛哄哄
+Cosmetic.hat_claws_foxOrange	狐步舞：橙色
+Cosmetic.hat_claws_squid	鱿鱼得利
+Cosmetic.hat_claws_kuduHorns	羚羊悄咪咪
+Cosmetic.hat_claws_buffaloHorns	水牛角
+Cosmetic.hat_claws_hippo	嬉皮河马
+Cosmetic.nameplate_claws_spaceCat	太空猫队
+Cosmetic.nameplate_claws_spaceDog	太空狗队
+Cosmetic.nameplate_claws_tigerPrint	你超赞的哟
+Cosmetic.nameplate_claws_lilypad	睡莲
+Cosmetic.pet_claws_spaceCat	太空猫
+Cosmetic.skin_claws_stripes	完美对称
+Cosmetic.skin_claws_squid	触手服
+Cosmetic.skin_claws_dragonRed	巨龙陨落：红色
+Cosmetic.skin_claws_frogSuit	蹦蹦跳跳
+Cosmetic.skin_claws_hoofed	蹄子噔噔
+Cosmetic.skin_claws_foxOrange	狐一例外：橙色
+Cosmetic.visor_claws_knife	秀秀能耐
+Cosmetic.visor_claws_smallMuzzle	只是叫得凶
+Cosmetic.visor_claws_whiskers	喵喵叫唤
+Cosmetic.visor_claws_bullRing	酷似门环
+Cosmetic.hat_NewYear2025	2025 新年
