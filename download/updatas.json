@@ -1,5 +1,19 @@
 [
     {
+        "ver": "v1.1.1i",
+        "buildNum": 8,
+        "type": "正式版",
+        "date": "2025-08-15",
+        "size": "330 MB",
+        "url": "downloadFile/?files=https://pan.xxbyq.net/f/d/ZBrPI0/Among%20Us%20Scratch%20OJ%201.1.1i%20Setup.exe",
+        "updata": [
+            "[修改] 任务条从传统的圆形条变为更像原版的方形条",
+            "[修改] 任务列表改为半透明，使其更像原版",
+            "[修复] 修复了无法检查更新和无法登陆的问题",
+            "[云端] 此版本和之前的版本不可互相联机！"
+        ]
+    },
+    {
         "ver": "v1.1.0i",
         "buildNum": 5,
         "type": "正式版",
@@ -220,6 +234,7 @@
         ]
     }
 ]
+
 
 
 
