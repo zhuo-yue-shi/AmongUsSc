@@ -71,7 +71,9 @@ Among Us Scratch OJ 是基于 `Turbowarp` 制作的 `Among Us` 的 **复刻** �
 </div>
 
 ### 星标历史
-![Star History Chart](https://api.star-history.com/svg?repos=zhuo-yue-shi/AmongUsS&type=Date)
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=zhuo-yue-shi/AmongUsSc&type=date&legend=top-left)](https://www.star-history.com/#zhuo-yue-shi/AmongUsSc&type=date&legend=top-left)
 
 ### 声明
 本项目不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。此项目包含的部分素材是 Innersloth LLC 的财产。
