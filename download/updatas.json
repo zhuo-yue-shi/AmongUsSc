@@ -18,7 +18,7 @@
         "buildNum": 5,
         "type": "正式版",
         "date": "2025-08-15",
-        "size": "330 MB",
+        "size": "129.8 MB",
         "url": "downloadFile/?files=https://pan.xxbyq.net/f/d/8DvCk/Among%20Us%20Scratch%20OJ%20v1.1.0i%20Setup.exe",
         "updata": [
             "[新增] 新增了等级系统",
@@ -34,7 +34,7 @@
         "buildNum": 5,
         "type": "正式版",
         "date": "2025-08-12",
-        "size": "335 MB",
+        "size": "129.4 MB",
         "url": "downloadFile/?files=https://pan.xxbyq.net/f/d/vrqhy/Among%20Us%20Scratch%20OJ%201.0.3i%20Setup.exe",
         "updata": [
             "[新增] 新增了8个新头饰",
@@ -50,7 +50,7 @@
         "buildNum": 4,
         "type": "正式版",
         "date": "2025-07-09",
-        "size": "330 MB",
+        "size": "129.0 MB",
         "url": "downloadFile/?files=https://zhuo-yue-shi.github.io/AmongUsSc/download/files/v1.0.3i/Among%20Us%20Scratch%20OJ%20v1.0.3i%20Setup.part1.rar,https://zhuo-yue-shi.github.io/AmongUsSc/download/files/v1.0.3i/Among%20Us%20Scratch%20OJ%20v1.0.3i%20Setup.part2.rar",
         "updata": [
             "[新增] OJ版本用户可以和AUSC原版用户相互联机！",
@@ -234,6 +234,7 @@
         ]
     }
 ]
+
 
 
 
