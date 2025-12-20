@@ -70,7 +70,7 @@ Among Us Scratch OJ 是基于 `Turbowarp` 制作的 `Among Us` 的 **复刻** �
   </a>
 </div>
 
-### 星标历史
+### 星标历史 
 [![Star History Chart](https://api.star-history.com/svg?repos=zhuo-yue-shi/AmongUsSc&type=date&legend=top-left)](https://www.star-history.com/#zhuo-yue-shi/AmongUsSc&type=date&legend=top-left)
 
 ### 声明
