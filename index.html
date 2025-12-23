@@ -384,9 +384,6 @@
                 }, 1500);
             });
             
-            // 点击历史版本按钮
-            historyBtn.addEventListener('click', function(e) {
-                e.preventDefault();
                 
                 // 添加点击反馈
                 this.style.transform = 'scale(0.95)';
@@ -394,11 +391,7 @@
                     this.style.transform = '';
                 }, 150);
                 
-                // 跳转到历史版本页面
-                setTimeout(() => {
-                    window.location.href = './download';
-                }, 300);
-            });
+
             
             // 添加键盘支持
             document.addEventListener('keydown', function(e) {
