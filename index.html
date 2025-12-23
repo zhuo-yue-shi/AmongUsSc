@@ -81,6 +81,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            margin-bottom: 1rem;
         }
         
         .download-btn:hover {
@@ -93,13 +94,45 @@
             transform: translateY(0);
         }
         
-        .download-btn i {
+        .history-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+        
+        .history-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .history-btn:active {
+            transform: translateY(0);
+        }
+        
+        .download-btn i, .history-btn i {
             font-size: 1.2em;
             transition: transform 0.3s ease;
         }
         
         .download-btn:hover i {
             transform: translateY(2px);
+        }
+        
+        .history-btn:hover i {
+            transform: translateY(1px);
         }
         
         .btn-pulse {
@@ -201,6 +234,11 @@
                 padding: 1rem 2.5rem;
             }
             
+            .history-btn {
+                font-size: 0.9rem;
+                padding: 0.7rem 1.8rem;
+            }
+            
             .container {
                 padding: 2rem 1.5rem;
             }
@@ -222,7 +260,14 @@
                 gap: 8px;
             }
             
-            .download-btn i {
+            .history-btn {
+                font-size: 0.8rem;
+                padding: 0.6rem 1.5rem;
+                flex-direction: column;
+                gap: 6px;
+            }
+            
+            .download-btn i, .history-btn i {
                 font-size: 1.4em;
             }
         }
@@ -259,6 +304,14 @@
                 transform: scale(1);
             }
         }
+        
+        /* 按钮容器 */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -277,24 +330,31 @@
         </div>
         
         <div class="download-section">
-            <a href=".download" class="download-btn" id="downloadBtn">
-                <span class="btn-pulse"></span>
-                <i class="fas fa-download"></i>
-                立即下载
-            </a>
+            <div class="buttons-container">
+                <a href=".download" class="download-btn" id="downloadBtn">
+                    <span class="btn-pulse"></span>
+                    <i class="fas fa-download"></i>
+                    立即下载
+                </a>
+                
+                <a href="./file" class="history-btn" id="historyBtn">
+                    <i class="fas fa-history"></i>
+                    历史版本
+                </a>
+            </div>
             
             <div class="loading-dots" id="loadingDots">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            
         </div>
     </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const downloadBtn = document.getElementById('downloadBtn');
+            const historyBtn = document.getElementById('historyBtn');
             const loadingDots = document.getElementById('loadingDots');
             
             // 点击下载按钮
@@ -304,20 +364,40 @@
                 // 显示加载动画
                 downloadBtn.style.opacity = '0.8';
                 downloadBtn.style.pointerEvents = 'none';
+                historyBtn.style.opacity = '0.8';
+                historyBtn.style.pointerEvents = 'none';
                 loadingDots.style.display = 'flex';
                 
                 // 模拟下载过程
                 setTimeout(() => {
                     // 在实际应用中，这里应该跳转到下载页面
-                    window.location.href = './download';
+                    window.location.href = 'https://pan.xxbyq.net/f/d/ZBrPI0/Among%20Us%20Scratch%20OJ%201.1.1i%20Setup.exe';
                     
                     // 恢复按钮状态（如果跳转失败）
                     setTimeout(() => {
                         downloadBtn.style.opacity = '1';
                         downloadBtn.style.pointerEvents = 'auto';
+                        historyBtn.style.opacity = '1';
+                        historyBtn.style.pointerEvents = 'auto';
                         loadingDots.style.display = 'none';
                     }, 3000);
                 }, 1500);
+            });
+            
+            // 点击历史版本按钮
+            historyBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 添加点击反馈
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // 跳转到历史版本页面
+                setTimeout(() => {
+                    window.location.href = './download';
+                }, 300);
             });
             
             // 添加键盘支持
@@ -328,6 +408,10 @@
                 
                 if (e.key === 'Enter' && document.activeElement === downloadBtn) {
                     downloadBtn.click();
+                }
+                
+                if (e.key === 'h' || e.key === 'H') {
+                    historyBtn.focus();
                 }
             });
             
