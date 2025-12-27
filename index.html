@@ -63,6 +63,14 @@
             margin-top: 3rem;
         }
         
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
         .download-btn {
             display: inline-flex;
             align-items: center;
@@ -81,6 +89,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: 350px;
         }
         
         .download-btn:hover {
@@ -93,13 +103,47 @@
             transform: translateY(0);
         }
         
-        .download-btn i {
+        .web-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #ff4655 0%, #c51111 100%);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 6px 20px rgba(255, 70, 85, 0.3);
+        }
+        
+        .web-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 70, 85, 0.5);
+            background: linear-gradient(135deg, #ff5c6a 0%, #d52121 100%);
+        }
+        
+        .web-btn:active {
+            transform: translateY(0);
+        }
+        
+        .download-btn i, .web-btn i {
             font-size: 1.2em;
             transition: transform 0.3s ease;
         }
         
         .download-btn:hover i {
             transform: translateY(2px);
+        }
+        
+        .web-btn:hover i {
+            transform: translateY(1px);
         }
         
         .btn-pulse {
@@ -201,6 +245,11 @@
                 padding: 1rem 2.5rem;
             }
             
+            .web-btn {
+                font-size: 1rem;
+                padding: 0.9rem 2rem;
+            }
+            
             .container {
                 padding: 2rem 1.5rem;
             }
@@ -222,7 +271,14 @@
                 gap: 8px;
             }
             
-            .download-btn i {
+            .web-btn {
+                font-size: 0.9rem;
+                padding: 0.8rem 1.8rem;
+                flex-direction: column;
+                gap: 6px;
+            }
+            
+            .download-btn i, .web-btn i {
                 font-size: 1.4em;
             }
         }
@@ -277,24 +333,31 @@
         </div>
         
         <div class="download-section">
-            <a href=".download" class="download-btn" id="downloadBtn">
-                <span class="btn-pulse"></span>
-                <i class="fas fa-download"></i>
-                立即下载
-            </a>
+            <div class="buttons-container">
+                <a href=".download" class="download-btn" id="downloadBtn">
+                    <span class="btn-pulse"></span>
+                    <i class="fas fa-download"></i>
+                    立即下载
+                </a>
+                
+                <a href="http://auoj.mvmzf.cn:8080/" class="web-btn" id="webBtn" target="_blank">
+                    <i class="fas fa-globe"></i>
+                    进入网页版
+                </a>
+            </div>
             
             <div class="loading-dots" id="loadingDots">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            
         </div>
     </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const downloadBtn = document.getElementById('downloadBtn');
+            const webBtn = document.getElementById('webBtn');
             const loadingDots = document.getElementById('loadingDots');
             
             // 点击下载按钮
@@ -304,6 +367,8 @@
                 // 显示加载动画
                 downloadBtn.style.opacity = '0.8';
                 downloadBtn.style.pointerEvents = 'none';
+                webBtn.style.opacity = '0.8';
+                webBtn.style.pointerEvents = 'none';
                 loadingDots.style.display = 'flex';
                 
                 // 模拟下载过程
@@ -315,9 +380,23 @@
                     setTimeout(() => {
                         downloadBtn.style.opacity = '1';
                         downloadBtn.style.pointerEvents = 'auto';
+                        webBtn.style.opacity = '1';
+                        webBtn.style.pointerEvents = 'auto';
                         loadingDots.style.display = 'none';
                     }, 3000);
                 }, 1500);
+            });
+            
+            // 点击网页版按钮
+            webBtn.addEventListener('click', function(e) {
+                // 添加点击反馈
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // 在新标签页中打开网页版（target="_blank"已设置）
+                console.log('正在打开网页版: http://auoj.mvmzf.cn:8080/');
             });
             
             // 添加键盘支持
@@ -328,6 +407,17 @@
                 
                 if (e.key === 'Enter' && document.activeElement === downloadBtn) {
                     downloadBtn.click();
+                }
+                
+                // 按W键聚焦网页版按钮
+                if (e.key === 'w' || e.key === 'W') {
+                    webBtn.focus();
+                    e.preventDefault();
+                }
+                
+                // 按Enter键在网页版按钮上时
+                if (e.key === 'Enter' && document.activeElement === webBtn) {
+                    // 按钮的target="_blank"会在新标签页打开
                 }
             });
             
