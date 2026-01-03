@@ -133,7 +133,7 @@
             transform: translateY(0);
         }
         
-        .-btn {
+        .tutorial-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -153,7 +153,7 @@
             margin-top: 0.5rem;
         }
         
-        .-btn:hover {
+        .tutorial-btn:hover {
             background: rgba(255, 255, 255, 0.15);
             color: white;
             border-color: rgba(255, 255, 255, 0.3);
@@ -459,7 +459,7 @@
             });
             
             // 点击教程按钮
-            Btn.addEventListener('click', function(e) {
+            tutorialBtn.addEventListener('click', function(e) {
                 // 添加点击反馈
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
@@ -488,7 +488,7 @@
                 
                 // 按T键聚焦教程按钮
                 if (e.key === 't' || e.key === 'T') {
-                    Btn.focus();
+                    tutorialBtn.focus();
                     e.preventDefault();
                 }
                 
@@ -498,7 +498,7 @@
                 }
                 
                 // 按Enter键在教程按钮上时
-                if (e.key === 'Enter' && document.activeElement === Btn) {
+                if (e.key === 'Enter' && document.activeElement === tutorialBtn) {
                     // 按钮的target="_blank"会在新标签页打开
                 }
             });
