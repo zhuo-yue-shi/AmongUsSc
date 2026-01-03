@@ -133,7 +133,7 @@
             transform: translateY(0);
         }
         
-        .tutorial-btn {
+        .-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -153,7 +153,7 @@
             margin-top: 0.5rem;
         }
         
-        .tutorial-btn:hover {
+        .-btn:hover {
             background: rgba(255, 255, 255, 0.15);
             color: white;
             border-color: rgba(255, 255, 255, 0.3);
@@ -396,7 +396,7 @@
                 
                 <a href="https://auoj.ytt11.xyz/jump-to/auoj_blog" class="tutorial-btn" id="tutorialBtn" target="_blank">
                     <i class="fas fa-book"></i>
-                    IDM一直自动嗅探资源？点击查看教程
+                    IDM一直自动嗅探资源？点击查看解决方案
                 </a>
             </div>
             
@@ -459,7 +459,7 @@
             });
             
             // 点击教程按钮
-            tutorialBtn.addEventListener('click', function(e) {
+            Btn.addEventListener('click', function(e) {
                 // 添加点击反馈
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
@@ -488,7 +488,7 @@
                 
                 // 按T键聚焦教程按钮
                 if (e.key === 't' || e.key === 'T') {
-                    tutorialBtn.focus();
+                    Btn.focus();
                     e.preventDefault();
                 }
                 
@@ -498,7 +498,7 @@
                 }
                 
                 // 按Enter键在教程按钮上时
-                if (e.key === 'Enter' && document.activeElement === tutorialBtn) {
+                if (e.key === 'Enter' && document.activeElement === Btn) {
                     // 按钮的target="_blank"会在新标签页打开
                 }
             });
