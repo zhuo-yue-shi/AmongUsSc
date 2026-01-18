@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Proxy</title>
+</head>
+<body>
+    <script>
+        // 监听来自主页面的消息
+        window.addEventListener('message', function(event) {
+            // 检查消息来源
+            if (event.origin !== window.location.origin) {
+                return;
+            }
+
+            const { action, url, method, headers, body } = event.data;
+
+            // 处理 API 请求
+            if (action === 'fetch') {
+                fetch(url, {
+                    method: method || 'GET',
+                    headers: headers || {},
+                    body: body || null
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // 发送响应回主页面
+                    event.source.postMessage({ success: true, data: data }, event.origin);
+                })
+                .catch(error => {
+                    // 发送错误回主页面
+                    event.source.postMessage({ success: false, error: error.message }, event.origin);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
