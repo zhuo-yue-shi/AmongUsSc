@@ -12,11 +12,15 @@
     <img alt="Dynamic Regex Badge" src="https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fqm.qq.com%2Fq%2Fz2JDs43MdO&search=%3Cdiv%20class%3D%22group-profile-base__members%22%5B%5E%3E%5D*%3E(%5B%5E%3C%5D*)%E4%BA%BA%3C%2Fdiv%3E&replace=%241&style=flat&logo=qq&label=QQ%E7%BE%A4%E4%BA%BA%E6%95%B0">
 </p>
 
+### 声明
+本项目不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。此项目包含的部分素材是 Innersloth LLC 的财产。
+
+This project is not affiliated with Among Us or Innersloth LLC, and its contents have not been approved or otherwise sponsored by Innersloth LLC. Some of the materials included in this project are the property of Innersloth LLC.
+
 ***
 
 > [!NOTE]  
 > 本程序转载并改编自[TimMcCool](https://scratch.mit.edu/users/TimMcCool/)的[☁️ Megaserver (TurboWarp) ✦ Among Us Scratch (Classic Version)](https://scratch.mit.edu/projects/945855680/)，在此声明
-
 Among Us Scratch OJ 是基于 `Turbowarp` 制作的 `Among Us` 的 **复刻** ，使用 `TimMcCool` 的代码基础进行加装功能以更好的还原原版 `Among Us`
 
 ### 下载
@@ -37,7 +41,7 @@ Among Us Scratch OJ 是基于 `Turbowarp` 制作的 `Among Us` 的 **复刻** �
 本程序从 `1.0.0` 开始支持更新，点击 `主菜单` 的 `更新` 按钮进入更新界面，程序会自动检查是否有新的更新，**请保持网络畅通可以正常访问互联网**，如果有新的更新，用户可以点击 `更新` 按钮进行更新，程序会唤起默认浏览器下载更新包。
 
 ### 账号
-本程序自带账号功能，且允许用户自行注册，用户可以通过[网站](http://auoj.ytt11.xyz/account/) 来申请账号（一定要用http打开网站，不然会出现接口连接不上的问题）。<br>
+本程序自带账号功能，且允许用户自行注册，用户可以通过[网站](http://auoj.ytt11.xyz/account/) 来申请账号（一定要用http打开网站，不然会出现接口连接不上的问题，且每周末审批）。<br>
 账户包含一种虚拟货币 `豆子` ，用于购买游戏内物品，**不支持氪金**，参加活动有概率获得大量 `豆子`。
 
 > [!IMPORTANT]  
@@ -74,7 +78,4 @@ Among Us Scratch OJ 是基于 `Turbowarp` 制作的 `Among Us` 的 **复刻** �
 ### 星标历史 
 [![Star History Chart](https://api.star-history.com/svg?repos=zhuo-yue-shi/AmongUsSc&type=date&legend=top-left)](https://www.star-history.com/#zhuo-yue-shi/AmongUsSc&type=date&legend=top-left)
 
-### 声明
-本项目不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。此项目包含的部分素材是 Innersloth LLC 的财产。
 
-This project is not affiliated with Among Us or Innersloth LLC, and its contents have not been approved or otherwise sponsored by Innersloth LLC. Some of the materials included in this project are the property of Innersloth LLC.
