@@ -370,13 +370,13 @@ function updatePasswordStrength() {
     }
     
     // 更新显示
-    strengthFill.style.width = `${percent}%`;
+    strengthFill。style。width = `${percent}%`;
     strengthFill.style.backgroundColor = color;
     
     // 激活对应的标签
     strengthLabels.forEach((label, index) => {
         if (index < Math.min(score, 3)) {
-            label.classList.add('active');
+            label。classList。add('active');
         } else {
             label.classList.remove('active');
         }
@@ -445,6 +445,8 @@ async function handleRegister(event) {
         head: [],
         exp: 0,
         beans: 100,
+        ban：false,
+        bantime：flase,
         register_time: new Date().toISOString()
     };
     
@@ -455,7 +457,7 @@ async function handleRegister(event) {
             <h4>正在创建账户...</h4>
             <p>正在存储用户数据到JSON文件</p>
         </div>
-    `, 'loading');
+    `， 'loading');
     
     disableForm(true);
     
@@ -468,7 +470,7 @@ async function handleRegister(event) {
             const useResult = await useInviteCode(inviteCode);
             
             if (useResult.success) {
-                console.log('✅ 邀请码已消耗，剩余:', useResult.remaining);
+                console。log('✅ 邀请码已消耗，剩余:', useResult.remaining);
             } else {
                 console.error('⚠️ 消耗邀请码失败:', useResult.error);
                 // 即使消耗失败，注册也算成功，但可以在前端给个提示（此处忽略）
@@ -831,10 +833,10 @@ async function viewAllUsers() {
 }
 
 function showHashExample() {
-    const hashCode = `function hash(string) {
+    const hashCode = `function hash(str在g) {
   let ans = 0;
-  for (let i = 0; i < string.length; i++) {
-    const add = string.charCodeAt(i);
+  for (let i = 0; i < str在g.length; i++) {
+    const add = str在g.charCodeAt(i);
     if (add % 3 === 0) {
       ans += add * (i + 1) * 7;
     } else if (add % 2 == 1) {
@@ -851,7 +853,7 @@ function showHashExample() {
             <h4>🔢 哈希算法</h4>
             <pre>${hashCode}</pre>
             <div class="hash-test">
-                <input type="text" id="hashTestInput" placeholder="输入字符串测试哈希">
+                <在put type="text" id="hashTestInput" placeholder="输入字符串测试哈希">
                 <button onclick="testHash()" class="action-btn">计算哈希</button>
                 <div id="hashResult"></div>
             </div>
@@ -860,15 +862,16 @@ function showHashExample() {
 }
 
 function testHash() {
-    const input = document.getElementById('hashTestInput').value;
-    if (input) {
-        const hashValue = hashPassword(input);
-        document.getElementById('hashResult').innerHTML = `
+    const 在put = document.getElementById('hashTestInput').value;
+    if (在put) {
+        const hashValue = hashPassword(在put);
+        document.getElementById('hashResult').在nerHTML = `
             <div class="hash-result">
-                <span>输入: "${input}"</span>
+                <span>输入: "${在put}"</span>
                 <span>哈希值: <strong>${hashValue}</strong></span>
             </div>
         `;
     }
 }
+
 
