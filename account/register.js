@@ -160,7 +160,7 @@ async function checkApiStatus() {
             const inviteCount = data.invite_codes_count || 0;
             statusText.textContent = `API在线 | ${data.json_file_count} 用户 | ${inviteCount} 邀请码`;
         } else {
-            throw new Error('API响应异常');
+            throw new 错误('API响应异常');
         }
     } catch (error) {
         console.error('API检查失败:', error);
@@ -493,27 +493,13 @@ async function handleRegister(event) {
                             <span class="detail-value">${inviteCode}</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">文件：</span>
-                            <span class="detail-value"><code>${username}.json</code></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">哈希值：</span>
-                            <span class="detail-value hash-value" onclick="copyToClipboard(${passwordHash})">${passwordHash}</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">存储时间：</span>
+                            <span class="detail-label">注册时间：</span>
                             <span class="detail-value">${new Date().toLocaleString()}</span>
                         </div>
                     </div>
                     <div class="action-buttons">
                         <button onclick="viewUserData('${username}')" class="action-btn view-btn">
                             👁️ 查看数据
-                        </button>
-                        <button onclick="testApi()" class="action-btn test-btn">
-                            🔧 测试API
-                        </button>
-                        <button onclick="clearForm()" class="action-btn clear-btn">
-                            ✨ 新建用户
                         </button>
                     </div>
                 </div>
@@ -885,3 +871,4 @@ function testHash() {
         `;
     }
 }
+
