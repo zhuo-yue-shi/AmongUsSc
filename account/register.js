@@ -499,10 +499,6 @@ async function handleRegister(event) {
                             <span class="detail-value">${new Date().toLocaleString()}</span>
                         </div>
                     </div>
-                    <div class="action-buttons">
-                        <button onclick="viewUserData('${username}')" class="action-btn view-btn">
-                            👁️ 查看数据
-                        </button>
                     </div>
                 </div>
             `, 'success');
@@ -873,3 +869,4 @@ function testHash() {
         `;
     }
 }
+
