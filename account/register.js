@@ -2,7 +2,7 @@
 // 默认配置（如果网络加载失败，将使用这些值）
 let API_BASE_URL = 'http://localhost:5000';
 // 这里使用了你提供的 Key 作为默认值，防止 k.json 加载失败
-let API_KEY = 'kENgC4PpAEeYzLq3CHy4ZmuTGVHDLC'; 
+let API_KEY = 'kENgC4PpAEeYzLq3CHy4ZmuTGVHDLC';
 
 // ==================== 初始化配置（从网络加载） ====================
 async function initConfig() {
@@ -160,7 +160,7 @@ async function checkApiStatus() {
             const inviteCount = data.invite_codes_count || 0;
             statusText.textContent = `API在线 | ${data.json_file_count} 用户 | ${inviteCount} 邀请码`;
         } else {
-            throw new 错误('API响应异常');
+            throw new Error('API响应异常');
         }
     } catch (error) {
         console.error('API检查失败:', error);
@@ -446,7 +446,7 @@ async function handleRegister(event) {
         exp: 0,
         beans: 100,
         ban: false,
-        bantime: flase,
+        bantime: false,
         register_time: new Date().toISOString()
     };
     
@@ -457,7 +457,7 @@ async function handleRegister(event) {
             <h4>正在创建账户...</h4>
             <p>正在存储用户数据到JSON文件</p>
         </div>
-    `， 'loading');
+    `, 'loading');
     
     disableForm(true);
     
@@ -833,10 +833,10 @@ async function viewAllUsers() {
 }
 
 function showHashExample() {
-    const hashCode = `function hash(str在g) {
+    const hashCode = `function hash(string) {
   let ans = 0;
-  for (let i = 0; i < str在g.length; i++) {
-    const add = str在g.charCodeAt(i);
+  for (let i = 0; i < string.length; i++) {
+    const add = string.charCodeAt(i);
     if (add % 3 === 0) {
       ans += add * (i + 1) * 7;
     } else if (add % 2 == 1) {
@@ -853,7 +853,7 @@ function showHashExample() {
             <h4>🔢 哈希算法</h4>
             <pre>${hashCode}</pre>
             <div class="hash-test">
-                <在put type="text" id="hashTestInput" placeholder="输入字符串测试哈希">
+                <input type="text" id="hashTestInput" placeholder="输入字符串测试哈希">
                 <button onclick="testHash()" class="action-btn">计算哈希</button>
                 <div id="hashResult"></div>
             </div>
@@ -862,19 +862,14 @@ function showHashExample() {
 }
 
 function testHash() {
-    const 在put = document.getElementById('hashTestInput').value;
-    if (在put) {
-        const hashValue = hashPassword(在put);
-        document.getElementById('hashResult').在nerHTML = `
+    const input = document.getElementById('hashTestInput').value;
+    if (input) {
+        const hashValue = hashPassword(input);
+        document.getElementById('hashResult').innerHTML = `
             <div class="hash-result">
-                <span>输入: "${在put}"</span>
+                <span>输入: "${input}"</span>
                 <span>哈希值: <strong>${hashValue}</strong></span>
             </div>
         `;
     }
 }
-
-
-
-
-
