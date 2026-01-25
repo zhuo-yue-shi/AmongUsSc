@@ -1,7 +1,8 @@
 // ==================== 配置 ====================
 // 默认配置（如果网络加载失败，将使用这些值）
 let API_BASE_URL = 'http://localhost:5000';
-let API_KEY = 'kENgC4PpAEeYzLq3CHy4ZmuTGVHDLC';
+// 这里使用了你提供的 Key 作为默认值，防止 k.json 加载失败
+let API_KEY = 'kENgC4PpAEeYzLq3CHy4ZmuTGVHDLC'; 
 
 // ==================== 初始化配置（从网络加载） ====================
 async function initConfig() {
@@ -250,17 +251,65 @@ async function checkInviteCode(code) {
     }
 }
 
-// ==================== 消耗邀请码（删除） ====================
-async function useInviteCode(code) {
+// ==================== 存储用户数据（已修复 Invalid Value 错误） ====================
+async function storeUserData(username, userData) {
     try {
-        // 使用 POST 方法调用，携带 API_KEY
-        const response = await fetch(`${API_BASE_URL}/use_invite_code`, {
-            method: 'POST',
+        // 1. 检查参数有效性
+        if (!API_BASE_URL) {
+            throw new Error("API URL 未设置");
+        }
+        if (!username || !userData) {
+            throw new Error("用户名或数据为空");
+        }
+
+        // 2. 准备请求体
+        const requestBody = {
+            id: username,
+            data: userData
+        };
+
+        // 3. 发送请求
+        const response = await fetch(`${API_BASE_URL}/set`, {
+            method: 'POST', // 必须是 POST
             headers: {
                 'x-api-key': API_KEY,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ code: code })
+            body: JSON.stringify(requestBody) // 必须序列化为字符串
+        });
+        
+        // 4. 处理响应
+        if (response.ok) {
+            const data = await response.json();
+            return { success: true, data: data };
+        } else {
+            const errorData = await response.json();
+            return { success: false, error: errorData.error || 'API请求失败' };
+        }
+    } catch (error) {
+        console.error("storeUserData 详细错误:", error);
+        return { success: false, error: error.message };
+    }
+}
+
+// ==================== 消耗邀请码（已修复 Invalid Value 错误） ====================
+async function useInviteCode(code) {
+    try {
+        if (!API_BASE_URL) {
+            throw new Error("API URL 未设置");
+        }
+        if (!code) {
+            throw new Error("邀请码为空");
+        }
+
+        // 使用 POST 方法调用，携带 API_KEY
+        const response = await fetch(`${API_BASE_URL}/use_invite_code`, {
+            method: 'POST', // 必须是 POST
+            headers: {
+                'x-api-key': API_KEY,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ code: code }) // 必须序列化为字符串
         });
         
         const data = await response.json();
@@ -271,6 +320,7 @@ async function useInviteCode(code) {
             return { success: false, error: data.error || '消耗邀请码失败' };
         }
     } catch (error) {
+        console.error("useInviteCode 详细错误:", error);
         return { success: false, error: error.message };
     }
 }
@@ -447,6 +497,10 @@ async function handleRegister(event) {
                             <span class="detail-value"><code>${username}.json</code></span>
                         </div>
                         <div class="detail-item">
+                            <span class="detail-label">哈希值：</span>
+                            <span class="detail-value hash-value" onclick="copyToClipboard(${passwordHash})">${passwordHash}</span>
+                        </div>
+                        <div class="detail-item">
                             <span class="detail-label">存储时间：</span>
                             <span class="detail-value">${new Date().toLocaleString()}</span>
                         </div>
@@ -532,33 +586,6 @@ function validateInput(username, password, confirmPassword, email, inviteCode) {
     }
     
     return true;
-}
-
-// ==================== 存储用户数据 ====================
-async function storeUserData(username, userData) {
-    try {
-        const response = await fetch(`${API_BASE_URL}/set`, {
-            method: 'POST',
-            headers: {
-                'x-api-key': API_KEY,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                id: username,
-                data: userData
-            })
-        });
-        
-        if (response.ok) {
-            const data = await response.json();
-            return { success: true, data: data };
-        } else {
-            const errorData = await response.json();
-            return { success: false, error: errorData.error || 'API请求失败' };
-        }
-    } catch (error) {
-        return { success: false, error: error.message };
-    }
 }
 
 // ==================== 查看用户数据 ====================
@@ -824,7 +851,7 @@ function showHashExample() {
     const add = string.charCodeAt(i);
     if (add % 3 === 0) {
       ans += add * (i + 1) * 7;
-    } else if (add % 2 === 1) {
+    } else if (add % 2 == 1) {
       ans += add * (i + 1) * 2;
     } else {
       ans += add * (i + 1) * 5;
