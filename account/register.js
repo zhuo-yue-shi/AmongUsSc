@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
     
     // 密码输入时显示强度
-    document。getElementById('password').addEventListener('input', function() {
+    document.getElementById('password').addEventListener('input', function() {
         updatePasswordStrength();
         checkPasswordMatch();
     });
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         } else if (inviteCode) {
             this.style.borderColor = 'var(--success-color)';
         } else {
-            this。style.borderColor = '';
+            this.style.borderColor = '';
         }
     });
     
@@ -224,7 +224,7 @@ async function checkUsernameAvailability(username) {
 
 function updateUsernameStatus(message, type = '') {
     const statusElement = document.getElementById('usernameStatus');
-    statusElement。textContent = message;
+    statusElement.textContent = message;
     statusElement.className = 'input-status';
     
     if (type === 'success') {
@@ -339,7 +339,7 @@ function updatePasswordStrength() {
     const strengthLabels = document.querySelectorAll('.strength-label');
     
     if (!password) {
-        strengthFill。style.width = '0%';
+        strengthFill.style.width = '0%';
         strengthFill.style.backgroundColor = '#e5e7eb';
         strengthLabels.forEach(label => label.classList.remove('active'));
         return;
@@ -376,7 +376,7 @@ function updatePasswordStrength() {
     // 激活对应的标签
     strengthLabels.forEach((label, index) => {
         if (index < Math.min(score, 3)) {
-            label。classList。add('active');
+            label.classList.add('active');
         } else {
             label.classList.remove('active');
         }
@@ -470,7 +470,7 @@ async function handleRegister(event) {
             const useResult = await useInviteCode(inviteCode);
             
             if (useResult.success) {
-                console。log('✅ 邀请码已消耗，剩余:', useResult.remaining);
+                console.log('✅ 邀请码已消耗，剩余:', useResult.remaining);
             } else {
                 console.error('⚠️ 消耗邀请码失败:', useResult.error);
                 // 即使消耗失败，注册也算成功，但可以在前端给个提示（此处忽略）
@@ -873,6 +873,7 @@ function testHash() {
         `;
     }
 }
+
 
 
 
