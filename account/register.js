@@ -445,8 +445,8 @@ async function handleRegister(event) {
         head: [],
         exp: 0,
         beans: 100,
-        ban：false,
-        bantime：flase,
+        ban: false,
+        bantime: flase,
         register_time: new Date().toISOString()
     };
     
@@ -873,5 +873,6 @@ function testHash() {
         `;
     }
 }
+
 
 
