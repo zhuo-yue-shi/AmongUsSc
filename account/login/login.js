@@ -74,7 +74,7 @@ async function handleLogin(event) {
     
     try {
         // 获取用户数据
-        const response = await fetch(`${API_BASE_URL}/get?id=user_${username}`);
+        const response = await fetch(`${API_BASE_URL}/get?id=${username}`);
         
         if (!response.ok) {
             throw new Error('用户不存在');
