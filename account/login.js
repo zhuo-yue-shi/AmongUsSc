@@ -1,15 +1,41 @@
-// 配置
-const API_BASE_URL = 'http://103.236.55.217:5000';
-const API_KEY = '47xb523hxbh81vhjjcdh885edjhcv';
+// 全局配置（将从 u.json 和 k.json 动态加载）
+let API_BASE_URL = '';
+let API_KEY = '';
 
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
-    // 绑定登录表单提交事件
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', handleLogin);
-    }
+    // 加载配置并绑定事件
+    loadConfig().then(() => {
+        const loginForm = document.getElementById('loginForm');
+        if (loginForm) {
+            loginForm.addEventListener('submit', handleLogin);
+        }
+    }).catch(error => {
+        console.error('配置加载失败:', error);
+        alert('配置加载失败，请刷新页面重试');
+    });
 });
+
+// 加载配置
+async function loadConfig() {
+    try {
+        // 加载 API URL
+        const uResponse = await fetch('https://auoj.ytt11.xyz/play/u.json');
+        const uData = await uResponse.json();
+        API_BASE_URL = uData.url;
+        
+        // 加载 API Key
+        const kResponse = await fetch('https://auoj.ytt11.xyz/play/k.json');
+        const kData = await kResponse.json();
+        API_KEY = kData.key;
+        
+        console.log('配置已加载:');
+        console.log('API URL:', API_BASE_URL);
+        console.log('API Key:', API_KEY ? '已加载' : '未找到');
+    } catch (error) {
+        throw new Error('无法加载配置文件');
+    }
+}
 
 // 哈希函数（与注册页相同）
 function hash(string) {
@@ -39,6 +65,11 @@ async function handleLogin(event) {
         return;
     }
     
+    if (!API_BASE_URL || !API_KEY) {
+        showLoginError('系统配置未加载，请刷新页面');
+        return;
+    }
+    
     showLoginLoading('正在验证用户信息...');
     
     try {
@@ -49,22 +80,41 @@ async function handleLogin(event) {
             throw new Error('用户不存在');
         }
         
-        const data = await response.json();
+        const res = await response.json();
         
-        if (!data.success) {
+        if (!res.success) {
             throw new Error('用户不存在');
         }
         
+        // 获取实际的数据负载
+        let userData = res.data;
+
+        // 兼容处理：如果 data 是数组，取第一个元素；如果是对象，直接使用
+        if (Array.isArray(userData)) {
+            if (userData.length > 0) {
+                userData = userData[0];
+            } else {
+                throw new Error('用户数据为空');
+            }
+        }
+
         // 验证密码
-        const storedHash = data.data.password_hash;
+        const storedHash = userData.password_hash;
         const inputHash = hash(password);
         
         if (storedHash === inputHash) {
-            // 登录成功，更新最后登录时间
-            await updateLastLogin(username);
-            
-            // 显示用户信息
-            showLoginSuccess(data.data);
+            // 检查封禁状态：ban 键在 data 数组（或对象）里
+            if (userData.ban === true) {
+                showBannedMessage();
+            } else {
+                // 正常登录，显示账户信息
+                const userInfo = userData.user_info || {};
+                const beans = userInfo.beans !== undefined ? userInfo.beans : 0;
+                const exp = userInfo.exp !== undefined ? userInfo.exp : 0;
+                
+                showLoginInfo(userData.username, beans, exp);
+                await updateLastLogin(username);
+            }
         } else {
             throw new Error('密码错误');
         }
@@ -108,25 +158,39 @@ function showLoginLoading(message) {
     container.style.display = 'block';
 }
 
-// 显示登录成功
-function showLoginSuccess(userData) {
+// 显示账户信息 (正常登录)
+function showLoginInfo(username, beans, exp) {
     const resultElement = document.getElementById('loginResultContent');
     const container = document.getElementById('loginResult');
     
     resultElement.innerHTML = `
         <div class="success-container">
-            <h4><i class="fas fa-check-circle"></i> 登录成功！</h4>
+            <h4><i class="fas fa-check-circle"></i> 登录成功</h4>
             <div class="user-info">
-                <p><strong>用户名：</strong> ${userData.username}</p>
-                <p><strong>注册时间：</strong> ${new Date(userData.register_time).toLocaleString()}</p>
-                <p><strong>最后登录：</strong> ${new Date(userData.last_login).toLocaleString()}</p>
-                <p><strong>等级：</strong> ${userData.user_info.level}</p>
-                <p><strong>积分：</strong> ${userData.user_info.beans}</p>
-                <p><strong>状态：</strong> <span class="badge active">${userData.user_info.status}</span></p>
+                <p><strong>用户名：</strong> ${username}</p>
+                <p><strong>豆子：</strong> ${beans}</p>
+                <p><strong>经验：</strong> ${exp}</p>
             </div>
+        </div>
+    `;
+    container.style.display = 'block';
+    
+    // 清空表单
+    document.getElementById('loginForm').reset();
+}
+
+// 显示封禁消息
+function showBannedMessage() {
+    const resultElement = document.getElementById('loginResultContent');
+    const container = document.getElementById('loginResult');
+    
+    resultElement.innerHTML = `
+        <div class="error-container">
+            <h4><i class="fas fa-exclamation-circle"></i> 无法登录</h4>
+            <p>您的帐户已被封禁</p>
             <div class="actions">
-                <button class="btn btn-outline" onclick="viewUserJSON('${userData.username}')">
-                    <i class="fas fa-code"></i> 查看JSON数据
+                <button class="btn btn-outline" onclick="hideLoginResult()">
+                    <i class="fas fa-redo"></i> 返回
                 </button>
             </div>
         </div>
@@ -137,7 +201,7 @@ function showLoginSuccess(userData) {
     document.getElementById('loginForm').reset();
 }
 
-// 显示登录错误
+// 显示登录错误 (通用错误，如密码错误)
 function showLoginError(message) {
     const resultElement = document.getElementById('loginResultContent');
     const container = document.getElementById('loginResult');
@@ -154,37 +218,6 @@ function showLoginError(message) {
         </div>
     `;
     container.style.display = 'block';
-}
-
-// 查看用户JSON数据
-async function viewUserJSON(username) {
-    try {
-        const response = await fetch(`${API_BASE_URL}/get?id=user_${username}`);
-        if (response.ok) {
-            const data = await response.json();
-            const jsonStr = JSON.stringify(data.data, null, 2);
-            
-            // 在新窗口中显示JSON
-            const newWindow = window.open();
-            newWindow.document.write(`
-                <html>
-                <head>
-                    <title>${username} 的用户数据</title>
-                    <style>
-                        body { font-family: monospace; padding: 20px; background: #2c3e50; color: #ecf0f1; }
-                        pre { background: #34495e; padding: 20px; border-radius: 10px; }
-                    </style>
-                </head>
-                <body>
-                    <h1>${username} 的用户数据 (user_${username}.json)</h1>
-                    <pre>${jsonStr}</pre>
-                </body>
-                </html>
-            `);
-        }
-    } catch (error) {
-        alert('获取JSON数据失败');
-    }
 }
 
 // 隐藏登录结果
