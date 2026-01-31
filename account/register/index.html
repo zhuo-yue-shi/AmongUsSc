@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- 顶部状态栏 -->
+        <div class="status-bar">
+            <div class="status-content">
+                <div id="apiStatusDot" class="status-dot"></div>
+                <span id="apiStatusText">正在检查 API...</span>
+            </div>
+            <div class="api-info" id="apiUrlDisplay"></div>
+        </div>
+
+        <h2>用户注册</h2>
+
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" required>
+                <div id="usernameStatus" class="input-status"></div> <!-- 添加用户名状态提示 -->
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">确认密码</label> <!-- 添加确认密码输入框 -->
+                <input type="password" id="confirmPassword" required>
+                <div id="passwordMatch" class="input-status"></div> <!-- 添加密码匹配提示 -->
+            </div>
+            <div class="form-group">
+                <label for="email">邮箱</label> <!-- 添加邮箱输入框 -->
+                <input type="email" id="email" placeholder="可选">
+            </div>
+            
+            <!-- 邀请码 + 跳转按钮 -->
+            <div class="form-group">
+                <label for="inviteCode">邀请码</label>
+                <div class="input-group">
+                    <input type="text" id="inviteCode" placeholder="请输入邀请码" required>
+                    <!-- 点击这里直接跳转新窗口打开问卷星 -->
+                    <button type="button" onclick="window.open('https://wj.qq.com/s2/25557787/95ff/', '_blank')">获取邀请码</button>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="block"><span class="btn-text">注册</span></button>
+        </form>
+
+        <div id="message" class="message"></div>
+        <div id="result" class="result-area"></div> <!-- 添加结果区域 -->
+
+    </div>
+
+    <!-- 添加一个隐藏的 iframe，用于绕过 CORS -->
+    <iframe id="corsIframe" style="display: none;" src="cors-proxy.html"></iframe>
+
+    <script src="register.js"></script>
+</body>
+</html>
+
