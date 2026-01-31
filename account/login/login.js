@@ -133,7 +133,7 @@ async function updateLastLogin(username) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id: `user_${username}`,
+                id: `${username}`,
                 data: {
                     last_login: new Date().toISOString()
                 }
