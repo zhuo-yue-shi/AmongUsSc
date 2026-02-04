@@ -103,13 +103,50 @@ async function handleLogin(event) {
         const inputHash = hash(password);
         
         if (storedHash === inputHash) {
-            // 检查封禁状态：
-            // 修改点：同时检查布尔值 true 和字符串 "true"
-            if (userData.ban === true || userData.ban === "true") {
-                showBannedMessage();
+            // --- 封禁检测逻辑 ---
+            const bantime = userData.bantime;
+            let isBanned = false;
+            let banMessage = "您的帐户已被封禁";
+
+            // 1. 检查永久封禁 (true 或 "true")
+            if (bantime === true || bantime === "true") {
+                isBanned = true;
+                banMessage = "您的账户已被永久封禁";
+            } 
+            // 2. 检查未封禁 (false 或 "false")
+            else if (bantime === false || bantime === "false") {
+                isBanned = false;
+            } 
+            // 3. 检查时间戳
+            else {
+                const unbanDate = new Date(bantime);
+                const now = new Date();
+
+                // 如果是有效日期
+                if (!isNaN(unbanDate.getTime())) {
+                    if (unbanDate > now) {
+                        // 当前时间小于解封时间 -> 仍在封禁中
+                        isBanned = true;
+                        const diffMs = unbanDate - now;
+                        const diffMins = Math.ceil(diffMs / 1000 / 60); // 计算分钟数
+                        banMessage = `您的账户已被封禁，距离解封还有 ${diffMins} 分钟`;
+                    } else {
+                        // 时间已过 -> 解封
+                        isBanned = false;
+                    }
+                } else {
+                    // bantime 格式无法识别，回退检查 'ban' 字段以防万一
+                    if (userData.ban === true || userData.ban === "true") {
+                        isBanned = true;
+                        banMessage = "您的帐户已被封禁";
+                    }
+                }
+            }
+
+            if (isBanned) {
+                showBannedMessage(banMessage);
             } else {
                 // 正常登录，显示账户信息
-                // 注意：beans 和 exp 直接在 userData 根节点，不在 user_info 下
                 const beans = userData.beans !== undefined ? userData.beans : 0;
                 const exp = userData.exp !== undefined ? userData.exp : 0;
                 
@@ -181,14 +218,14 @@ function showLoginInfo(username, beans, exp) {
 }
 
 // 显示封禁消息
-function showBannedMessage() {
+function showBannedMessage(message) {
     const resultElement = document.getElementById('loginResultContent');
     const container = document.getElementById('loginResult');
     
     resultElement.innerHTML = `
         <div class="error-container">
             <h4><i class="fas fa-exclamation-circle"></i> 无法登录</h4>
-            <p>您的帐户已被封禁</p>
+            <p>${message}</p>
             <div class="actions">
                 <button class="btn btn-outline" onclick="hideLoginResult()">
                     <i class="fas fa-redo"></i> 返回
