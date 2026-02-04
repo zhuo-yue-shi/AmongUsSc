@@ -73,7 +73,7 @@ async function handleLogin(event) {
     showLoginLoading('正在验证用户信息...');
     
     try {
-        // 获取用户数据
+        // 获取用户数据 (不使用 user_ 前缀)
         const response = await fetch(`${API_BASE_URL}/get?id=${username}`);
         
         if (!response.ok) {
@@ -89,7 +89,7 @@ async function handleLogin(event) {
         // 获取实际的数据负载
         let userData = res.data;
 
-        // 兼容处理：如果 data 是数组，取第一个元素；如果是对象，直接使用
+        // 兼容处理：如果 data 是数组（老数据），取第一个元素；如果是对象（新数据），直接使用
         if (Array.isArray(userData)) {
             if (userData.length > 0) {
                 userData = userData[0];
@@ -98,19 +98,19 @@ async function handleLogin(event) {
             }
         }
 
-        // 验证密码
-        const storedHash = userData.password_hash;
+        // 验证密码 (注意：JSON中字段名为 password，不是 password_hash)
+        const storedHash = userData.password;
         const inputHash = hash(password);
         
         if (storedHash === inputHash) {
-            // 检查封禁状态：ban 键在 data 数组（或对象）里
-            if (userData.ban === true) {
+            // 检查封禁状态：注意 JSON 中 ban 是字符串 "true" 或 "false"
+            if (userData.ban === "true") {
                 showBannedMessage();
             } else {
                 // 正常登录，显示账户信息
-                const userInfo = userData.user_info || {};
-                const beans = userInfo.beans !== undefined ? userInfo.beans : 0;
-                const exp = userInfo.exp !== undefined ? userInfo.exp : 0;
+                // 注意：beans 和 exp 直接在 userData 根节点，不在 user_info 下
+                const beans = userData.beans !== undefined ? userData.beans : 0;
+                const exp = userData.exp !== undefined ? userData.exp : 0;
                 
                 showLoginInfo(userData.username, beans, exp);
                 await updateLastLogin(username);
