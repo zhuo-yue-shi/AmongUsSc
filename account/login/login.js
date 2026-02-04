@@ -103,8 +103,9 @@ async function handleLogin(event) {
         const inputHash = hash(password);
         
         if (storedHash === inputHash) {
-            // 检查封禁状态：注意 JSON 中 ban 是字符串 "true" 或 "false"
-            if (userData.ban === "true") {
+            // 检查封禁状态：
+            // 修改点：同时检查布尔值 true 和字符串 "true"
+            if (userData.ban === true || userData.ban === "true") {
                 showBannedMessage();
             } else {
                 // 正常登录，显示账户信息
