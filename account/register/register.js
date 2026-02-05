@@ -447,6 +447,7 @@ async function handleRegister(event) {
         beans: 100,
         ban: false,
         bantime: false,
+        banreason: "", // 【新增】封禁原因，默认为空
         register_time: new Date().toISOString()
     };
     
@@ -473,10 +474,9 @@ async function handleRegister(event) {
                 console.log('✅ 邀请码已消耗，剩余:', useResult.remaining);
             } else {
                 console.error('⚠️ 消耗邀请码失败:', useResult.error);
-                // 即使消耗失败，注册也算成功，但可以在前端给个提示（此处忽略）
             }
             
-            // 显示成功信息
+            // 显示成功信息（不含任何按钮）
             showResult(`
                 <div class="success-state">
                     <div class="success-icon">🎉</div>
@@ -498,7 +498,6 @@ async function handleRegister(event) {
                             <span class="detail-label">注册时间：</span>
                             <span class="detail-value">${new Date().toLocaleString()}</span>
                         </div>
-                    </div>
                     </div>
                 </div>
             `, 'success');
@@ -579,7 +578,7 @@ async function viewUserData(username) {
         
         if (response.ok) {
             const data = await response.json();
-            // 确保email字段显示正确
+            // 确保显示新字段 banreason
             const jsonStr = JSON.stringify({
                 username: data.data.username || '',
                 password: data.data.password || data.data.password_hash || 0,
@@ -588,6 +587,7 @@ async function viewUserData(username) {
                 head: data.data.head || [],
                 exp: data.data.exp || 0,
                 beans: data.data.beans || 100,
+                banreason: data.data.banreason || '',
                 register_time: data.data.register_time || ''
             }, null, 2);
             
@@ -778,6 +778,7 @@ function showApiTest() {
       "head": [],
       "exp": 0,
       "beans": 100,
+      "banreason": "",
       "register_time": "${new Date().toISOString()}"
     }
   }' \\
@@ -869,4 +870,3 @@ function testHash() {
         `;
     }
 }
-
