@@ -144,7 +144,9 @@ async function handleLogin(event) {
             }
 
             if (isBanned) {
-                showBannedMessage(banMessage);
+                // 【修改】获取封禁原因并传递给显示函数
+                const banReason = userData.banreason || "";
+                showBannedMessage(banMessage, banReason);
             } else {
                 // 正常登录，显示账户信息
                 const beans = userData.beans !== undefined ? userData.beans : 0;
@@ -217,15 +219,19 @@ function showLoginInfo(username, beans, exp) {
     document.getElementById('loginForm').reset();
 }
 
-// 显示封禁消息
-function showBannedMessage(message) {
+// 【修改】显示封禁消息 - 增加封禁原因显示
+function showBannedMessage(message, reason) {
     const resultElement = document.getElementById('loginResultContent');
     const container = document.getElementById('loginResult');
     
+    // 如果有原因，额外生成一行显示
+    const reasonHtml = reason ? `<p style="margin-top: 8px;"><strong>封禁原因：</strong>${reason}</p>` : '';
+
     resultElement.innerHTML = `
         <div class="error-container">
             <h4><i class="fas fa-exclamation-circle"></i> 无法登录</h4>
             <p>${message}</p>
+            ${reasonHtml}
             <div class="actions">
                 <button class="btn btn-outline" onclick="hideLoginResult()">
                     <i class="fas fa-redo"></i> 返回
