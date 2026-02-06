@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" id="loginBtn">
                         <i class="fas fa-sign-in-alt"></i> 立即登录
                     </button>
                     <button type="button" class="btn btn-outline" onclick="window.location.href='index.html'">
@@ -60,6 +60,167 @@
         </footer>
     </div>
 
-    <script src="login.js"></script>
+    <script>
+        // API 配置
+        const API_BASE_URL = 'https://auoj.mvmzf.cn:800/';
+
+        // 简单的字符串 Hash 函数（用于密码加密）
+        async function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash; // Convert to 32bit integer
+            }
+            // 添加一些混淆，使它看起来更像 hash
+            return 'h' + Math.abs(hash).toString(16) + Date.now().toString(36);
+        }
+
+        // 更好的 Hash：使用 SHA-256（推荐）
+        async function sha256Hash(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+
+        // 获取用户数据（用于检查封禁状态）
+        async function getUserData(username) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/get?id=${encodeURIComponent(username)}`);
+                const result = await response.json();
+                if (result.success) {
+                    return result.data;
+                }
+                return null;
+            } catch (error) {
+                console.error('获取用户数据失败:', error);
+                return null;
+            }
+        }
+
+        // 检查用户是否被封禁
+        function isBanned(userData) {
+            if (!userData) return false;
+            
+            // 检查封禁状态
+            if (userData.ban === true || userData.ban === 'true') {
+                // 如果是永久封禁
+                if (userData.bantime === true || userData.bantime === 'true') {
+                    return {
+                        banned: true,
+                        reason: '永久封禁',
+                        detail: userData.banreason || '原因未知'
+                    };
+                }
+                
+                // 如果是临时封禁，检查时间是否过期
+                if (userData.bantime) {
+                    const banTime = new Date(userData.bantime);
+                    const now = new Date();
+                    
+                    if (now < banTime) {
+                        return {
+                            banned: true,
+                            reason: '临时封禁',
+                            detail: `封禁至 ${banTime.toLocaleString('zh-CN')}，原因：${userData.banreason || '原因未知'}`
+                        };
+                    }
+                }
+            }
+            
+            return { banned: false };
+        }
+
+        // 显示登录结果
+        function showLoginResult(message, isSuccess = true) {
+            const resultContainer = document.getElementById('loginResult');
+            const resultContent = document.getElementById('loginResultContent');
+            
+            resultContainer.style.display = 'block';
+            resultContent.innerHTML = `
+                <div class="result-item ${isSuccess ? 'success' : 'error'}">
+                    <i class="fas ${isSuccess ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+        }
+
+        // 隐藏登录结果
+        function hideLoginResult() {
+            document.getElementById('loginResult').style.display = 'none';
+        }
+
+        // 登录表单提交处理
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const loginBtn = document.getElementById('loginBtn');
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            
+            if (!username || !password) {
+                showLoginResult('请输入用户名和密码', false);
+                return;
+            }
+            
+            // 禁用登录按钮，防止重复提交
+            loginBtn.disabled = true;
+            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 登录中...';
+            
+            try {
+                // 1. 检查用户是否存在
+                const userData = await getUserData(username);
+                if (!userData) {
+                    showLoginResult('用户不存在', false);
+                    loginBtn.disabled = false;
+                    loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> 立即登录';
+                    return;
+                }
+                
+                // 2. 检查用户是否被封禁
+                const banStatus = isBanned(userData);
+                if (banStatus.banned) {
+                    showLoginResult(`登录失败：该账号已被${banStatus.reason}，${banStatus.detail}`, false);
+                    loginBtn.disabled = false;
+                    loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> 立即登录';
+                    return;
+                }
+                
+                // 3. 对密码进行 Hash
+                const hashedPassword = await sha256Hash(password);
+                
+                // 4. 调用 /token 端点验证登录
+                const tokenUrl = `${API_BASE_URL}/token?id=${encodeURIComponent(username)}pw=${encodeURIComponent(hashedPassword)}`;
+                const response = await fetch(tokenUrl);
+                const result = await response.json();
+                
+                if (result.success && result.token) {
+                    // 5. 登录成功，跳转到自定义协议
+                    showLoginResult('登录成功！正在跳转...', true);
+                    
+                    setTimeout(() => {
+                        // 跳转到自定义协议
+                        window.open(`auscoj://login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
+                        
+                        // 也可以选择关闭当前窗口或跳转到其他页面
+                        // window.location.href = '/dashboard.html';
+                        // window.close();
+                    }, 1000);
+                } else {
+                    showLoginResult('用户名或密码错误', false);
+                    loginBtn.disabled = false;
+                    loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> 立即登录';
+                }
+                
+            } catch (error) {
+                console.error('登录失败:', error);
+                showLoginResult('登录失败，请稍后重试', false);
+                loginBtn.disabled = false;
+                loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> 立即登录';
+            }
+        });
+    </script>
 </body>
 </html>
