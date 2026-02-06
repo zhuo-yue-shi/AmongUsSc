@@ -3,15 +3,6 @@
 let API_BASE_URL = 'http://localhost:5000';
 let API_KEY = 'kENgC4PpAEeYzLq3CHy4ZmuTGVHDLC';
 
-// ==================== SHA-256 哈希函数（前端加密） ====================
-async function sha256Encrypt(string) {
-    const msgBuffer = new TextEncoder().encode(string);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    return hashHex;
-}
-
 // ==================== 初始化配置（从网络加载） ====================
 async function initConfig() {
     const statusText = document.getElementById('apiStatusText');
@@ -289,23 +280,20 @@ async function handleRegister(event) {
         return;
     }
     
-    // 【核心】前端先进行一次 SHA-256 加密
-    const passwordHash = await sha256Encrypt(password);
-    console.log('前端加密后的密码(第一层):', passwordHash);
-    
+    // 【核心】直接发送明文密码，由后端 app (3).py 进行 SHA-256 加密
     showResult(`
         <div class="loading-state">
             <div class="loading-spinner"></div>
             <h4>正在创建账户...</h4>
-            <p>正在提交注册请求（双重加密）</p>
+            <p>正在提交注册请求</p>
         </div>
     `, 'loading');
     
     disableForm(true);
     
     try {
-        // 发送第一层加密后的密码
-        // 后端 app (3).py 的 /register 接口会自动再进行一次 SHA-256 加密（第二层）
+        // 发送明文密码
+        // 后端 app (3).py 的 /register 接口会进行 SHA-256 加密
         const response = await fetch(`${API_BASE_URL}/register`, {
             method: 'POST',
             headers: {
@@ -313,7 +301,7 @@ async function handleRegister(event) {
             },
             body: JSON.stringify({
                 id: username,
-                pw: passwordHash, // 发送的是第一层哈希
+                pw: password, // 直接发送明文
                 invitecode: inviteCode,
                 email: email
             })
