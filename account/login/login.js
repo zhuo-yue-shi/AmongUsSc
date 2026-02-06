@@ -72,6 +72,9 @@ async function handleLogin(event) {
             }
             
             showLoginInfo(username, beans, exp);
+
+            // 【新增】登录成功后，跳转到自定义协议
+            window.open(`auscoj://login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
         } else {
             throw new Error(result.error || '登录失败');
         }
