@@ -61,8 +61,8 @@
     </div>
 
     <script>
-        // API 配置
-        const API_BASE_URL = 'https://auoj.mvmzf.cn:800/';
+        // API 配置 - 【修改】去掉末尾的斜杠，避免双斜杠问题
+        const API_BASE_URL = 'https://auoj.mvmzf.cn:800';
 
         // 【核心算法】自定义纯数字加密算法 (对应 Python 的 hash 函数)
         function customHash(str) {
@@ -193,7 +193,7 @@
                 console.log('加密后的密码:', hashedPassword); // 调试用
                 
                 // 4. 调用 /token 端点验证登录
-                // URL 格式: https://auoj.mvmzf.cn:800/token?id=(用户名)&pw=(纯数字加密密码)
+                // 【修改】现在 URL 格式正确: https://auoj.mvmzf.cn:800/token?id=(用户名)&pw=(纯数字加密密码)
                 const tokenUrl = `${API_BASE_URL}/token?id=${encodeURIComponent(username)}&pw=${encodeURIComponent(hashedPassword)}`;
                 const response = await fetch(tokenUrl);
                 const result = await response.json();
