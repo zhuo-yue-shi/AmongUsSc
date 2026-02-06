@@ -37,20 +37,13 @@ async function loadConfig() {
     }
 }
 
-// 哈希函数（与注册页相同）
-function hash(string) {
-    let ans = 0;
-    for (let i = 0; i < string.length; i++) {
-        const add = string.charCodeAt(i);
-        if (add % 3 === 0) {
-            ans += add * (i + 1) * 7;
-        } else if (add % 2 === 1) {
-            ans += add * (i + 1) * 2;
-        } else {
-            ans += add * (i + 1) * 5;
-        }
-    }
-    return ans;
+// 哈希函数 (修改为 SHA-256)
+async function hash(string) {
+    const msgBuffer = new TextEncoder().encode(string);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
 }
 
 // 处理登录
@@ -100,7 +93,8 @@ async function handleLogin(event) {
 
         // 验证密码 (注意：JSON中字段名为 password，不是 password_hash)
         const storedHash = userData.password;
-        const inputHash = hash(password);
+        // 【修改】使用 SHA-256 加密密码
+        const inputHash = await hash(password);
         
         if (storedHash === inputHash) {
             // --- 封禁检测逻辑 ---
