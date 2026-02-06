@@ -1,8 +1,16 @@
 // ==================== 配置 ====================
 // 默认配置（如果网络加载失败，将使用这些值）
 let API_BASE_URL = 'http://localhost:5000';
-// 这里使用了你提供的 Key 作为默认值，防止 k.json 加载失败
 let API_KEY = 'kENgC4PpAEeYzLq3CHy4ZmuTGVHDLC';
+
+// ==================== SHA-256 哈希函数（前端加密） ====================
+async function sha256Encrypt(string) {
+    const msgBuffer = new TextEncoder().encode(string);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+}
 
 // ==================== 初始化配置（从网络加载） ====================
 async function initConfig() {
@@ -20,10 +28,8 @@ async function initConfig() {
                 const uText = await uRes.text();
                 try {
                     const uData = JSON.parse(uText);
-                    // 兼容多种可能的字段名：url, u, address, api_url
                     API_BASE_URL = uData.url || uData.u || uData.address || uData.api_url || API_BASE_URL;
                 } catch (e) {
-                    // 如果返回的不是 JSON 对象，直接当作 URL 字符串使用
                     API_BASE_URL = uText.trim() || API_BASE_URL;
                 }
                 console.log('✅ API URL 已加载:', API_BASE_URL);
@@ -42,10 +48,8 @@ async function initConfig() {
                 const kText = await kRes.text();
                 try {
                     const kData = JSON.parse(kText);
-                    // 兼容多种可能的字段名：key, k, api_key
                     API_KEY = kData.key || kData.k || kData.api_key || API_KEY;
                 } catch (e) {
-                    // 如果返回的不是 JSON 对象，直接当作 Key 字符串使用
                     API_KEY = kText.trim() || API_KEY;
                 }
                 console.log('✅ API Key 已加载');
@@ -59,7 +63,6 @@ async function initConfig() {
         console.error('❌ 配置初始化出错:', error);
     }
 
-    // 更新显示的地址
     if (apiUrlSpan) {
         apiUrlSpan.textContent = API_BASE_URL;
     }
@@ -67,55 +70,39 @@ async function initConfig() {
 
 // ==================== 页面加载初始化 ====================
 document.addEventListener('DOMContentLoaded', async function() {
-    // 【核心】首先加载网络配置，并设置超时
     const configTimeout = setTimeout(() => {
         console.warn('⚠️ 配置加载超时，使用默认值');
-        // 超时后继续执行，使用默认值
         checkApiStatus();
-    }, 5000); // 5秒超时
+    }, 5000);
 
     try {
         await initConfig();
     } finally {
-        // 清除超时
         clearTimeout(configTimeout);
-        // 无论配置是否加载成功，都继续执行
         checkApiStatus();
     }
     
-    // 绑定表单提交事件
     document.getElementById('registerForm').addEventListener('submit', handleRegister);
     
-    // 用户名输入时实时检查
+    // 用户名检查
     const usernameInput = document.getElementById('username');
     let checkTimeout;
-    
     usernameInput.addEventListener('input', function() {
         clearTimeout(checkTimeout);
         const username = this.value.trim();
-        
         if (username.length >= 3) {
-            // 显示检查中状态
             updateUsernameStatus('正在检查...', 'checking');
-            
-            checkTimeout = setTimeout(() => {
-                checkUsernameAvailability(username);
-            }, 500);
+            checkTimeout = setTimeout(() => checkUsernameAvailability(username), 500);
         } else {
             updateUsernameStatus('');
         }
     });
     
-    // 密码输入时显示强度
-    document.getElementById('password').addEventListener('input', function() {
-        updatePasswordStrength();
-        checkPasswordMatch();
-    });
-    
-    // 确认密码输入时检查匹配
+    // 密码强度 & 匹配
+    document.getElementById('password').addEventListener('input', () => { updatePasswordStrength(); checkPasswordMatch(); });
     document.getElementById('confirmPassword').addEventListener('input', checkPasswordMatch);
     
-    // 邮箱输入时验证格式
+    // 邮箱验证
     document.getElementById('email').addEventListener('input', function() {
         const email = this.value.trim();
         if (email && !validateEmail(email)) {
@@ -125,7 +112,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     });
     
-    // 邀请码输入时验证
+    // 邀请码输入
     document.getElementById('inviteCode').addEventListener('input', function() {
         const inviteCode = this.value.trim();
         if (inviteCode && inviteCode.length < 4) {
@@ -137,7 +124,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     });
     
-    // 邀请码失去焦点时验证有效性（实时检查）
     document.getElementById('inviteCode').addEventListener('blur', async function() {
         const inviteCode = this.value.trim();
         if (inviteCode && inviteCode.length >= 4) {
@@ -156,7 +142,6 @@ async function checkApiStatus() {
         if (response.ok) {
             const data = await response.json();
             statusDot.className = 'status-dot online';
-            // 显示邀请码数量
             const inviteCount = data.invite_codes_count || 0;
             statusText.textContent = `API在线 | ${data.json_file_count} 用户 | ${inviteCount} 邀请码`;
         } else {
@@ -169,34 +154,20 @@ async function checkApiStatus() {
     }
 }
 
-// ==================== 哈希函数 (修改为 SHA-256) ====================
-async function hashPassword(string) {
-    const msgBuffer = new TextEncoder().encode(string);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    return hashHex;
-}
-
 // ==================== 用户名可用性检查 ====================
 async function checkUsernameAvailability(username) {
     if (!username || username.length < 3) {
         updateUsernameStatus('');
         return false;
     }
-    
-    // 用户名格式检查
     if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
         updateUsernameStatus('只能包含字母、数字、下划线和连字符', 'error');
         return false;
     }
-    
     try {
         const response = await fetch(`${API_BASE_URL}/exists?id=${username}`);
-        
         if (response.ok) {
             const data = await response.json();
-            
             if (data.exists) {
                 updateUsernameStatus('用户名已被使用', 'error');
                 return false;
@@ -218,12 +189,8 @@ function updateUsernameStatus(message, type = '') {
     const statusElement = document.getElementById('usernameStatus');
     statusElement.textContent = message;
     statusElement.className = 'input-status';
-    
-    if (type === 'success') {
-        statusElement.classList.add('success');
-    } else if (type === 'error') {
-        statusElement.classList.add('error');
-    }
+    if (type === 'success') statusElement.classList.add('success');
+    else if (type === 'error') statusElement.classList.add('error');
 }
 
 // ==================== 邀请码验证（不消耗） ====================
@@ -231,95 +198,16 @@ async function checkInviteCode(code) {
     try {
         const response = await fetch(`${API_BASE_URL}/verify_invite_code?code=${code}`);
         const data = await response.json();
-        
-        if (data.valid) {
-            return true;
-        } else {
-            return false;
-        }
+        return data.valid;
     } catch (error) {
         console.error('邀请码验证失败:', error);
         return false;
     }
 }
 
-// ==================== 存储用户数据（已修复 Invalid Value 错误） ====================
-async function storeUserData(username, userData) {
-    try {
-        // 1. 检查参数有效性
-        if (!API_BASE_URL) {
-            throw new Error("API URL 未设置");
-        }
-        if (!username || !userData) {
-            throw new Error("用户名或数据为空");
-        }
-
-        // 2. 准备请求体
-        const requestBody = {
-            id: username,
-            data: userData
-        };
-
-        // 3. 发送请求
-        const response = await fetch(`${API_BASE_URL}/set`, {
-            method: 'POST', // 必须是 POST
-            headers: {
-                'x-api-key': API_KEY,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestBody) // 必须序列化为字符串
-        });
-        
-        // 4. 处理响应
-        if (response.ok) {
-            const data = await response.json();
-            return { success: true, data: data };
-        } else {
-            const errorData = await response.json();
-            return { success: false, error: errorData.error || 'API请求失败' };
-        }
-    } catch (error) {
-        console.error("storeUserData 详细错误:", error);
-        return { success: false, error: error.message };
-    }
-}
-
-// ==================== 消耗邀请码（已修复 Invalid Value 错误） ====================
-async function useInviteCode(code) {
-    try {
-        if (!API_BASE_URL) {
-            throw new Error("API URL 未设置");
-        }
-        if (!code) {
-            throw new Error("邀请码为空");
-        }
-
-        // 使用 POST 方法调用，携带 API_KEY
-        const response = await fetch(`${API_BASE_URL}/use_invite_code`, {
-            method: 'POST', // 必须是 POST
-            headers: {
-                'x-api-key': API_KEY,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ code: code }) // 必须序列化为字符串
-        });
-        
-        const data = await response.json();
-        
-        if (response.ok && data.success) {
-            return { success: true, remaining: data.remaining_codes };
-        } else {
-            return { success: false, error: data.error || '消耗邀请码失败' };
-        }
-    } catch (error) {
-        console.error("useInviteCode 详细错误:", error);
-        return { success: false, error: error.message };
-    }
-}
-
 // ==================== 邮箱验证 ====================
 function validateEmail(email) {
-    if (!email) return true; // 邮箱可选
+    if (!email) return true;
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
@@ -338,40 +226,22 @@ function updatePasswordStrength() {
     }
     
     let score = 0;
-    
-    // 长度评分
     if (password.length >= 6) score += 1;
     if (password.length >= 10) score += 1;
-    
-    // 字符类型评分
     if (/[a-z]/.test(password)) score += 1;
     if (/[A-Z]/.test(password)) score += 1;
     if (/[0-9]/.test(password)) score += 1;
     if (/[^a-zA-Z0-9]/.test(password)) score += 1;
     
-    // 计算百分比和颜色
     const percent = Math.min(score, 5) * 20;
-    let color;
+    let color = score <= 2 ? '#ef4444' : (score <= 4 ? '#f59e0b' : '#10b981');
     
-    if (score <= 2) {
-        color = '#ef4444';
-    } else if (score <= 4) {
-        color = '#f59e0b';
-    } else {
-        color = '#10b981';
-    }
-    
-    // 更新显示
     strengthFill.style.width = `${percent}%`;
     strengthFill.style.backgroundColor = color;
     
-    // 激活对应的标签
     strengthLabels.forEach((label, index) => {
-        if (index < Math.min(score, 3)) {
-            label.classList.add('active');
-        } else {
-            label.classList.remove('active');
-        }
+        if (index < Math.min(score, 3)) label.classList.add('active');
+        else label.classList.remove('active');
     });
 }
 
@@ -399,76 +269,61 @@ function checkPasswordMatch() {
 async function handleRegister(event) {
     event.preventDefault();
     
-    // 获取表单数据
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     const email = document.getElementById('email').value.trim();
     const inviteCode = document.getElementById('inviteCode').value.trim();
     
-    // 验证输入
-    if (!validateInput(username, password, confirmPassword, email, inviteCode)) {
-        return;
-    }
+    if (!validateInput(username, password, confirmPassword, email, inviteCode)) return;
     
-    // 检查用户名是否可用
     const isAvailable = await checkUsernameAvailability(username);
     if (!isAvailable) {
         showResult('用户名不可用，请选择其他用户名', 'error');
         return;
     }
     
-    // 检查邀请码是否有效（前端验证）
     const isInviteValid = await checkInviteCode(inviteCode);
     if (!isInviteValid) {
         showResult('邀请码无效或已被使用', 'error');
         return;
     }
     
-    // 【修改】使用 SHA-256 计算密码哈希
-    const passwordHash = await hashPassword(password);
+    // 【核心】前端先进行一次 SHA-256 加密
+    const passwordHash = await sha256Encrypt(password);
+    console.log('前端加密后的密码(第一层):', passwordHash);
     
-    // 准备用户数据（包含邀请码）
-    const userData = {
-        username: username,
-        password: passwordHash,
-        email: email || "",
-        inviteCode: inviteCode,
-        head: [],
-        exp: 0,
-        beans: 100,
-        ban: false,
-        bantime: false,
-        banreason: "", // 【新增】封禁原因，默认为空
-        register_time: new Date().toISOString()
-    };
-    
-    // 显示加载状态
     showResult(`
         <div class="loading-state">
             <div class="loading-spinner"></div>
             <h4>正在创建账户...</h4>
-            <p>正在存储用户数据到JSON文件</p>
+            <p>正在提交注册请求（双重加密）</p>
         </div>
     `, 'loading');
     
     disableForm(true);
     
     try {
-        // 1. 存储用户数据
-        const result = await storeUserData(username, userData);
+        // 发送第一层加密后的密码
+        // 后端 app (3).py 的 /register 接口会自动再进行一次 SHA-256 加密（第二层）
+        const response = await fetch(`${API_BASE_URL}/register`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: username,
+                pw: passwordHash, // 发送的是第一层哈希
+                invitecode: inviteCode,
+                email: email
+            })
+        });
+        
+        const result = await response.json();
         
         if (result.success) {
-            // 2. 注册成功后，消耗邀请码（后端删除）
-            const useResult = await useInviteCode(inviteCode);
+            const initialInfo = result.initial_info || { beans: 0, exp: 0 };
             
-            if (useResult.success) {
-                console.log('✅ 邀请码已消耗，剩余:', useResult.remaining);
-            } else {
-                console.error('⚠️ 消耗邀请码失败:', useResult.error);
-            }
-            
-            // 显示成功信息（不含任何按钮）
             showResult(`
                 <div class="success-state">
                     <div class="success-icon">🎉</div>
@@ -487,6 +342,14 @@ async function handleRegister(event) {
                             <span class="detail-value">${inviteCode}</span>
                         </div>
                         <div class="detail-item">
+                            <span class="detail-label">初始豆子：</span>
+                            <span class="detail-value">${initialInfo.beans}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">初始经验：</span>
+                            <span class="detail-value">${initialInfo.exp}</span>
+                        </div>
+                        <div class="detail-item">
                             <span class="detail-label">注册时间：</span>
                             <span class="detail-value">${new Date().toLocaleString()}</span>
                         </div>
@@ -494,7 +357,6 @@ async function handleRegister(event) {
                 </div>
             `, 'success');
             
-            // 重新检查API状态（更新邀请码数量）
             checkApiStatus();
         } else {
             showResult(`
@@ -520,117 +382,67 @@ async function handleRegister(event) {
 
 // ==================== 验证输入 ====================
 function validateInput(username, password, confirmPassword, email, inviteCode) {
-    // 验证用户名
     if (username.length < 3 || username.length > 20) {
         showResult('用户名长度必须在3-20个字符之间', 'error');
         return false;
     }
-    
     if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
         showResult('用户名只能包含字母、数字、下划线和连字符', 'error');
         return false;
     }
-    
-    // 验证密码
     if (password.length < 6) {
         showResult('密码长度必须至少6个字符', 'error');
         return false;
     }
-    
-    // 验证密码匹配
     if (password !== confirmPassword) {
         showResult('两次输入的密码不一致', 'error');
         return false;
     }
-    
-    // 验证邮箱（如果提供了）
     if (email && !validateEmail(email)) {
         showResult('邮箱格式不正确', 'error');
         return false;
     }
-    
-    // 验证邀请码
     if (!inviteCode || inviteCode.trim() === '') {
         showResult('请输入邀请码', 'error');
         return false;
     }
-    
     if (inviteCode.length < 4) {
         showResult('邀请码格式不正确', 'error');
         return false;
     }
-    
     return true;
 }
 
 // ==================== 显示结果 ====================
 function showResult(content, type) {
     const resultArea = document.getElementById('result');
-    
-    // 添加结果区域样式
     const style = document.createElement('style');
     style.textContent = `
-        .loading-state, .success-state, .error-state {
-            text-align: center;
-        }
-        
+        .loading-state, .success-state, .error-state { text-align: center; }
         .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(99, 102, 241, 0.2);
-            border-top-color: var(--primary-color);
-            border-radius: 50%;
-            margin: 0 auto 16px;
-            animation: spin 1s linear infinite;
+            width: 40px; height: 40px; border: 3px solid rgba(99, 102, 241, 0.2);
+            border-top-color: var(--primary-color); border-radius: 50%;
+            margin: 0 auto 16px; animation: spin 1s linear infinite;
         }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .success-icon, .error-icon {
-            font-size: 3rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-        
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .success-icon, .error-icon { font-size: 3rem; margin-bottom: 16px; display: block; }
         .success-details {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 8px;
-            padding: 16px;
-            margin: 20px 0;
-            text-align: left;
+            background: rgba(255, 255, 255, 0.5); border-radius: 8px; padding: 16px;
+            margin: 20px 0; text-align: left;
         }
-        
         .detail-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex; justify-content: space-between; margin-bottom: 8px;
+            padding-bottom: 8px; border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
-        .detail-item:last-child {
-            margin-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .detail-label {
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-        
-        .detail-value {
-            color: var(--text-primary);
-        }
+        .detail-item:last-child { margin-bottom: 0; border-bottom: none; }
+        .detail-label { font-weight: 500; color: var(--text-secondary); }
+        .detail-value { color: var(--text-primary); }
     `;
     document.head.appendChild(style);
     
     resultArea.innerHTML = content;
     resultArea.style.display = 'block';
     resultArea.className = 'result-area ' + type;
-    
-    // 滚动到结果区域
     resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
@@ -638,11 +450,7 @@ function showResult(content, type) {
 function disableForm(disabled) {
     const inputs = document.querySelectorAll('#registerForm input');
     const button = document.getElementById('submitBtn');
-    
-    inputs.forEach(input => {
-        input.disabled = disabled;
-    });
-    
+    inputs.forEach(input => input.disabled = disabled);
     button.disabled = disabled;
     button.querySelector('.btn-text').textContent = disabled ? '创建中...' : '创建账户';
 }
