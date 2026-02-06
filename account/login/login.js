@@ -2,7 +2,7 @@
 let API_BASE_URL = '';
 let API_KEY = '';
 
-// ==================== SHA-256 哈希函数（前端加密） ====================
+// ==================== SHA-256 哈希函数（前端加密 - 第一层） ====================
 async function sha256Encrypt(string) {
     const msgBuffer = new TextEncoder().encode(string);
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
@@ -62,12 +62,12 @@ async function handleLogin(event) {
     showLoginLoading('正在验证用户信息...');
     
     try {
-        // 【核心】前端先进行一次 SHA-256 加密
+        // 【核心】前端进行第一次 SHA-256 加密
         const passwordHash = await sha256Encrypt(password);
-        console.log('前端加密后的密码(第一层):', passwordHash);
+        console.log('前端加密(第一层):', passwordHash);
 
         // 发送第一层加密后的密码
-        // 后端 app (3).py 的 /token 接口会自动再进行一次 SHA-256 加密（第二层）并与数据库比对
+        // 后端 app (3).py 的 /token 接口会自动进行第二次 SHA-256 加密
         const response = await fetch(`${API_BASE_URL}/token?id=${encodeURIComponent(username)}&pw=${encodeURIComponent(passwordHash)}`);
         const result = await response.json();
         
