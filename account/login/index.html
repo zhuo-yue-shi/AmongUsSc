@@ -49,7 +49,7 @@
 
             <div id="loginResult" class="result-container" style="display: none;">
                 <div id="loginResultContent"></div>
-                <button class="btn btn-outline" onclick="hideLoginResult()">
+                <button class="btn btn-outline" onclick="hideLoginResult()" style="margin-top: 10px; padding: 8px 15px; font-size: 14px;">
                     <i class="fas fa-times"></i> 关闭
                 </button>
             </div>
@@ -64,25 +64,24 @@
         // API 配置
         const API_BASE_URL = 'https://auoj.mvmzf.cn:800/';
 
-        // 简单的字符串 Hash 函数（用于密码加密）
-        async function simpleHash(str) {
-            let hash = 0;
+        // 【核心算法】自定义纯数字加密算法 (对应 Python 的 hash 函数)
+        function customHash(str) {
+            let ans = 0;
             for (let i = 0; i < str.length; i++) {
-                const char = str.charCodeAt(i);
-                hash = ((hash << 5) - hash) + char;
-                hash = hash & hash; // Convert to 32bit integer
-            }
-            // 添加一些混淆，使它看起来更像 hash
-            return 'h' + Math.abs(hash).toString(16) + Date.now().toString(36);
-        }
+                // 累加的字符 ASCII 码
+                const add = str.charCodeAt(i); // 对应 Python 的 ord(string[i])
 
-        // 更好的 Hash：使用 SHA-256（推荐）
-        async function sha256Hash(message) {
-            const msgBuffer = new TextEncoder().encode(message);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-            return hashHex;
+                // 不同处理
+                if (add % 3 === 0) {
+                    ans += add * (i + 1) * 7;
+                } else if (add % 2 === 1) { // 奇数
+                    ans += add * (i + 1) * 2;
+                } else {
+                    ans += add * (i + 1) * 5;
+                }
+            }
+            
+            return ans; // 返回纯数字
         }
 
         // 获取用户数据（用于检查封禁状态）
@@ -188,11 +187,14 @@
                     return;
                 }
                 
-                // 3. 对密码进行 Hash
-                const hashedPassword = await sha256Hash(password);
+                // 3. 使用自定义算法生成纯数字加密密码
+                const hashedPassword = customHash(password);
+                console.log('原始密码:', password);
+                console.log('加密后的密码:', hashedPassword); // 调试用
                 
                 // 4. 调用 /token 端点验证登录
-                const tokenUrl = `${API_BASE_URL}/token?id=${encodeURIComponent(username)}pw=${encodeURIComponent(hashedPassword)}`;
+                // URL 格式: https://auoj.mvmzf.cn:800/token?id=(用户名)&pw=(纯数字加密密码)
+                const tokenUrl = `${API_BASE_URL}/token?id=${encodeURIComponent(username)}&pw=${encodeURIComponent(hashedPassword)}`;
                 const response = await fetch(tokenUrl);
                 const result = await response.json();
                 
@@ -201,12 +203,8 @@
                     showLoginResult('登录成功！正在跳转...', true);
                     
                     setTimeout(() => {
-                        // 跳转到自定义协议
+                        // 跳转到自定义协议，传递用户名和原始密码
                         window.open(`auscoj://login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
-                        
-                        // 也可以选择关闭当前窗口或跳转到其他页面
-                        // window.location.href = '/dashboard.html';
-                        // window.close();
                     }, 1000);
                 } else {
                     showLoginResult('用户名或密码错误', false);
