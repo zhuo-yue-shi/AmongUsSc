@@ -149,8 +149,8 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
             width: 100%;
-            max-width: 280px;
-            margin-top: 0.5rem;
+            max-width: 350px;
+            text-align: center;
         }
         
         .tutorial-btn:hover {
@@ -164,7 +164,37 @@
             transform: translateY(0);
         }
         
-        .download-btn i, .web-btn i, .tutorial-btn i {
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(24, 23, 38, 0.8);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.7rem 1.8rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            width: 100%;
+            max-width: 280px;
+        }
+        
+        .github-btn:hover {
+            background: rgba(36, 35, 48, 0.9);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        .github-btn:active {
+            transform: translateY(0);
+        }
+        
+        .download-btn i, .web-btn i, .tutorial-btn i, .github-btn i {
             font-size: 1.2em;
             transition: transform 0.3s ease;
         }
@@ -177,7 +207,7 @@
             transform: translateY(1px);
         }
         
-        .tutorial-btn:hover i {
+        .tutorial-btn:hover i, .github-btn:hover i {
             transform: translateY(1px);
         }
         
@@ -285,10 +315,10 @@
                 padding: 0.9rem 2rem;
             }
             
-            .tutorial-btn {
+            .tutorial-btn, .github-btn {
                 font-size: 0.85rem;
                 padding: 0.65rem 1.6rem;
-                max-width: 250px;
+                max-width: 280px;
             }
             
             .container {
@@ -319,15 +349,15 @@
                 gap: 6px;
             }
             
-            .tutorial-btn {
+            .tutorial-btn, .github-btn {
                 font-size: 0.8rem;
                 padding: 0.6rem 1.4rem;
                 flex-direction: column;
                 gap: 5px;
-                max-width: 220px;
+                max-width: 240px;
             }
             
-            .download-btn i, .web-btn i, .tutorial-btn i {
+            .download-btn i, .web-btn i, .tutorial-btn i, .github-btn i {
                 font-size: 1.4em;
             }
         }
@@ -398,6 +428,11 @@
                     <i class="fas fa-book"></i>
                     IDM一直自动嗅探资源？点击查看解决办法
                 </a>
+                
+                <a href="https://github.com/zhuo-yue-shi/AmongUsSc/" class="github-btn" id="githubBtn" target="_blank">
+                    <i class="fab fa-github"></i>
+                    Github界面
+                </a>
             </div>
             
             <div class="loading-dots" id="loadingDots">
@@ -413,6 +448,7 @@
             const downloadBtn = document.getElementById('downloadBtn');
             const webBtn = document.getElementById('webBtn');
             const tutorialBtn = document.getElementById('tutorialBtn');
+            const githubBtn = document.getElementById('githubBtn');
             const loadingDots = document.getElementById('loadingDots');
             
             // 点击下载按钮
@@ -426,6 +462,8 @@
                 webBtn.style.pointerEvents = 'none';
                 tutorialBtn.style.opacity = '0.8';
                 tutorialBtn.style.pointerEvents = 'none';
+                githubBtn.style.opacity = '0.8';
+                githubBtn.style.pointerEvents = 'none';
                 loadingDots.style.display = 'flex';
                 
                 // 模拟下载过程
@@ -441,6 +479,8 @@
                         webBtn.style.pointerEvents = 'auto';
                         tutorialBtn.style.opacity = '1';
                         tutorialBtn.style.pointerEvents = 'auto';
+                        githubBtn.style.opacity = '1';
+                        githubBtn.style.pointerEvents = 'auto';
                         loadingDots.style.display = 'none';
                     }, 3000);
                 }, 1500);
@@ -455,7 +495,7 @@
                 }, 150);
                 
                 // 在新标签页中打开网页版（target="_blank"已设置）
-                console.log('正在打开网页版: http://auoj.mvmzf.cn:4433/');
+                console.log('正在打开网页版: https://auoj.ytt11.xyz/jump-to/onlineplay');
             });
             
             // 点击教程按钮
@@ -468,6 +508,18 @@
                 
                 // 在新标签页中打开教程（target="_blank"已设置）
                 console.log('正在打开教程: https://auoj.ytt11.xyz/jump-to/auoj_blog');
+            });
+            
+            // 点击Github按钮
+            githubBtn.addEventListener('click', function(e) {
+                // 添加点击反馈
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // 在新标签页中打开Github（target="_blank"已设置）
+                console.log('正在打开Github界面: https://github.com/zhuo-yue-shi/AmongUsSc/');
             });
             
             // 添加键盘支持
@@ -492,14 +544,10 @@
                     e.preventDefault();
                 }
                 
-                // 按Enter键在网页版按钮上时
-                if (e.key === 'Enter' && document.activeElement === webBtn) {
-                    // 按钮的="_blank"会在新标签页打开
-                }
-                
-                // 按Enter键在教程按钮上时
-                if (e.key === 'Enter' && document.activeElement === tutorialBtn) {
-                    // 按钮的="_blank"会在新标签页打开
+                // 按G键聚焦Github按钮
+                if (e.key === 'g' || e.key === 'G') {
+                    githubBtn.focus();
+                    e.preventDefault();
                 }
             });
             
