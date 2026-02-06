@@ -169,21 +169,13 @@ async function checkApiStatus() {
     }
 }
 
-// ==================== 哈希函数 ====================
-function hashPassword(string) {
-    let ans = 0;
-    for (let i = 0; i < string.length; i++) {
-        const add = string.charCodeAt(i);
-        
-        if (add % 3 === 0) {
-            ans += add * (i + 1) * 7;
-        } else if (add % 2 === 1) {
-            ans += add * (i + 1) * 2;
-        } else {
-            ans += add * (i + 1) * 5;
-        }
-    }
-    return ans;
+// ==================== 哈希函数 (修改为 SHA-256) ====================
+async function hashPassword(string) {
+    const msgBuffer = new TextEncoder().encode(string);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
 }
 
 // ==================== 用户名可用性检查 ====================
@@ -433,8 +425,8 @@ async function handleRegister(event) {
         return;
     }
     
-    // 计算密码哈希
-    const passwordHash = hashPassword(password);
+    // 【修改】使用 SHA-256 计算密码哈希
+    const passwordHash = await hashPassword(password);
     
     // 准备用户数据（包含邀请码）
     const userData = {
@@ -830,24 +822,18 @@ async function viewAllUsers() {
 }
 
 function showHashExample() {
-    const hashCode = `function hash(string) {
-  let ans = 0;
-  for (let i = 0; i < string.length; i++) {
-    const add = string.charCodeAt(i);
-    if (add % 3 === 0) {
-      ans += add * (i + 1) * 7;
-    } else if (add % 2 == 1) {
-      ans += add * (i + 1) * 2;
-    } else {
-      ans += add * (i + 1) * 5;
-    }
-  }
-  return ans;
+    // 【修改】更新示例代码以匹配新的 SHA-256 实现
+    const hashCode = `async function hashPassword(string) {
+  const msgBuffer = new TextEncoder().encode(string);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return hashHex;
 }`;
     
     showResult(`
         <div class="hash-example">
-            <h4>🔢 哈希算法</h4>
+            <h4>🔢 哈希算法 (SHA-256)</h4>
             <pre>${hashCode}</pre>
             <div class="hash-test">
                 <input type="text" id="hashTestInput" placeholder="输入字符串测试哈希">
@@ -858,10 +844,11 @@ function showHashExample() {
     `, 'success');
 }
 
-function testHash() {
+async function testHash() {
     const input = document.getElementById('hashTestInput').value;
     if (input) {
-        const hashValue = hashPassword(input);
+        // 【修改】添加 await
+        const hashValue = await hashPassword(input);
         document.getElementById('hashResult').innerHTML = `
             <div class="hash-result">
                 <span>输入: "${input}"</span>
