@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>版本管理日志 | Version Logger</title>
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#64748b',
+                        success: '#10b981',
+                        warning: '#f59e0b',
+                        danger: '#ef4444',
+                        info: '#06b6d4',
+                        light: '#f3f4f6',
+                        dark: '#1f2937',
+                        // 版本状态颜色
+                        'status-published': '#10b981',
+                        'status-released': '#3b82f6',
+                        'status-unpublished': '#64748b',
+                        // 版本类型颜色
+                        'type-major': '#ef4444',
+                        'type-minor': '#f59e0b',
+                        'type-patch': '#10b981',
+                        'type-snapshot': '#8b5cf6',
+                        'type-draft': '#64748b',
+                        // 改动类型颜色
+                        'change-add': '#10b981',
+                        'change-remove': '#ef4444',
+                        'change-fix': '#f59e0b',
+                        'change-improve': '#3b82f6',
+                        'change-optimize': '#8b5cf6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        card: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .transition-height {
+                transition: height 0.3s ease;
+            }
+            .scrollbar-thin {
+                scrollbar-width: thin;
+            }
+            .scrollbar-thin::-webkit-scrollbar {
+                width: 6px;
+                height: 6px;
+            }
+            .scrollbar-thin::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+            .scrollbar-thin::-webkit-scrollbar-thumb {
+                background: #888;
+                border-radius: 3px;
+            }
+            .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+            .text-shadow {
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            }
+            .card-transition {
+                transition: all 0.3s ease;
+            }
+        }
+    </style>
+    <style>
+        /* 自定义动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.3s ease forwards;
+        }
+        
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 表单元素焦点样式 */
+        input:focus, textarea:focus, select:focus {
+            outline: 2px solid rgba(59, 130, 246, 0.5);
+            outline-offset: 1px;
+        }
+        
+        /* 标签样式 */
+        .badge {
+            display: inline-block;
+            padding: 0.25em 0.6em;
+            font-size: 0.75em;
+            font-weight: 600;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease;
+        }
+        
+        /* 卡片悬停效果 */
+        .card-hover-effect:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+    <!-- 顶部导航栏 -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-code-fork text-primary text-2xl"></i>
+                <h1 class="text-xl font-bold text-primary">版本管理日志</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="newProjectBtn" class="flex items-center px-3 py-1.5 bg-primary text-white rounded hover:bg-primary/90 transition-colors">
+                    <i class="fa fa-plus mr-2"></i>
+                    <span>新建项目</span>
+                </button>
+                <button id="importExportBtn" class="flex items-center px-3 py-1.5 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors">
+                    <i class="fa fa-download mr-2"></i>
+                    <span>导入/导出</span>
+                </button>
+                <button id="helpBtn" class="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">
+                    <i class="fa fa-question"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="flex-grow flex">
+        <!-- 左侧项目导航 -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+            <div class="p-4 border-b border-gray-200">
+                <div class="relative">
+                    <input type="text" id="projectSearch" placeholder="搜索项目..." class="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
+                    <i class="fa fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+            <div id="projectsList" class="flex-grow overflow-y-auto scrollbar-thin p-2">
+                <!-- 项目列表将通过JS动态生成 -->
+                <div class="text-center text-gray-500 py-8">
+                    <i class="fa fa-folder-open-o text-4xl mb-3"></i>
+                    <p>暂无项目</p>
+                    <p class="text-sm mt-2">点击"新建项目"开始</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧内容区 -->
+        <div class="flex-grow flex flex-col overflow-hidden">
+            <!-- 项目信息栏 -->
+            <div id="projectInfoBar" class="bg-white border-b border-gray-200 p-4 hidden">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 id="currentProjectName" class="text-lg font-semibold"></h2>
+                        <p id="currentProjectDesc" class="text-sm text-gray-500"></p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <button id="editProjectBtn" class="text-gray-500 hover:text-primary">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                        <button id="deleteProjectBtn" class="text-gray-500 hover:text-danger">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 版本管理区 -->
+            <div id="versionManager" class="flex-grow flex flex-col md:flex-row overflow-hidden hidden">
+                <!-- 左侧版本列表 -->
+                <div class="w-full md:w-1/3 border-r border-gray-200 bg-white flex flex-col">
+                    <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                        <h3 class="font-medium">版本列表</h3>
+                        <button id="newVersionBtn" class="flex items-center px-3 py-1.5 bg-primary text-white rounded hover:bg-primary/90 transition-colors text-sm">
+                            <i class="fa fa-plus mr-1"></i>
+                            <span>新建版本</span>
+                        </button>
+                    </div>
+                    <div class="p-3 border-b border-gray-200">
+                        <div class="flex flex-wrap gap-2">
+                            <select id="versionStatusFilter" class="px-2 py-1 text-sm border border-gray-300 rounded">
+                                <option value="all">所有状态</option>
+                                <option value="published">已公开</option>
+                                <option value="released">已发布</option>
+                                <option value="unpublished">未发布</option>
+                            </select>
+                            <select id="versionTypeFilter" class="px-2 py-1 text-sm border border-gray-300 rounded">
+                                <option value="all">所有类型</option>
+                                <option value="major">大更新</option>
+                                <option value="minor">小更新</option>
+                                <option value="patch">补丁</option>
+                                <option value="snapshot">快照</option>
+                                <option value="draft">草稿</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="versionsList" class="flex-grow overflow-y-auto scrollbar-thin p-2">
+                        <!-- 版本列表将通过JS动态生成 -->
+                        <div class="text-center text-gray-500 py-8">
+                            <i class="fa fa-code-fork text-4xl mb-3"></i>
+                            <p>暂无版本</p>
+                            <p class="text-sm mt-2">点击"新建版本"开始</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧版本详情 -->
+                <div id="versionDetail" class="w-full md:w-2/3 bg-gray-50 flex flex-col overflow-hidden hidden">
+                    <!-- 版本编辑区 -->
+                    <div class="flex-grow overflow-y-auto scrollbar-thin p-6">
+                        <div class="bg-white rounded-lg shadow-card p-6 mb-6">
+                            <h3 class="text-lg font-semibold mb-4">版本信息</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="versionNumber" class="block text-sm font-medium text-gray-700 mb-1">版本号</label>
+                                    <input type="text" id="versionNumber" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="例如: 1.0.0">
+                                </div>
+                                <div>
+                                    <label for="versionTitle" class="block text-sm font-medium text-gray-700 mb-1">版本标题</label>
+                                    <input type="text" id="versionTitle" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="简短描述此版本">
+                                </div>
+                                <div>
+                                    <label for="versionStatus" class="block text-sm font-medium text-gray-700 mb-1">状态</label>
+                                    <select id="versionStatus" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                                        <option value="unpublished">未发布</option>
+                                        <option value="released">已发布</option>
+                                        <option value="published">已公开</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="versionType" class="block text-sm font-medium text-gray-700 mb-1">类型</label>
+                                    <select id="versionType" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                                        <option value="draft">草稿</option>
+                                        <option value="snapshot">快照</option>
+                                        <option value="patch">补丁</option>
+                                        <option value="minor">小更新</option>
+                                        <option value="major">大更新</option>
+                                    </select>
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label for="versionDescription" class="block text-sm font-medium text-gray-700 mb-1">版本描述</label>
+                                    <textarea id="versionDescription" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="详细描述此版本的主要变更和改进"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 改动记录区 -->
+                        <div class="bg-white rounded-lg shadow-card p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-semibold">改动记录</h3>
+                                <button id="addChangeBtn" class="flex items-center px-3 py-1.5 bg-primary text-white rounded hover:bg-primary/90 transition-colors text-sm">
+                                    <i class="fa fa-plus mr-1"></i>
+                                    <span>添加改动</span>
+                                </button>
+                            </div>
+                            <div id="changesList" class="space-y-4">
+                                <!-- 改动记录将通过JS动态生成 -->
+                                <div class="text-center text-gray-500 py-8">
+                                    <i class="fa fa-list-alt text-4xl mb-3"></i>
+                                    <p>暂无改动记录</p>
+                                    <p class="text-sm mt-2">点击"添加改动"开始记录</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 底部操作栏 -->
+                    <div class="border-t border-gray-200 bg-white p-4 flex justify-between items-center">
+                        <div>
+                            <button id="deleteVersionBtn" class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors mr-2">
+                                <i class="fa fa-trash mr-1"></i>
+                                <span>删除版本</span>
+                            </button>
+                        </div>
+                        <div>
+                            <button id="saveVersionBtn" class="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors mr-2">
+                                <i class="fa fa-save mr-1"></i>
+                                <span>保存</span>
+                            </button>
+                            <button id="exportVersionBtn" class="px-4 py-2 bg-success text-white rounded hover:bg-success/90 transition-colors">
+                                <i class="fa fa-download mr-1"></i>
+                                <span>导出</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 版本预览区 -->
+                <div id="versionPreview" class="w-full md:w-1/2 bg-gray-50 flex flex-col overflow-hidden hidden">
+                    <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                        <h3 class="font-medium">预览</h3>
+                        <div class="flex space-x-2">
+                            <select id="exportFormat" class="px-2 py-1 text-sm border border-gray-300 rounded">
+                                <option value="markdown">Markdown</option>
+                                <option value="text">纯文本</option>
+                            </select>
+                            <button id="copyPreviewBtn" class="flex items-center px-3 py-1.5 bg-primary text-white rounded hover:bg-primary/90 transition-colors text-sm">
+                                <i class="fa fa-copy mr-1"></i>
+                                <span>复制</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex-grow overflow-y-auto scrollbar-thin p-4">
+                        <div id="previewContent" class="bg-white rounded-lg shadow-sm p-4 min-h-full">
+                            <div class="text-center text-gray-500 py-8">
+                                <i class="fa fa-eye text-4xl mb-3"></i>
+                                <p>选择或创建版本以预览</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 欢迎页面 -->
+            <div id="welcomePage" class="flex-grow flex items-center justify-center p-4">
+                <div class="text-center max-w-md">
+                    <div class="bg-white rounded-lg shadow-card p-8 animate-fadeIn">
+                        <i class="fa fa-code-fork text-primary text-5xl mb-4"></i>
+                        <h2 class="text-2xl font-bold mb-2">欢迎使用版本管理日志</h2>
+                        <p class="text-gray-600 mb-6">轻松记录和管理您的项目版本更新，生成格式化的更新日志</p>
+                        <button id="welcomeNewProjectBtn" class="px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors shadow-sm">
+                            <i class="fa fa-plus mr-2"></i>
+                            <span>创建您的第一个项目</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 模态框 -->
+    <!-- 新建/编辑项目模态框 -->
+    <div id="projectModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-md mx-4 animate-fadeIn">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 id="projectModalTitle" class="text-lg font-semibold">新建项目</h3>
+                <button class="close-modal text-gray-500 hover:text-gray-700">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="projectForm">
+                    <div class="mb-4">
+                        <label for="projectName" class="block text-sm font-medium text-gray-700 mb-1">项目名称</label>
+                        <input type="text" id="projectName" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="输入项目名称" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="projectDescription" class="block text-sm font-medium text-gray-700 mb-1">项目描述</label>
+                        <textarea id="projectDescription" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="简短描述您的项目"></textarea>
+                    </div>
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" class="close-modal px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition-colors">取消</button>
+                        <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新建/编辑版本模态框 -->
+    <div id="versionModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-md mx-4 animate-fadeIn">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 id="versionModalTitle" class="text-lg font-semibold">新建版本</h3>
+                <button class="close-modal text-gray-500 hover:text-gray-700">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="versionForm">
+                    <div class="mb-4">
+                        <label for="newVersionNumber" class="block text-sm font-medium text-gray-700 mb-1">版本号</label>
+                        <input type="text" id="newVersionNumber" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="例如: 1.0.0" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="newVersionTitle" class="block text-sm font-medium text-gray-700 mb-1">版本标题</label>
+                        <input type="text" id="newVersionTitle" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="简短描述此版本">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="newVersionStatus" class="block text-sm font-medium text-gray-700 mb-1">状态</label>
+                            <select id="newVersionStatus" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                                <option value="unpublished">未发布</option>
+                                <option value="released">已发布</option>
+                                <option value="published">已公开</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="newVersionType" class="block text-sm font-medium text-gray-700 mb-1">类型</label>
+                            <select id="newVersionType" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                                <option value="draft">草稿</option>
+                                <option value="snapshot">快照</option>
+                                <option value="patch">补丁</option>
+                                <option value="minor">小更新</option>
+                                <option value="major">大更新</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="newVersionDescription" class="block text-sm font-medium text-gray-700 mb-1">版本描述</label>
+                        <textarea id="newVersionDescription" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="详细描述此版本的主要变更和改进"></textarea>
+                    </div>
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" class="close-modal px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition-colors">取消</button>
+                        <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">创建</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加改动记录模态框 -->
+    <div id="changeModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-md mx-4 animate-fadeIn">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-lg font-semibold">添加改动记录</h3>
+                <button class="close-modal text-gray-500 hover:text-gray-700">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="changeForm">
+                    <div class="mb-4">
+                        <label for="changeType" class="block text-sm font-medium text-gray-700 mb-1">改动类型</label>
+                        <select id="changeType" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                            <option value="add">增添</option>
+                            <option value="remove">删除</option>
+                            <option value="fix">修复</option>
+                            <option value="improve">改进</option>
+                            <option value="optimize">优化</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="changeContent" class="block text-sm font-medium text-gray-700 mb-1">改动内容</label>
+                        <textarea id="changeContent" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="描述具体的改动内容" required></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <label for="changeCompletedAt" class="block text-sm font-medium text-gray-700 mb-1">完成时间</label>
+                        <input type="datetime-local" id="changeCompletedAt" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" class="close-modal px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition-colors">取消</button>
+                        <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">添加</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导入/导出模态框 -->
+    <div id="importExportModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-md mx-4 animate-fadeIn">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-lg font-semibold">导入/导出数据</h3>
+                <button class="close-modal text-gray-500 hover:text-gray-700">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="mb-6">
+                    <h4 class="font-medium mb-2">导出数据</h4>
+                    <p class="text-sm text-gray-600 mb-3">将所有项目和版本数据导出为JSON文件</p>
+                    <button id="exportDataBtn" class="w-full flex items-center justify-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">
+                        <i class="fa fa-download mr-2"></i>
+                        <span>导出数据</span>
+                    </button>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-2">导入数据</h4>
+                    <p class="text-sm text-gray-600 mb-3">从JSON文件导入项目和版本数据</p>
+                    <div class="flex">
+                        <input type="file" id="importDataFile" accept=".json" class="hidden">
+                        <label for="importDataFile" class="w-full flex items-center justify-center px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors cursor-pointer">
+                            <i class="fa fa-upload mr-2"></i>
+                            <span>选择文件</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 帮助模态框 -->
+    <div id="helpModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl mx-4 animate-fadeIn">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-lg font-semibold">使用帮助</h3>
+                <button class="close-modal text-gray-500 hover:text-gray-700">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6 max-h-[70vh] overflow-y-auto scrollbar-thin">
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-medium text-lg mb-2">基本操作</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>创建项目：点击顶部的"新建项目"按钮</li>
+                            <li>创建版本：在项目中点击"新建版本"按钮</li>
+                            <li>添加改动记录：在版本详情页点击"添加改动"按钮</li>
+                            <li>导出日志：在版本详情页点击"导出"按钮，选择格式并复制</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-lg mb-2">版本状态</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li><span class="badge bg-status-unpublished">未发布</span>：版本正在开发中，尚未发布</li>
+                            <li><span class="badge bg-status-released">已发布</span>：版本已发布给内部团队或测试用户</li>
+                            <li><span class="badge bg-status-published">已公开</span>：版本已公开发布给所有用户</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-lg mb-2">版本类型</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li><span class="badge bg-type-major">大更新</span>：包含重大功能变更或不兼容的API更改</li>
+                            <li><span class="badge bg-type-minor">小更新</span>：添加新功能，但保持向后兼容</li>
+                            <li><span class="badge bg-type-patch">补丁</span>：修复错误，不添加新功能</li>
+                            <li><span class="badge bg-type-snapshot">快照</span>：开发中的临时版本</li>
+                            <li><span class="badge bg-type-draft">草稿</span>：版本计划或初步构想</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-lg mb-2">改动类型</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li><span class="badge bg-change-add">增添</span>：添加新功能或内容</li>
+                            <li><span class="badge bg-change-remove">删除</span>：移除功能或内容</li>
+                            <li><span class="badge bg-change-fix">修复</span>：修复错误或问题</li>
+                            <li><span class="badge bg-change-improve">改进</span>：改进现有功能</li>
+                            <li><span class="badge bg-change-optimize">优化</span>：性能或用户体验优化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 确认删除模态框 -->
+    <div id="confirmDeleteModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-sm mx-4 animate-fadeIn">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-lg font-semibold">确认删除</h3>
+                <button class="close-modal text-gray-500 hover:text-gray-700">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <p id="confirmDeleteMessage" class="mb-6">您确定要删除此项吗？此操作无法撤销。</p>
+                <div class="flex justify-end space-x-3">
+                    <button class="close-modal px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition-colors">取消</button>
+                    <button id="confirmDeleteBtn" class="px-4 py-2 bg-danger text-white rounded-md hover:bg-danger/90 transition-colors">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示消息 -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-white shadow-lg rounded-md px-4 py-3 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center z-50 max-w-xs">
+        <div id="toastIcon" class="mr-3 text-lg"></div>
+        <div>
+            <p id="toastTitle" class="font-medium"></p>
+            <p id="toastMessage" class="text-sm text-gray-600"></p>
+        </div>
+    </div>
+
+    <!-- 脚本 -->
+    <script>
+        // 存储管理
+        const Storage = {
+            // 获取所有项目
+            getProjects() {
+                const projects = localStorage.getItem('versionLogger_projects');
+                return projects ? JSON.parse(projects) : [];
+            },
+            
+            // 保存所有项目
+            saveProjects(projects) {
+                localStorage.setItem('versionLogger_projects', JSON.stringify(projects));
+            },
+            
+            // 获取指定项目
+            getProject(projectId) {
+                const projects = this.getProjects();
+                return projects.find(project => project.id === projectId);
+            },
+            
+            // 添加项目
+            addProject(project) {
+                const projects = this.getProjects();
+                projects.push(project);
+                this.saveProjects(projects);
+                return project;
+            },
+            
+            // 更新项目
+            updateProject(updatedProject) {
+                const projects = this.getProjects();
+                const index = projects.findIndex(project => project.id === updatedProject.id);
+                if (index !== -1) {
+                    projects[index] = updatedProject;
+                    this.saveProjects(projects);
+                    return updatedProject;
+                }
+                return null;
+            },
+            
+            // 删除项目
+            deleteProject(projectId) {
+                const projects = this.getProjects();
+                const filteredProjects = projects.filter(project => project.id !== projectId);
+                this.saveProjects(filteredProjects);
+                
+                // 同时删除相关版本
+                const versions = this.getVersions();
+                const filteredVersions = versions.filter(version => version.projectId !== projectId);
+                this.saveVersions(filteredVersions);
+            },
+            
+            // 获取所有版本
+            getVersions() {
+                const versions = localStorage.getItem('versionLogger_versions');
+                return versions ? JSON.parse(versions) : [];
+            },
+            
+            // 保存所有版本
+            saveVersions(versions) {
+                localStorage.setItem('versionLogger_versions', JSON.stringify(versions));
+            },
+            
+            // 获取指定项目的所有版本
+            getProjectVersions(projectId) {
+                const versions = this.getVersions();
+                return versions.filter(version => version.projectId === projectId);
+            },
+            
+            // 获取指定版本
+            getVersion(versionId) {
+                const versions = this.getVersions();
+                return versions.find(version => version.id === versionId);
+            },
+            
+            // 添加版本
+            addVersion(version) {
+                const versions = this.getVersions();
+                versions.push(version);
+                this.saveVersions(versions);
+                return version;
+            },
+            
+            // 更新版本
+            updateVersion(updatedVersion) {
+                const versions = this.getVersions();
+                const index = versions.findIndex(version => version.id === updatedVersion.id);
+                if (index !== -1) {
+                    versions[index] = updatedVersion;
+                    this.saveVersions(versions);
+                    return updatedVersion;
+                }
+                return null;
+            },
+            
+            // 删除版本
+            deleteVersion(versionId) {
+                const versions = this.getVersions();
+                const filteredVersions = versions.filter(version => version.id !== versionId);
+                this.saveVersions(filteredVersions);
+            },
+            
+            // 导出所有数据
+            exportData() {
+                return {
+                    projects: this.getProjects(),
+                    versions: this.getVersions(),
+                    exportedAt: new Date().toISOString()
+                };
+            },
+            
+            // 导入数据
+            importData(data) {
+                if (data.projects && Array.isArray(data.projects)) {
+                    this.saveProjects(data.projects);
+                }
+                if (data.versions && Array.isArray(data.versions)) {
+                    this.saveVersions(data.versions);
+                }
+            },
+            
+            // 获取当前选中的项目ID
+            getCurrentProjectId() {
+                return localStorage.getItem('versionLogger_currentProjectId');
+            },
+            
+            // 设置当前选中的项目ID
+            setCurrentProjectId(projectId) {
+                localStorage.setItem('versionLogger_currentProjectId', projectId);
+            },
+            
+            // 获取当前选中的版本ID
+            getCurrentVersionId() {
+                return localStorage.getItem('versionLogger_currentVersionId');
+            },
+            
+            // 设置当前选中的版本ID
+            setCurrentVersionId(versionId) {
+                localStorage.setItem('versionLogger_currentVersionId', versionId);
+            }
+        };
+
+        // 工具函数
+        const Utils = {
+            // 生成唯一ID
+            generateId() {
+                return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+            },
+            
+            // 格式化日期时间
+            formatDateTime(date) {
+                if (!date) return '';
+                const d = new Date(date);
+                return d.toLocaleString('zh-CN', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            },
+            
+            // 格式化日期
+            formatDate(date) {
+                if (!date) return '';
+                const d = new Date(date);
+                return d.toLocaleDateString('zh-CN', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                });
+            },
+            
+            // 获取状态显示文本
+            getStatusText(status) {
+                const statusMap = {
+                    'published': '已公开',
+                    'released': '已发布',
+                    'unpublished': '未发布'
+                };
+                return statusMap[status] || status;
+            },
+            
+            // 获取类型显示文本
+            getTypeText(type) {
+                const typeMap = {
+                    'major': '大更新',
+                    'minor': '小更新',
+                    'patch': '补丁',
+                    'snapshot': '快照',
+                    'draft': '草稿'
+                };
+                return typeMap[type] || type;
+            },
+            
+            // 获取改动类型显示文本
+            getChangeTypeText(type) {
+                const typeMap = {
+                    'add': '增添',
+                    'remove': '删除',
+                    'fix': '修复',
+                    'improve': '改进',
+                    'optimize': '优化'
+                };
+                return typeMap[type] || type;
+            },
+            
+            // 生成版本日志Markdown
+            generateMarkdown(version, project) {
+                if (!version) return '';
+                
+                let markdown = `# ${project?.name || '项目'} ${version.versionNumber} ${version.title ? `- ${version.title}` : ''}\n\n`;
+                
+                // 版本信息
+                markdown += `## 版本信息\n\n`;
+                markdown += `- **状态**: ${this.getStatusText(version.status)}\n`;
+                markdown += `- **类型**: ${this.getTypeText(version.type)}\n`;
+                if (version.description) {
+                    markdown += `- **描述**: ${version.description}\n`;
+                }
+                markdown += `- **创建时间**: ${this.formatDateTime(version.createdAt)}\n`;
+                if (version.updatedAt) {
+                    markdown += `- **更新时间**: ${this.formatDateTime(version.updatedAt)}\n`;
+                }
+                if (version.publishedAt) {
+                    markdown += `- **发布时间**: ${this.formatDateTime(version.publishedAt)}\n`;
+                }
+                markdown += `\n`;
+                
+                // 改动记录
+                if (version.changes && version.changes.length > 0) {
+                    markdown += `## 改动记录\n\n`;
+                    
+                    // 按类型分组
+                    const changesByType = {};
+                    version.changes.forEach(change => {
+                        if (!changesByType[change.type]) {
+                            changesByType[change.type] = [];
+                        }
+                        changesByType[change.type].push(change);
+                    });
+                    
+                    // 输出每个类型的改动
+                    const typeOrder = ['add', 'improve', 'fix', 'optimize', 'remove'];
+                    typeOrder.forEach(type => {
+                        if (changesByType[type]) {
+                            markdown += `### ${this.getChangeTypeText(type)}\n\n`;
+                            changesByType[type].forEach(change => {
+                                markdown += `- ${change.content} (${this.formatDateTime(change.completedAt)})\n`;
+                            });
+                            markdown += `\n`;
+                        }
+                    });
+                }
+                
+                return markdown;
+            },
+            
+            // 生成版本日志纯文本
+            generateText(version, project) {
+                if (!version) return '';
+                
+                let text = `${project?.name || '项目'} ${version.versionNumber} ${version.title ? `- ${version.title}` : ''}\n\n`;
+                
+                // 版本信息
+                text += `版本信息：\n`;
+                text += `状态: ${this.getStatusText(version.status)}\n`;
+                text += `类型: ${this.getTypeText(version.type)}\n`;
+                if (version.description) {
+                    text += `描述: ${version.description}\n`;
+                }
+                text += `创建时间: ${this.formatDateTime(version.createdAt)}\n`;
+                if (version.updatedAt) {
+                    text += `更新时间: ${this.formatDateTime(version.updatedAt)}\n`;
+                }
+                if (version.publishedAt) {
+                    text += `发布时间: ${this.formatDateTime(version.publishedAt)}\n`;
+                }
+                text += `\n`;
+                
+                // 改动记录
+                if (version.changes && version.changes.length > 0) {
+                    text += `改动记录：\n\n`;
+                    
+                    // 按类型分组
+                    const changesByType = {};
+                    version.changes.forEach(change => {
+                        if (!changesByType[change.type]) {
+                            changesByType[change.type] = [];
+                        }
+                        changesByType[change.type].push(change);
+                    });
+                    
+                    // 输出每个类型的改动
+                    const typeOrder = ['add', 'improve', 'fix', 'optimize', 'remove'];
+                    typeOrder.forEach(type => {
+                        if (changesByType[type]) {
+                            text += `${this.getChangeTypeText(type)}：\n`;
+                            changesByType[type].forEach(change => {
+                                text += `- ${change.content} (${this.formatDateTime(change.completedAt)})\n`;
+                            });
+                            text += `\n`;
+                        }
+                    });
+                }
+                
+                return text;
+            },
+            
+            // 显示提示消息
+            showToast(title, message, type = 'info') {
+                const toast = document.getElementById('toast');
+                const toastTitle = document.getElementById('toastTitle');
+                const toastMessage = document.getElementById('toastMessage');
+                const toastIcon = document.getElementById('toastIcon');
+                
+                toastTitle.textContent = title;
+                toastMessage.textContent = message;
+                
+                // 设置图标和颜色
+                toastIcon.className = 'mr-3 text-lg';
+                switch (type) {
+                    case 'success':
+                        toastIcon.classList.add('fa', 'fa-check-circle', 'text-success');
+                        break;
+                    case 'error':
+                        toastIcon.classList.add('fa', 'fa-exclamation-circle', 'text-danger');
+                        break;
+                    case 'warning':
+                        toastIcon.classList.add('fa', 'fa-exclamation-triangle', 'text-warning');
+                        break;
+                    default:
+                        toastIcon.classList.add('fa', 'fa-info-circle', 'text-info');
+                }
+                
+                // 显示提示
+                toast.classList.remove('translate-y-20', 'opacity-0');
+                
+                // 3秒后隐藏
+                setTimeout(() => {
+                    toast.classList.add('translate-y-20', 'opacity-0');
+                }, 3000);
+            },
+            
+            // 复制文本到剪贴板
+            copyToClipboard(text) {
+                return navigator.clipboard.writeText(text).then(() => {
+                    this.showToast('复制成功', '内容已复制到剪贴板', 'success');
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    this.showToast('复制失败', '无法复制内容，请手动复制', 'error');
+                });
+            },
+            
+            // 下载文本文件
+            downloadText(text, filename) {
+                const blob = new Blob([text], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+        };
+
+        // 应用主逻辑
+        document.addEventListener('DOMContentLoaded', () => {
+            // 当前状态
+            let currentProject = null;
+            let currentVersion = null;
+            let editingProjectId = null;
+            let editingVersionId = null;
+            let editingChangeId = null;
+            
+            // DOM元素
+            const elements = {
+                // 页面区域
+                welcomePage: document.getElementById('welcomePage'),
+                projectInfoBar: document.getElementById('projectInfoBar'),
+                versionManager: document.getElementById('versionManager'),
+                versionDetail: document.getElementById('versionDetail'),
+                versionPreview: document.getElementById('versionPreview'),
+                
+                // 项目相关
+                projectsList: document.getElementById('projectsList'),
+                projectSearch: document.getElementById('projectSearch'),
+                currentProjectName: document.getElementById('currentProjectName'),
+                currentProjectDesc: document.getElementById('currentProjectDesc'),
+                
+                // 版本相关
+                versionsList: document.getElementById('versionsList'),
+                versionStatusFilter: document.getElementById('versionStatusFilter'),
+                versionTypeFilter: document.getElementById('versionTypeFilter'),
+                versionNumber: document.getElementById('versionNumber'),
+                versionTitle: document.getElementById('versionTitle'),
+                versionStatus: document.getElementById('versionStatus'),
+                versionType: document.getElementById('versionType'),
+                versionDescription: document.getElementById('versionDescription'),
+                
+                // 改动记录相关
+                changesList: document.getElementById('changesList'),
+                
+                // 预览相关
+                previewContent: document.getElementById('previewContent'),
+                exportFormat: document.getElementById('exportFormat'),
+                
+                // 模态框
+                projectModal: document.getElementById('projectModal'),
+                projectModalTitle: document.getElementById('projectModalTitle'),
+                projectForm: document.getElementById('projectForm'),
+                projectName: document.getElementById('projectName'),
+                projectDescription: document.getElementById('projectDescription'),
+                
+                versionModal: document.getElementById('versionModal'),
+                versionModalTitle: document.getElementById('versionModalTitle'),
+                versionForm: document.getElementById('versionForm'),
+                newVersionNumber: document.getElementById('newVersionNumber'),
+                newVersionTitle: document.getElementById('newVersionTitle'),
+                newVersionStatus: document.getElementById('newVersionStatus'),
+                newVersionType: document.getElementById('newVersionType'),
+                newVersionDescription: document.getElementById('newVersionDescription'),
+                
+                changeModal: document.getElementById('changeModal'),
+                changeForm: document.getElementById('changeForm'),
+                changeType: document.getElementById('changeType'),
+                changeContent: document.getElementById('changeContent'),
+                changeCompletedAt: document.getElementById('changeCompletedAt'),
+                
+                importExportModal: document.getElementById('importExportModal'),
+                helpModal: document.getElementById('helpModal'),
+                confirmDeleteModal: document.getElementById('confirmDeleteModal'),
+                confirmDeleteMessage: document.getElementById('confirmDeleteMessage'),
+                confirmDeleteBtn: document.getElementById('confirmDeleteBtn')
+            };
+            
+            // 初始化
+            function init() {
+                // 加载保存的项目和版本
+                loadProjects();
+                
+                // 加载当前选中的项目
+                const savedProjectId = Storage.getCurrentProjectId();
+                if (savedProjectId) {
+                    const project = Storage.getProject(savedProjectId);
+                    if (project) {
+                        selectProject(project);
+                        
+                        // 加载当前选中的版本
+                        const savedVersionId = Storage.getCurrentVersionId();
+                        if (savedVersionId) {
+                            const version = Storage.getVersion(savedVersionId);
+                            if (version && version.projectId === project.id) {
+                                selectVersion(version);
+                            } else {
+                                // 如果保存的版本不存在或不属于当前项目，加载第一个版本
+                                loadVersions();
+                            }
+                        } else {
+                            // 如果没有保存的版本，加载第一个版本
+                            loadVersions();
+                        }
+                    }
+                }
+                
+                // 设置事件监听器
+                setupEventListeners();
+                
+                // 设置当前日期时间为改动完成时间默认值
+                const now = new Date();
+                const dateTimeStr = now.toISOString().slice(0, 16);
+                elements.changeCompletedAt.value = dateTimeStr;
+            }
+            
+            // 设置事件监听器
+            function setupEventListeners() {
+                // 新建项目按钮
+                document.getElementById('newProjectBtn').addEventListener('click', () => {
+                    openProjectModal();
+                });
+                
+                document.getElementById('welcomeNewProjectBtn').addEventListener('click', () => {
+                    openProjectModal();
+                });
+                
+                // 编辑项目按钮
+                document.getElementById('editProjectBtn').addEventListener('click', () => {
+                    if (currentProject) {
+                        openProjectModal(currentProject);
+                    }
+                });
+                
+                // 删除项目按钮
+                document.getElementById('deleteProjectBtn').addEventListener('click', () => {
+                    if (currentProject) {
+                        openConfirmDeleteModal(
+                            `确定要删除项目"${currentProject.name}"吗？这将同时删除所有相关版本。`,
+                            () => deleteProject(currentProject.id)
+                        );
+                    }
+                });
+                
+                // 新建版本按钮
+                document.getElementById('newVersionBtn').addEventListener('click', () => {
+                    if (currentProject) {
+                        openVersionModal();
+                    }
+                });
+                
+                // 添加改动记录按钮
+                document.getElementById('addChangeBtn').addEventListener('click', () => {
+                    if (currentVersion) {
+                        openChangeModal();
+                    }
+                });
+                
+                // 保存版本按钮
+                document.getElementById('saveVersionBtn').addEventListener('click', () => {
+                    if (currentVersion) {
+                        saveVersion();
+                    }
+                });
+                
+                // 删除版本按钮
+                document.getElementById('deleteVersionBtn').addEventListener('click', () => {
+                    if (currentVersion) {
+                        openConfirmDeleteModal(
+                            `确定要删除版本"${currentVersion.versionNumber}"吗？`,
+                            () => deleteVersion(currentVersion.id)
+                        );
+                    }
+                });
+                
+                // 导出版本按钮
+                document.getElementById('exportVersionBtn').addEventListener('click', () => {
+                    if (currentVersion) {
+                        exportVersion();
+                    }
+                });
+                
+                // 复制预览按钮
+                document.getElementById('copyPreviewBtn').addEventListener('click', () => {
+                    if (currentVersion) {
+                        const format = elements.exportFormat.value;
+                        const text = format === 'markdown' 
+                            ? Utils.generateMarkdown(currentVersion, currentProject)
+                            : Utils.generateText(currentVersion, currentProject);
+                        
+                        Utils.copyToClipboard(text);
+                    }
+                });
+                
+                // 导入/导出按钮
+                document.getElementById('importExportBtn').addEventListener('click', () => {
+                    elements.importExportModal.classList.remove('hidden');
+                });
+                
+                // 导出数据按钮
+                document.getElementById('exportDataBtn').addEventListener('click', () => {
+                    const data = Storage.exportData();
+                    const json = JSON.stringify(data, null, 2);
+                    const filename = `version-logger-export-${Utils.formatDate(new Date())}.json`;
+                    Utils.downloadText(json, filename);
+                    Utils.showToast('导出成功', '数据已导出为JSON文件', 'success');
+                });
+                
+                // 导入数据文件选择
+                document.getElementById('importDataFile').addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            try {
+                                const data = JSON.parse(event.target.result);
+                                Storage.importData(data);
+                                loadProjects();
+                                
+                                // 如果有项目，选择第一个
+                                const projects = Storage.getProjects();
+                                if (projects.length > 0) {
+                                    selectProject(projects[0]);
+                                }
+                                
+                                Utils.showToast('导入成功', '数据已成功导入', 'success');
+                                elements.importExportModal.classList.add('hidden');
+                            } catch (err) {
+                                console.error('导入失败:', err);
+                                Utils.showToast('导入失败', '无效的JSON文件', 'error');
+                            }
+                        };
+                        reader.readAsText(file);
+                    }
+                });
+                
+                // 帮助按钮
+                document.getElementById('helpBtn').addEventListener('click', () => {
+                    elements.helpModal.classList.remove('hidden');
+                });
+                
+                // 项目表单提交
+                elements.projectForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    saveProject();
+                });
+                
+                // 版本表单提交
+                elements.versionForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    saveVersionModal();
+                });
+                
+                // 改动记录表单提交
+                elements.changeForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    saveChange();
+                });
+                
+                // 版本状态和类型筛选
+                elements.versionStatusFilter.addEventListener('change', loadVersions);
+                elements.versionTypeFilter.addEventListener('change', loadVersions);
+                
+                // 项目搜索
+                elements.projectSearch.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    filterProjects(searchTerm);
+                });
+                
+                // 导出格式切换
+                elements.exportFormat.addEventListener('change', updatePreview);
+                
+                // 版本详情输入变化时更新预览
+                elements.versionNumber.addEventListener('input', updatePreview);
+                elements.versionTitle.addEventListener('input', updatePreview);
+                elements.versionStatus.addEventListener('change', updatePreview);
+                elements.versionType.addEventListener('change', updatePreview);
+                elements.versionDescription.addEventListener('input', updatePreview);
+                
+                // 关闭模态框按钮
+                document.querySelectorAll('.close-modal').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.querySelectorAll('.fixed.inset-0').forEach(modal => {
+                            modal.classList.add('hidden');
+                        });
+                    });
+                });
+            }
+            
+            // 加载项目列表
+            function loadProjects() {
+                const projects = Storage.getProjects();
+                
+                // 如果没有项目，显示欢迎页面
+                if (projects.length === 0) {
+                    elements.welcomePage.classList.remove('hidden');
+                    elements.projectInfoBar.classList.add('hidden');
+                    elements.versionManager.classList.add('hidden');
+                    return;
+                }
+                
+                // 显示项目信息栏和版本管理器
+                elements.welcomePage.classList.add('hidden');
+                elements.projectInfoBar.classList.remove('hidden');
+                elements.versionManager.classList.remove('hidden');
+                
+                // 渲染项目列表
+                renderProjects(projects);
+            }
+            
+            // 渲染项目列表
+            function renderProjects(projects) {
+                elements.projectsList.innerHTML = '';
+                
+                if (projects.length === 0) {
+                    elements.projectsList.innerHTML = `
+                        <div class="text-center text-gray-500 py-8">
+                            <i class="fa fa-folder-open-o text-4xl mb-3"></i>
+                            <p>暂无项目</p>
+                            <p class="text-sm mt-2">点击"新建项目"开始</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                projects.forEach(project => {
+                    const isActive = currentProject && currentProject.id === project.id;
+                    
+                    const projectItem = document.createElement('div');
+                    projectItem.className = `p-3 mb-2 rounded-md cursor-pointer transition-colors ${
+                        isActive ? 'bg-primary/10 border-l-4 border-primary' : 'hover:bg-gray-100'
+                    }`;
+                    projectItem.dataset.projectId = project.id;
+                    
+                    projectItem.innerHTML = `
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="font-medium text-sm truncate">${project.name}</h4>
+                                <p class="text-xs text-gray-500 truncate">${project.description || '无描述'}</p>
+                            </div>
+                            <div class="text-xs text-gray-400">
+                                ${Utils.formatDate(project.updatedAt || project.createdAt)}
+                            </div>
+                        </div>
+                    `;
+                    
+                    projectItem.addEventListener('click', () => {
+                        selectProject(project);
+                    });
+                    
+                    elements.projectsList.appendChild(projectItem);
+                });
+            }
+            
+            // 筛选项目
+            function filterProjects(searchTerm) {
+                const projects = Storage.getProjects();
+                const filteredProjects = projects.filter(project => 
+                    project.name.toLowerCase().includes(searchTerm) || 
+                    (project.description && project.description.toLowerCase().includes(searchTerm))
+                );
+                renderProjects(filteredProjects);
+            }
+            
+            // 选择项目
+            function selectProject(project) {
+                currentProject = project;
+                Storage.setCurrentProjectId(project.id);
+                
+                // 更新项目信息栏
+                elements.currentProjectName.textContent = project.name;
+                elements.currentProjectDesc.textContent = project.description || '无描述';
+                
+                // 重新渲染项目列表以显示选中状态
+                loadProjects();
+                
+                // 加载项目的版本
+                loadVersions();
+            }
+            
+            // 加载版本列表
+            function loadVersions() {
+                if (!currentProject) return;
+                
+                const versions = Storage.getProjectVersions(currentProject.id);
+                
+                // 应用筛选
+                const statusFilter = elements.versionStatusFilter.value;
+                const typeFilter = elements.versionTypeFilter.value;
+                
+                let filteredVersions = versions;
+                if (statusFilter !== 'all') {
+                    filteredVersions = filteredVersions.filter(version => version.status === statusFilter);
+                }
+                if (typeFilter !== 'all') {
+                    filteredVersions = filteredVersions.filter(version => version.type === typeFilter);
+                }
+                
+                // 按版本号排序（简单排序，实际应用中可能需要更复杂的语义化版本排序）
+                filteredVersions.sort((a, b) => {
+                    // 先按状态排序（已公开 > 已发布 > 未发布）
+                    const statusOrder = { 'published': 3, 'released': 2, 'unpublished': 1 };
+                    if (statusOrder[a.status] !== statusOrder[b.status]) {
+                        return statusOrder[b.status] - statusOrder[a.status];
+                    }
+                    
+                    // 再按版本号排序（降序）
+                    return b.versionNumber.localeCompare(a.versionNumber, undefined, { numeric: true });
+                });
+                
+                // 渲染版本列表
+                renderVersions(filteredVersions);
+                
+                // 如果有版本但没有选中的版本，选择第一个
+                if (filteredVersions.length > 0 && (!currentVersion || currentVersion.projectId !== currentProject.id)) {
+                    selectVersion(filteredVersions[0]);
+                } else if (filteredVersions.length === 0) {
+                    // 如果没有版本，清空当前版本
+                    currentVersion = null;
+                    Storage.setCurrentVersionId(null);
+                    
+                    // 隐藏版本详情和预览
+                    elements.versionDetail.classList.add('hidden');
+                    elements.versionPreview.classList.add('hidden');
+                }
+            }
+            
+            // 渲染版本列表
+            function renderVersions(versions) {
+                elements.versionsList.innerHTML = '';
+                
+                if (versions.length === 0) {
+                    elements.versionsList.innerHTML = `
+                        <div class="text-center text-gray-500 py-8">
+                            <i class="fa fa-code-fork text-4xl mb-3"></i>
+                            <p>暂无版本</p>
+                            <p class="text-sm mt-2">点击"新建版本"开始</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                versions.forEach(version => {
+                    const isActive = currentVersion && currentVersion.id === version.id;
+                    
+                    const versionItem = document.createElement('div');
+                    versionItem.className = `p-3 mb-2 rounded-md cursor-pointer transition-colors ${
+                        isActive ? 'bg-primary/10 border-l-4 border-primary' : 'hover:bg-gray-100'
+                    }`;
+                    versionItem.dataset.versionId = version.id;
+                    
+                    versionItem.innerHTML = `
+                        <div class="flex items-center justify-between mb-1">
+                            <div class="font-medium text-sm">${version.versionNumber}</div>
+                            <div class="flex space-x-1">
+                                <span class="badge bg-status-${version.status}">${Utils.getStatusText(version.status)}</span>
+                                <span class="badge bg-type-${version.type}">${Utils.getTypeText(version.type)}</span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">${version.title || '无标题'}</div>
+                        <div class="flex items-center justify-between text-xs text-gray-400">
+                            <div>${version.changes ? version.changes.length : 0} 项改动</div>
+                            <div>${Utils.formatDate(version.updatedAt || version.createdAt)}</div>
+                        </div>
+                    `;
+                    
+                    versionItem.addEventListener('click', () => {
+                        selectVersion(version);
+                    });
+                    
+                    elements.versionsList.appendChild(versionItem);
+                });
+            }
+            
+            // 选择版本
+            function selectVersion(version) {
+                currentVersion = version;
+                Storage.setCurrentVersionId(version.id);
+                
+                // 显示版本详情和预览
+                elements.versionDetail.classList.remove('hidden');
+                elements.versionPreview.classList.remove('hidden');
+                
+                // 重新渲染版本列表以显示选中状态
+                loadVersions();
+                
+                // 填充版本详情表单
+                elements.versionNumber.value = version.versionNumber;
+                elements.versionTitle.value = version.title || '';
+                elements.versionStatus.value = version.status;
+                elements.versionType.value = version.type;
+                elements.versionDescription.value = version.description || '';
+                
+                // 渲染改动记录
+                renderChanges(version.changes || []);
+                
+                // 更新预览
+                updatePreview();
+            }
+            
+            // 渲染改动记录
+            function renderChanges(changes) {
+                elements.changesList.innerHTML = '';
+                
+                if (changes.length === 0) {
+                    elements.changesList.innerHTML = `
+                        <div class="text-center text-gray-500 py-8">
+                            <i class="fa fa-list-alt text-4xl mb-3"></i>
+                            <p>暂无改动记录</p>
+                            <p class="text-sm mt-2">点击"添加改动"开始记录</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // 按完成时间排序（降序）
+                changes.sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
+                
+                changes.forEach(change => {
+                    const changeItem = document.createElement('div');
+                    changeItem.className = 'p-3 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors';
+                    changeItem.dataset.changeId = change.id;
+                    
+                    changeItem.innerHTML = `
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <span class="badge bg-change-${change.type} mr-2">${Utils.getChangeTypeText(change.type)}</span>
+                                <span class="text-xs text-gray-500">${Utils.formatDateTime(change.completedAt)}</span>
+                            </div>
+                            <div class="flex space-x-1">
+                                <button class="edit-change-btn text-gray-400 hover:text-primary" data-change-id="${change.id}">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button class="delete-change-btn text-gray-400 hover:text-danger" data-change-id="${change.id}">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-sm">${change.content}</div>
+                    `;
+                    
+                    // 添加编辑和删除按钮事件
+                    const editBtn = changeItem.querySelector('.edit-change-btn');
+                    editBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        openChangeModal(change);
+                    });
+                    
+                    const deleteBtn = changeItem.querySelector('.delete-change-btn');
+                    deleteBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        openConfirmDeleteModal(
+                            '确定要删除这条改动记录吗？',
+                            () => deleteChange(change.id)
+                        );
+                    });
+                    
+                    elements.changesList.appendChild(changeItem);
+                });
+            }
+            
+            // 更新预览
+            function updatePreview() {
+                if (!currentVersion) return;
+                
+                // 获取当前表单中的值（可能已修改但未保存）
+                const versionData = {
+                    ...currentVersion,
+                    versionNumber: elements.versionNumber.value,
+                    title: elements.versionTitle.value,
+                    status: elements.versionStatus.value,
+                    type: elements.versionType.value,
+                    description: elements.versionDescription.value,
+                    changes: currentVersion.changes || []
+                };
+                
+                // 根据选择的格式生成预览
+                const format = elements.exportFormat.value;
+                let previewHtml = '';
+                
+                if (format === 'markdown') {
+                    const markdown = Utils.generateMarkdown(versionData, currentProject);
+                    // 简单的Markdown转HTML
+                    previewHtml = markdown
+                        .replace(/#{1,6}\s+([^\n]+)/g, (match, p1, offset, string) => {
+                            const level = (match.match(/#/g) || []).length;
+                            return `<h${level} class="font-bold mb-2">${p1}</h${level}>`;
+                        })
+                        .replace(/\n\n/g, '<br><br>')
+                        .replace(/\n/g, '<br>')
+                        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+                        .replace(/`([^`]+)`/g, '<code>$1</code>')
+                        .replace(/^\s*-\s+([^\n]+)/gm, '<li>$1</li>')
+                        .replace(/<li>(.*?)<\/li>/gs, '<ul class="list-disc pl-5 mb-2">$&</ul>')
+                        .replace(/<\/ul>\s*<ul class="list-disc pl-5 mb-2">/g, '');
+                } else {
+                    const text = Utils.generateText(versionData, currentProject);
+                    previewHtml = `<pre class="whitespace-pre-wrap">${text}</pre>`;
+                }
+                
+                elements.previewContent.innerHTML = previewHtml;
+            }
+            
+            // 打开项目模态框
+            function openProjectModal(project = null) {
+                if (project) {
+                    // 编辑模式
+                    elements.projectModalTitle.textContent = '编辑项目';
+                    elements.projectName.value = project.name;
+                    elements.projectDescription.value = project.description || '';
+                    editingProjectId = project.id;
+                } else {
+                    // 新建模式
+                    elements.projectModalTitle.textContent = '新建项目';
+                    elements.projectName.value = '';
+                    elements.projectDescription.value = '';
+                    editingProjectId = null;
+                }
+                
+                elements.projectModal.classList.remove('hidden');
+                elements.projectName.focus();
+            }
+            
+            // 保存项目
+            function saveProject() {
+                const name = elements.projectName.value.trim();
+                const description = elements.projectDescription.value.trim();
+                
+                if (!name) {
+                    Utils.showToast('错误', '项目名称不能为空', 'error');
+                    return;
+                }
+                
+                const now = new Date();
+                
+                if (editingProjectId) {
+                    // 更新现有项目
+                    const project = Storage.getProject(editingProjectId);
+                    if (project) {
+                        project.name = name;
+                        project.description = description;
+                        project.updatedAt = now;
+                        
+                        Storage.updateProject(project);
+                        
+                        // 如果更新的是当前项目，更新当前项目引用
+                        if (currentProject && currentProject.id === project.id) {
+                            currentProject = project;
+                        }
+                        
+                        Utils.showToast('成功', '项目已更新', 'success');
+                    }
+                } else {
+                    // 创建新项目
+                    const project = {
+                        id: Utils.generateId(),
+                        name,
+                        description,
+                        createdAt: now,
+                        updatedAt: now
+                    };
+                    
+                    Storage.addProject(project);
+                    
+                    // 选择新项目
+                    selectProject(project);
+                    
+                    Utils.showToast('成功', '项目已创建', 'success');
+                }
+                
+                // 关闭模态框
+                elements.projectModal.classList.add('hidden');
+                
+                // 重新加载项目列表
+                loadProjects();
+            }
+            
+            // 删除项目
+            function deleteProject(projectId) {
+                Storage.deleteProject(projectId);
+                
+                // 如果删除的是当前项目，清空当前项目引用
+                if (currentProject && currentProject.id === projectId) {
+                    currentProject = null;
+                    currentVersion = null;
+                    Storage.setCurrentProjectId(null);
+                    Storage.setCurrentVersionId(null);
+                    
+                    // 显示欢迎页面
+                    elements.welcomePage.classList.remove('hidden');
+                    elements.projectInfoBar.classList.add('hidden');
+                    elements.versionManager.classList.add('hidden');
+                }
+                
+                Utils.showToast('成功', '项目已删除', 'success');
+                
+                // 重新加载项目列表
+                loadProjects();
+            }
+            
+            // 打开版本模态框
+            function openVersionModal(version = null) {
+                if (version) {
+                    // 编辑模式
+                    elements.versionModalTitle.textContent = '编辑版本';
+                    elements.newVersionNumber.value = version.versionNumber;
+                    elements.newVersionTitle.value = version.title || '';
+                    elements.newVersionStatus.value = version.status;
+                    elements.newVersionType.value = version.type;
+                    elements.newVersionDescription.value = version.description || '';
+                    editingVersionId = version.id;
+                } else {
+                    // 新建模式
+                    elements.versionModalTitle.textContent = '新建版本';
+                    
+                    // 尝试生成下一个版本号
+                    let nextVersion = '1.0.0';
+                    const versions = Storage.getProjectVersions(currentProject.id);
+                    if (versions.length > 0) {
+                        // 按版本号排序（简单排序）
+                        versions.sort((a, b) => b.versionNumber.localeCompare(a.versionNumber, undefined, { numeric: true }));
+                        const lastVersion = versions[0].versionNumber;
+                        
+                        // 简单的版本号递增逻辑
+                        const parts = lastVersion.split('.');
+                        if (parts.length >= 3) {
+                            // 假设是语义化版本 X.Y.Z
+                            const patch = parseInt(parts[2]) + 1;
+                            nextVersion = `${parts[0]}.${parts[1]}.${patch}`;
+                        }
+                    }
+                    
+                    elements.newVersionNumber.value = nextVersion;
+                    elements.newVersionTitle.value = '';
+                    elements.newVersionStatus.value = 'unpublished';
+                    elements.newVersionType.value = 'draft';
+                    elements.newVersionDescription.value = '';
+                    editingVersionId = null;
+                }
+                
+                elements.versionModal.classList.remove('hidden');
+                elements.newVersionNumber.focus();
+            }
+            
+            // 保存版本模态框中的版本
+            function saveVersionModal() {
+                const versionNumber = elements.newVersionNumber.value.trim();
+                
+                if (!versionNumber) {
+                    Utils.showToast('错误', '版本号不能为空', 'error');
+                    return;
+                }
+                
+                const now = new Date();
+                
+                if (editingVersionId) {
+                    // 更新现有版本
+                    const version = Storage.getVersion(editingVersionId);
+                    if (version) {
+                        version.versionNumber = versionNumber;
+                        version.title = elements.newVersionTitle.value.trim();
+                        version.status = elements.newVersionStatus.value;
+                        version.type = elements.newVersionType.value;
+                        version.description = elements.newVersionDescription.value.trim();
+                        version.updatedAt = now;
+                        
+                        // 如果状态变为已公开，设置发布时间
+                        if (version.status === 'published' && !version.publishedAt) {
+                            version.publishedAt = now;
+                        }
+                        
+                        Storage.updateVersion(version);
+                        
+                        // 如果更新的是当前版本，更新当前版本引用
+                        if (currentVersion && currentVersion.id === version.id) {
+                            currentVersion = version;
+                            selectVersion(version);
+                        }
+                        
+                        Utils.showToast('成功', '版本已更新', 'success');
+                    }
+                } else {
+                    // 创建新版本
+                    const version = {
+                        id: Utils.generateId(),
+                        projectId: currentProject.id,
+                        versionNumber,
+                        title: elements.newVersionTitle.value.trim(),
+                        status: elements.newVersionStatus.value,
+                        type: elements.newVersionType.value,
+                        description: elements.newVersionDescription.value.trim(),
+                        changes: [],
+                        createdAt: now,
+                        updatedAt: now
+                    };
+                    
+                    // 如果状态是已公开，设置发布时间
+                    if (version.status === 'published') {
+                        version.publishedAt = now;
+                    }
+                    
+                    Storage.addVersion(version);
+                    
+                    // 选择新版本
+                    selectVersion(version);
+                    
+                    Utils.showToast('成功', '版本已创建', 'success');
+                }
+                
+                // 关闭模态框
+                elements.versionModal.classList.add('hidden');
+                
+                // 重新加载版本列表
+                loadVersions();
+            }
+            
+            // 保存当前编辑的版本
+            function saveVersion() {
+                if (!currentVersion) return;
+                
+                const versionNumber = elements.versionNumber.value.trim();
+                
+                if (!versionNumber) {
+                    Utils.showToast('错误', '版本号不能为空', 'error');
+                    return;
+                }
+                
+                const now = new Date();
+                
+                // 更新版本信息
+                currentVersion.versionNumber = versionNumber;
+                currentVersion.title = elements.versionTitle.value.trim();
+                currentVersion.status = elements.versionStatus.value;
+                currentVersion.type = elements.versionType.value;
+                currentVersion.description = elements.versionDescription.value.trim();
+                currentVersion.updatedAt = now;
+                
+                // 如果状态变为已公开，设置发布时间
+                if (currentVersion.status === 'published' && !currentVersion.publishedAt) {
+                    currentVersion.publishedAt = now;
+                }
+                
+                Storage.updateVersion(currentVersion);
+                
+                // 重新加载版本列表
+                loadVersions();
+                
+                Utils.showToast('成功', '版本已保存', 'success');
+            }
+            
+            // 删除版本
+            function deleteVersion(versionId) {
+                Storage.deleteVersion(versionId);
+                
+                // 如果删除的是当前版本，清空当前版本引用
+                if (currentVersion && currentVersion.id === versionId) {
+                    currentVersion = null;
+                    Storage.setCurrentVersionId(null);
+                    
+                    // 重新加载版本列表，这会自动选择第一个版本或显示空状态
+                    loadVersions();
+                }
+                
+                Utils.showToast('成功', '版本已删除', 'success');
+            }
+            
+            // 打开改动记录模态框
+            function openChangeModal(change = null) {
+                if (change) {
+                    // 编辑模式
+                    elements.changeType.value = change.type;
+                    elements.changeContent.value = change.content;
+                    elements.changeCompletedAt.value = new Date(change.completedAt).toISOString().slice(0, 16);
+                    editingChangeId = change.id;
+                } else {
+                    // 新建模式
+                    elements.changeType.value = 'add';
+                    elements.changeContent.value = '';
+                    
+                    // 设置当前日期时间
+                    const now = new Date();
+                    elements.changeCompletedAt.value = now.toISOString().slice(0, 16);
+                    
+                    editingChangeId = null;
+                }
+                
+                elements.changeModal.classList.remove('hidden');
+                elements.changeContent.focus();
+            }
+            
+            // 保存改动记录
+            function saveChange() {
+                const type = elements.changeType.value;
+                const content = elements.changeContent.value.trim();
+                const completedAt = elements.changeCompletedAt.value;
+                
+                if (!content) {
+                    Utils.showToast('错误', '改动内容不能为空', 'error');
+                    return;
+                }
+                
+                if (!completedAt) {
+                    Utils.showToast('错误', '完成时间不能为空', 'error');
+                    return;
+                }
+                
+                if (!currentVersion) {
+                    Utils.showToast('错误', '请先选择或创建版本', 'error');
+                    return;
+                }
+                
+                // 确保changes数组存在
+                if (!currentVersion.changes) {
+                    currentVersion.changes = [];
+                }
+                
+                if (editingChangeId) {
+                    // 更新现有改动记录
+                    const index = currentVersion.changes.findIndex(c => c.id === editingChangeId);
+                    if (index !== -1) {
+                        currentVersion.changes[index] = {
+                            ...currentVersion.changes[index],
+                            type,
+                            content,
+                            completedAt: new Date(completedAt)
+                        };
+                        
+                        Utils.showToast('成功', '改动记录已更新', 'success');
+                    }
+                } else {
+                    // 添加新改动记录
+                    const change = {
+                        id: Utils.generateId(),
+                        type,
+                        content,
+                        completedAt: new Date(completedAt)
+                    };
+                    
+                    currentVersion.changes.push(change);
+                    
+                    Utils.showToast('成功', '改动记录已添加', 'success');
+                }
+                
+                // 更新版本的更新时间
+                currentVersion.updatedAt = new Date();
+                
+                // 保存版本
+                Storage.updateVersion(currentVersion);
+                
+                // 关闭模态框
+                elements.changeModal.classList.add('hidden');
+                
+                // 重新渲染改动记录
+                renderChanges(currentVersion.changes);
+                
+                // 更新预览
+                updatePreview();
+            }
+            
+            // 删除改动记录
+            function deleteChange(changeId) {
+                if (!currentVersion || !currentVersion.changes) return;
+                
+                // 过滤掉要删除的改动记录
+                currentVersion.changes = currentVersion.changes.filter(c => c.id !== changeId);
+                
+                // 更新版本的更新时间
+                currentVersion.updatedAt = new Date();
+                
+                // 保存版本
+                Storage.updateVersion(currentVersion);
+                
+                // 重新渲染改动记录
+                renderChanges(currentVersion.changes);
+                
+                // 更新预览
+                updatePreview();
+                
+                Utils.showToast('成功', '改动记录已删除', 'success');
+            }
+            
+            // 导出版本日志
+            function exportVersion() {
+                if (!currentVersion) return;
+                
+                const format = elements.exportFormat.value;
+                const text = format === 'markdown' 
+                    ? Utils.generateMarkdown(currentVersion, currentProject)
+                    : Utils.generateText(currentVersion, currentProject);
+                
+                // 复制到剪贴板
+                Utils.copyToClipboard(text);
+                
+                // 可选：下载为文件
+                const filename = `${currentProject.name}-v${currentVersion.versionNumber}-${Utils.formatDate(new Date()).replace(/\//g, '-')}.${format === 'markdown' ? 'md' : 'txt'}`;
+                Utils.downloadText(text, filename);
+            }
+            
+            // 打开确认删除模态框
+            function openConfirmDeleteModal(message, callback) {
+                elements.confirmDeleteMessage.textContent = message;
+                elements.confirmDeleteModal.classList.remove('hidden');
+                
+                // 移除之前的事件监听器
+                const newConfirmBtn = elements.confirmDeleteBtn.cloneNode(true);
+                elements.confirmDeleteBtn.parentNode.replaceChild(newConfirmBtn, elements.confirmDeleteBtn);
+                
+                // 添加新的事件监听器
+                newConfirmBtn.addEventListener('click', () => {
+                    callback();
+                    elements.confirmDeleteModal.classList.add('hidden');
+                });
+            }
+            
+            // 初始化应用
+            init();
+        });
+    </script>
+</body>
+</html>
