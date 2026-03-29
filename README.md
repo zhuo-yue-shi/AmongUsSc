@@ -60,16 +60,17 @@ Among Us Scratch OJ 是基于 `Turbowarp` 制作的 `Among Us` 的 **复刻** �
 > 请在您发布新作品的地方声明 **改编自该项目及☁️ Megaserver (TurboWarp) ✦ Among Us Scratch (Classic Version)** 。
 
 ### 交流群
-![Dynamic Regex Badge](https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fqm.qq.com%2Fq%2Fz2JDs43MdO&search=%3Cdiv%20data-v-b15ea110%3E(%5B%5E%3E%5D%2B)%3C%2Fdiv%3E&replace=%241&style=flat&label=%E7%BE%A4%E5%90%8D&color=yellow)
-![Dynamic Regex Badge](https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fqm.qq.com%2Fq%2Fz2JDs43MdO&search=%3Cdiv%20class%3D%22group-profile-base__members%22%5B%5E%3E%5D*%3E(%5B%5E%3C%5D*)%E4%BA%BA%3C%2Fdiv%3E&replace=%241&style=flat&label=%E4%BA%BA%E6%95%B0&color=orange)
 ![Static Badge](https://img.shields.io/badge/%E7%BE%A4%E5%8F%B7-965376639-blue?logo=qq)
 <a href="https://qm.qq.com/q/z2JDs43MdO"><img alt="Static Badge" src="https://img.shields.io/badge/%E7%AB%8B%E5%8D%B3%E5%8A%A0%E5%85%A5-%23855cd6?logo=qq&logoColor=white"></a>
 
 ### 贡献者
-感谢以下成员为本项目做出的贡献
-|赞助者（赞助了1台服务器）)|帆船Sailingboat|
-|策划&打包|绿林Greenwoo|
-|项目|名曰zhuo岳|
+感谢以下成员为本项目做出了贡献
+
+| |名称|贡献|
+|:-:|:-:|:-:|
+|<img src="https://auojplay.fanchuanovo.cn/resource/fc.png" style="height: 100px;">|帆船Sailingboat|赞助者（赞助了1台服务器）|
+|<img src="https://auojplay.fanchuanovo.cn/resource/gw.png" style="height: 100px;">|绿林Greenwoo|策划&打包|
+|<img src="https://auojplay.fanchuanovo.cn/resource/zhuo.png" style="height: 100px;">|名曰zhuo岳|项目|
 
 
 ### 星标历史 
