@@ -13,7 +13,7 @@
 </p>
 
 ### 声明
-本项目不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。此项目包含的部分素材是 Innersloth LLC 的财产。
+本项目仅为编程讨论和交流使用，请勿上升到法律层次！如有侵权，请联系开发者。本项目不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。此项目包含的部分素材是 Innersloth LLC 的财产。
 
 This project is not affiliated with Among Us or Innersloth LLC, and its contents have not been approved or otherwise sponsored by Innersloth LLC. Some of the materials included in this project are the property of Innersloth LLC.
 
@@ -41,11 +41,11 @@ Among Us Scratch OJ 是基于 `Turbowarp` 制作的 `Among Us` 的 **复刻** �
 本程序从 `1.0.0` 开始支持更新，点击 `主菜单` 的 `更新` 按钮进入更新界面，程序会自动检查是否有新的更新，**请保持网络畅通可以正常访问互联网**，如果有新的更新，用户可以点击 `更新` 按钮进行更新，程序会唤起默认浏览器下载更新包。
 
 ### 账号
-本程序自带账号功能，且允许用户自行注册，用户可以通过[网站](https://auoj.ytt11.xyz/account/register) 来申请账号（每周末审批邀请码申请）。<br>
+本程序自带账号功能，且允许用户自行注册，用户可以通过[网站](https://auoj.ytt11.xyz/account/register) 来申请账号。<br>
 账户包含一种虚拟货币 `豆子` ，用于购买游戏内物品，**不支持氪金**，参加活动有概率获得大量 `豆子`。
 
 > [!IMPORTANT]  
-> 申请账号需要 `账号名` 和 `密码` ，由于我们存储密码采用的哈希算法非标准哈希算法，可能被破解，所以密码请尽量简单，并且与 **个人信息无关** ！
+> 账号注册仅支持qq邮箱（@qq.com），其他邮箱暂不支持！
 
 ### 成为贡献者
 本项目欢迎**任何人**为本项目做出贡献<br>
@@ -66,14 +66,11 @@ Among Us Scratch OJ 是基于 `Turbowarp` 制作的 `Among Us` 的 **复刻** �
 <a href="https://qm.qq.com/q/z2JDs43MdO"><img alt="Static Badge" src="https://img.shields.io/badge/%E7%AB%8B%E5%8D%B3%E5%8A%A0%E5%85%A5-%23855cd6?logo=qq&logoColor=white"></a>
 
 ### 贡献者
-感谢以下成员为本项目做出的贡献<br>
-如果成员未提交过 `Git` 可能会遗漏
+感谢以下成员为本项目做出的贡献
+|![gw.png](https://auojplay.fanchuanovo.cn/resource/gw.png)|策划&打包：绿林Greenwoo|
+|![zhuo.png](https://auojplay.fanchuanovo.cn/resource/zhuo.png)|项目：名曰zhuo岳|
+|![fc.png](https://auojplay.fanchuanovo.cn/resource/fc.png)|赞助者（赞助了服务器）：帆船Sailingboat|
 
-<div align="center">
-  <a href="https://github.com/zhuo-yue-shi/AmongUsSc/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=zhuo-yue-shi/AmongUsSc" alt="Contributors List">
-  </a>
-</div>
 
 ### 星标历史 
 [![Star History Chart](https://api.star-history.com/svg?repos=zhuo-yue-shi/AmongUsSc&type=date&legend=top-left)](https://www.star-history.com/#zhuo-yue-shi/AmongUsSc&type=date&legend=top-left)
