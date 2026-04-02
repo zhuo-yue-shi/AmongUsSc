@@ -5,7 +5,7 @@
 <h1 align="center">Among Us Scratch OJ</h1>
 
 <p align="center">
-    <scan>使用 Scratch(Turbowarp) 复刻的 Among Us</scan><br><br>
+    <scan>使用 Scratch复刻的 Among Us</scan><br><br>
     <img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fzhuo-yue-shi.github.io%2FAmongUsSc%2Fdata%2Fupdata.json&query=%24.name&style=flat&label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC&color=green">
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhuo-yue-shi/AmongUsSc?style=flat&logo=github&label=%E6%98%9F%E6%A0%87">
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/zhuo-yue-shi/AmongUsSc?style=flat&logo=github&label=%E8%B4%A1%E7%8C%AE%E8%80%85">
@@ -18,12 +18,12 @@ This project is not affiliated with Among Us or Innersloth LLC, and its contents
 ***
 
 > [!NOTE]  
-> 本程序转载并改编自[TimMcCool](https://scratch.mit.edu/users/TimMcCool/)的[☁️ Megaserver (TurboWarp) ✦ Among Us Scratch (Classic Version)](https://scratch.mit.edu/projects/945855680/)，在此声明
-Among Us Scratch OJ 是基于 `Turbowarp` 制作的 `Among Us` 的 **复刻** ，使用 `TimMcCool` 的代码基础进行加装功能以更好的还原原版 `Among Us`
+> 本程序转载并改编自[TimMcCool](https://scratch.mit.edu/users/TimMcCool/)的[☁️ Megaserver (TurboWarp) ✦ Among Us Scratch (Classic Version)](https://scratch.mit.edu/projects/945855680/)，在此声明：
+Among Us Scratch OJ 是基于 `Scratch` **复刻** 的`Among Us`   ，使用 `TimMcCool` 的代码基础进行加装功能以更好的还原原版 `Among Us`
 
 ### 下载
 我们从版本 `v1.0.2` 开始提供安装程序<br>
-只需访问[下载页面](https://zhuo-yue-shi.github.io/AmongUsSc/download)就可以下载安装程序
+只需访问[下载页面](https://auoj.ytt0.top/download)就可以下载安装程序
 
 由于本程序的框架 `Scratch` 并没有进行优化性能，所以我们从 `v1.0.0` 版本开始不提供 `HTML` 版本的程序，而提供客户端程序，<br>
 同时为了宣传，从版本 `v1.1.0` 开始，我们正在 **尝试** 适配 [共创世界CCW](https://ccw.site) ，具体如下：
