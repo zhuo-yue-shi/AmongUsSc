@@ -66,9 +66,9 @@ Among Us Scratch OJ 是基于 `Turbowarp` 制作的 `Among Us` 的 **复刻** �
 
 | |名称|贡献|
 |:-:|:-:|:-:|
-|<img src="https://auojplay.fanchuanovo.cn/resource/fc.png" style="height: 100px;">|帆船Sailingboat|赞助者（赞助了1台服务器）|
-|<img src="https://auojplay.fanchuanovo.cn/resource/gw.png" style="height: 100px;">|绿林Greenwoo|策划&打包|
-|<img src="https://auojplay.fanchuanovo.cn/resource/zhuo.png" style="height: 100px;">|名曰zhuo岳|项目|
+|<img src="resource/fc.png" style="height: 100px;">|帆船Sailingboat|赞助者（赞助了1台服务器）|
+|<img src="resource/gw.png" style="height: 100px;">|绿林Greenwoo|策划&打包|
+|<img src="resource/zhuo.png" style="height: 100px;">|名曰zhuo岳|项目|
 
 
 ### 星标历史 
