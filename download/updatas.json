@@ -1,5 +1,19 @@
 [
     {
+        "ver": "Snapshot 2.0.0a",
+        "buildNum": 8.1,
+        "type": "测试版",
+        "date": "2026-3-22",
+        "size": "176 MB(zip)",
+        "url": "downloadFile/?files=https://pan.xxbyq.net/f/d/oWXxU1/Among%20Us%20Scratch%20OJ%20Snapshot2.0.0a.zip",
+        "updata": [
+            "[修改] 可以通过 account.auoj.ytt0.top/login 登录，但是似乎有些bug，无法正常使用",
+            "[修改] 可以修改名称为中文名称（需要登陆账号后使用，但因为账号登不上，这个功能无法展示）",
+            "[修复] 移除了Him",
+            "[云端] 尽量不要尝试和之前的版本互相联机，可能会有bug"
+        ]
+    },
+    {
         "ver": "v1.1.1i",
         "buildNum": 8,
         "type": "正式版",
