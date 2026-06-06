@@ -66,7 +66,7 @@ Among Us Scratch OJ 是基于 `Scratch` **复刻** 的`Among Us`   ，使用 `Ti
 
 | |名称|贡献|
 |:-:|:-:|:-:|
-|<img src="resource/fc.png" style="height: 100px;">|<a href="https://space.bilibili.com/3494349184698530">帆船Sailingboat</a>|赞助者（赞助了1台服务器）|
+|<img src="resource/fc.png" style="height: 100px;">|<a href="https://space.bilibili.com/3494349184698530">帆船Sailingboat</a>|甲方|
 |<img src="resource/gw.png" style="height: 100px;">|<a href="https://space.bilibili.com/3493084847409832">绿林Greenwoo</a>|策划&打包|
 |<img src="resource/zhuo.png" style="height: 100px;">|<a href="https://space.bilibili.com/1150235508">名曰zhuo岳</a>|项目|
 
