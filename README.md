@@ -64,7 +64,7 @@ Among Us Scratch OJ 是基于 `Scratch` **复刻** 的`Among Us`   ，使用 `Ti
 ### 贡献者
 感谢以下成员为本项目做出了贡献
 
-<img src="intro.png" style="height: 200px;">
+<img src="intro.png" style="height: 250px;">
 
 
 ### 星标历史 
