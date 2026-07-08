@@ -2,7 +2,7 @@
     <img src="resource/icon.png" style="height: 200px;">
 </p>
 
-<h1 align="center">Among Us Scratch OJ</h1>
+<h1 align="center">Among Us Scratch OJ①</h1>
 
 <p align="center">
     <scan>使用 Scratch复刻的 Among Us</scan><br><br>
@@ -10,6 +10,9 @@
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhuo-yue-shi/AmongUsSc?style=flat&logo=github&label=%E6%98%9F%E6%A0%87">
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/zhuo-yue-shi/AmongUsSc?style=flat&logo=github&label=%E8%B4%A1%E7%8C%AE%E8%80%85">
 
+> [!NOTE]  
+⑴OJ：项目代号，全程为Original Jigsaw。
+> 
 ### 声明
 本项目仅为编程讨论和交流使用，请勿上升到法律层次！如有侵权，请联系开发者。本项目不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。此项目包含的部分素材是 Innersloth LLC 的财产。
 
