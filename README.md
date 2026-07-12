@@ -70,8 +70,7 @@ Among Us Scratch OJ 是基于 `Scratch` **复刻** 的`Among Us`   ，使用 `Ti
 <img src="intro.png" style="height: 250px;">
 
 
-### 星标历史 
-## Star History
+## 星标历史 
 <a href="https://www.star-history.com/?repos=zhuo-yue-shi%2FAmongUsSc&type=date&logscale=&legend=top-left">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=zhuo-yue-shi/AmongUsSc&type=date&theme=dark&logscale&legend=top-left&sealed_token=WUNPRn7fdjpIEpoJWvBGDblzWW8gq8xsKP5jsQA-VX8fWaO5poWNr7EA3uwSs_6EPZ-0yV8HV49Tuo6gpCLLqE5l-rYx1hUNsFYUMzpozxrGoV1B3W5Inw" />
