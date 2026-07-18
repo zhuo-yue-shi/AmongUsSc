@@ -10,6 +10,12 @@
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhuo-yue-shi/AmongUsSc?style=flat&logo=github&label=%E6%98%9F%E6%A0%87">
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/zhuo-yue-shi/AmongUsSc?style=flat&logo=github&label=%E8%B4%A1%E7%8C%AE%E8%80%85">
 
+### 交流群
+![Static Badge](https://img.shields.io/badge/%E7%BE%A4%E5%8F%B7-965376639-blue?logo=qq)
+<a href="https://qm.qq.com/q/z2JDs43MdO"><img alt="Static Badge" src="https://img.shields.io/badge/%E7%AB%8B%E5%8D%B3%E5%8A%A0%E5%85%A5-%23855cd6?logo=qq&logoColor=white"></a>
+
+
+
 > [!NOTE]  
 ⑴OJ：项目代号，全程为Original Jigsaw。
 > 
@@ -39,10 +45,12 @@ Among Us Scratch OJ 是基于 `Scratch` **复刻** 的`Among Us`   ，使用 `Ti
 |v1.1.1~最新版本|✔️|✔️|❌|❌|❌|
 
 ### 更新
-本程序从 `1.0.0` 开始支持更新，点击 `主菜单` 的 `更新` 按钮进入更新界面，程序会自动检查是否有新的更新，**请保持网络畅通可以正常访问互联网**，如果有新的更新，用户可以点击 `更新` 按钮进行更新，程序会唤起默认浏览器下载更新包。
+本程序从 `1.0.0` 开始支持更新。请在游戏内点击 `主菜单` 的 `更新` 按钮进入更新界面，程序会自动检查是否有新的更新。<br>
+**请保持网络畅通可以正常访问互联网**，如果有新的更新，用户可以点击 `更新` 按钮进行更新，程序会唤起默认浏览器下载更新包。
 
 ### 账号
-本程序自带账号功能，且允许用户自行注册，用户可以通过[网站](https://account.auoj.ytt11.top/register) 来申请账号<br>
+本程序自带账号功能，且允许用户自行注册，用户可以通过[网站](https://account.auoj.ytt11.top/register) 来申请账号；<br>
+更改显示的用户名需要向**auscoj-change_name@email.ytt0.top**发送邮件申请；<br>
 账户包含一种虚拟货币 `豆子` ，用于购买游戏内物品，**不支持氪金**，参加活动有概率获得大量 `豆子`。
 
 > [!IMPORTANT]  
@@ -59,10 +67,6 @@ Among Us Scratch OJ 是基于 `Scratch` **复刻** 的`Among Us`   ，使用 `Ti
 
 > [!CAUTION]
 > 请在您发布新作品的地方声明 **改编自该项目及☁️ Megaserver (TurboWarp) ✦ Among Us Scratch (Classic Version)** 。
-
-### 交流群
-![Static Badge](https://img.shields.io/badge/%E7%BE%A4%E5%8F%B7-965376639-blue?logo=qq)
-<a href="https://qm.qq.com/q/z2JDs43MdO"><img alt="Static Badge" src="https://img.shields.io/badge/%E7%AB%8B%E5%8D%B3%E5%8A%A0%E5%85%A5-%23855cd6?logo=qq&logoColor=white"></a>
 
 ### 贡献者
 感谢以下成员为本项目做出了贡献
