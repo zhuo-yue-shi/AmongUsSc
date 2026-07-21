@@ -2,7 +2,8 @@
     <img src="resource/icon.png" style="height: 200px;">
 </p>
 
-<h1 align="center">Among Us Scratch OJ①</h1>
+<h1 align="center">Among Us Scratch<br>OJ(Original Jigsaw)™</br></h1>
+
 
 <p align="center">
     <scan>使用 Scratch复刻的 Among Us</scan><br><br>
@@ -15,10 +16,7 @@
 <a href="https://qm.qq.com/q/z2JDs43MdO"><img alt="Static Badge" src="https://img.shields.io/badge/%E7%AB%8B%E5%8D%B3%E5%8A%A0%E5%85%A5-%23855cd6?logo=qq&logoColor=white"></a>
 
 
-
-> [!NOTE]  
-⑴OJ：项目代号，全程为Original Jigsaw。
-> 
+ 
 ### 声明
 本项目仅为编程讨论和交流使用，请勿上升到法律层次！如有侵权，请联系开发者。本项目不隶属于 Among Us 或 Innersloth LLC，其包含的内容也未得到 Innersloth LLC 的认可或以其他方式赞助。此项目包含的部分素材是 Innersloth LLC 的财产。
 
@@ -49,7 +47,7 @@ Among Us Scratch OJ 是基于 `Scratch` **复刻** 的`Among Us`   ，使用 `Ti
 **请保持网络畅通可以正常访问互联网**，如果有新的更新，用户可以点击 `更新` 按钮进行更新，程序会唤起默认浏览器下载更新包。
 
 ### 账号
-本程序自带账号功能，且允许用户自行注册，用户可以通过[网站](https://account.auoj.ytt11.top/register) 来申请账号；<br>
+本程序自带账号功能，且允许用户自行注册，用户可以通过[网站](https://account.auoj.ytt11.top/register)来申请账号；<br>
 更改显示的用户名需要向**auscoj-change_name@email.ytt0.top**发送邮件申请；<br>
 账户包含一种虚拟货币 `豆子` ，用于购买游戏内物品，**不支持氪金**，参加活动有概率获得大量 `豆子`。
 
@@ -60,7 +58,7 @@ Among Us Scratch OJ 是基于 `Scratch` **复刻** 的`Among Us`   ，使用 `Ti
 本项目欢迎**任何人**为本项目做出贡献<br>
 在此之前，希望您的加入我们的 [QQ群](https://qm.qq.com/q/z2JDs43MdO) 以便更好的协调。
 
-加入我们的 [QQ群](https://qm.qq.com/q/z2JDs43MdO) 后私信 `名曰zhuo岳` 以获取最新版本的 `sb3` 源码
+加入我们的 [QQ群](https://qm.qq.com/q/z2JDs43MdO) 后，需经过一定时间的审核期，才能寻找开发人员获取最新版本的 `sb3` 源码
 
 ### 开源
 本项目目前已经开源，请在遵守我们使用的 [开源许可证 GNU General Public License v3.0](https://github.com/zhuo-yue-shi/AmongUsSc/blob/main/LICENSE) 的情况下进行改编。
